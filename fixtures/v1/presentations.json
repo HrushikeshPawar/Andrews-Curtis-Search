@@ -1,0 +1,73 @@
+{
+  "n_gen": 2,
+  "ac_target": [
+    [
+      1
+    ],
+    [
+      2
+    ]
+  ],
+  "cases": [
+    {
+      "id": "xy_y",
+      "relators": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "total_length": 3,
+      "is_ac_target": false
+    },
+    {
+      "id": "x_y",
+      "relators": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "total_length": 2,
+      "is_ac_target": true
+    },
+    {
+      "id": "ms1y",
+      "relators": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "total_length": 7,
+      "is_ac_target": false
+    },
+    {
+      "id": "xy_yx",
+      "relators": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "total_length": 4,
+      "is_ac_target": false
+    }
+  ]
+}

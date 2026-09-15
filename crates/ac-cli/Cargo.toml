@@ -1,0 +1,10 @@
+[package]
+name = "ac-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ac-core = { version = "0.1.0", path = "../ac-core" }
+ac-search = { version = "0.1.0", path = "../ac-search" }
+clap = { version = "4.6.6", features = ["derive"] }
+serde_json = "1.0.151"

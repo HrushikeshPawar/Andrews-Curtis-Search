@@ -1,0 +1,2329 @@
+{
+  "n_gen": 2,
+  "cases": [
+    {
+      "id": "xy_y_m0",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 0
+      },
+      "move_id": 0,
+      "inverse_move_id": 0,
+      "expected_state": [
+        [
+          -2,
+          -1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m1",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 1
+      },
+      "move_id": 1,
+      "inverse_move_id": 1,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          -2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m2",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 2,
+      "inverse_move_id": 3,
+      "expected_state": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m3",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 3,
+      "inverse_move_id": 2,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m4",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 4,
+      "inverse_move_id": 5,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m5",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 5,
+      "inverse_move_id": 4,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m6",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 1
+      },
+      "move_id": 6,
+      "inverse_move_id": 7,
+      "expected_state": [
+        [
+          1,
+          1,
+          2,
+          -1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m7",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -1
+      },
+      "move_id": 7,
+      "inverse_move_id": 6,
+      "expected_state": [
+        [
+          2,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m8",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 2
+      },
+      "move_id": 8,
+      "inverse_move_id": 9,
+      "expected_state": [
+        [
+          2,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m9",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -2
+      },
+      "move_id": 9,
+      "inverse_move_id": 8,
+      "expected_state": [
+        [
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m10",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 1
+      },
+      "move_id": 10,
+      "inverse_move_id": 11,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m11",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -1
+      },
+      "move_id": 11,
+      "inverse_move_id": 10,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m12",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 2
+      },
+      "move_id": 12,
+      "inverse_move_id": 13,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_y_m13",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -2
+      },
+      "move_id": 13,
+      "inverse_move_id": 12,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m0",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 0
+      },
+      "move_id": 0,
+      "inverse_move_id": 0,
+      "expected_state": [
+        [
+          -1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m1",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 1
+      },
+      "move_id": 1,
+      "inverse_move_id": 1,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          -2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m2",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 2,
+      "inverse_move_id": 3,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m3",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 3,
+      "inverse_move_id": 2,
+      "expected_state": [
+        [
+          1,
+          -2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m4",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 4,
+      "inverse_move_id": 5,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m5",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 5,
+      "inverse_move_id": 4,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m6",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 1
+      },
+      "move_id": 6,
+      "inverse_move_id": 7,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m7",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -1
+      },
+      "move_id": 7,
+      "inverse_move_id": 6,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m8",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 2
+      },
+      "move_id": 8,
+      "inverse_move_id": 9,
+      "expected_state": [
+        [
+          2,
+          1,
+          -2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m9",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -2
+      },
+      "move_id": 9,
+      "inverse_move_id": 8,
+      "expected_state": [
+        [
+          -2,
+          1,
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m10",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 1
+      },
+      "move_id": 10,
+      "inverse_move_id": 11,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          1,
+          2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m11",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -1
+      },
+      "move_id": 11,
+      "inverse_move_id": 10,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m12",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 2
+      },
+      "move_id": 12,
+      "inverse_move_id": 13,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "x_y_m13",
+      "state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -2
+      },
+      "move_id": 13,
+      "inverse_move_id": 12,
+      "expected_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m0",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 0
+      },
+      "move_id": 0,
+      "inverse_move_id": 0,
+      "expected_state": [
+        [
+          2,
+          2,
+          -1,
+          -2,
+          1
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m1",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 1
+      },
+      "move_id": 1,
+      "inverse_move_id": 1,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m2",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 2,
+      "inverse_move_id": 3,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          -1,
+          2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m3",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 3,
+      "inverse_move_id": 2,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          -2,
+          1
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m4",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 4,
+      "inverse_move_id": 5,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2,
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m5",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 5,
+      "inverse_move_id": 4,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2,
+          2,
+          2,
+          -1,
+          -2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m6",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 1
+      },
+      "move_id": 6,
+      "inverse_move_id": 7,
+      "expected_state": [
+        [
+          2,
+          1,
+          -2,
+          -2,
+          -1
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m7",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -1
+      },
+      "move_id": 7,
+      "inverse_move_id": 6,
+      "expected_state": [
+        [
+          -1,
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          1
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m8",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 2
+      },
+      "move_id": 8,
+      "inverse_move_id": 9,
+      "expected_state": [
+        [
+          2,
+          -1,
+          2,
+          1,
+          -2,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m9",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -2
+      },
+      "move_id": 9,
+      "inverse_move_id": 8,
+      "expected_state": [
+        [
+          -2,
+          -1,
+          2,
+          1,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m10",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 1
+      },
+      "move_id": 10,
+      "inverse_move_id": 11,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m11",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -1
+      },
+      "move_id": 11,
+      "inverse_move_id": 10,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          -1,
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m12",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 2
+      },
+      "move_id": 12,
+      "inverse_move_id": 13,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "ms1y_m13",
+      "state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -2
+      },
+      "move_id": 13,
+      "inverse_move_id": 12,
+      "expected_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -2,
+          -1,
+          2,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          -1,
+          2,
+          1,
+          -2,
+          -2
+        ],
+        [
+          -1,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m0",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 0
+      },
+      "move_id": 0,
+      "inverse_move_id": 0,
+      "expected_state": [
+        [
+          -2,
+          -1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m1",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "invert",
+        "target": 1
+      },
+      "move_id": 1,
+      "inverse_move_id": 1,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          -1,
+          -2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m2",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 2,
+      "inverse_move_id": 3,
+      "expected_state": [
+        [
+          1,
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m3",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 0,
+        "other": 1,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 3,
+      "inverse_move_id": 2,
+      "expected_state": [
+        [
+          1,
+          2,
+          -1,
+          -2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m4",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": false,
+        "side": "right"
+      },
+      "move_id": 4,
+      "inverse_move_id": 5,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m5",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "multiply",
+        "target": 1,
+        "other": 0,
+        "invert_other": true,
+        "side": "right"
+      },
+      "move_id": 5,
+      "inverse_move_id": 4,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          -2,
+          -1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m6",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 1
+      },
+      "move_id": 6,
+      "inverse_move_id": 7,
+      "expected_state": [
+        [
+          1,
+          1,
+          2,
+          -1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m7",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -1
+      },
+      "move_id": 7,
+      "inverse_move_id": 6,
+      "expected_state": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m8",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": 2
+      },
+      "move_id": 8,
+      "inverse_move_id": 9,
+      "expected_state": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m9",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 0,
+        "conjugator": -2
+      },
+      "move_id": 9,
+      "inverse_move_id": 8,
+      "expected_state": [
+        [
+          -2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m10",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 1
+      },
+      "move_id": 10,
+      "inverse_move_id": 11,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m11",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -1
+      },
+      "move_id": 11,
+      "inverse_move_id": 10,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          -1,
+          2,
+          1,
+          1
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m12",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": 2
+      },
+      "move_id": 12,
+      "inverse_move_id": 13,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          -2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "xy_yx_m13",
+      "state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "move": {
+        "kind": "conjugate",
+        "target": 1,
+        "conjugator": -2
+      },
+      "move_id": 13,
+      "inverse_move_id": 12,
+      "expected_state": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "roundtrip_state": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    }
+  ]
+}

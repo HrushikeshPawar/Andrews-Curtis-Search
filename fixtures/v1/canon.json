@@ -1,0 +1,21 @@
+{
+  "n_gen": 2,
+  "letter_order": "signed_int: -2 < -1 < 1 < 2 (not ACSolverX Y<y<X<x)",
+  "note": "min_rotation is the least cyclic rotation. Search-layer only.",
+  "cases": [
+    {"id": "empty", "input": [], "min_rotation": []},
+    {"id": "x", "input": [1], "min_rotation": [1]},
+    {"id": "X", "input": [-1], "min_rotation": [-1]},
+    {"id": "xy", "input": [1, 2], "min_rotation": [1, 2]},
+    {"id": "yx", "input": [2, 1], "min_rotation": [1, 2]},
+    {"id": "yX", "input": [2, -1], "min_rotation": [-1, 2]},
+    {"id": "xyxy", "input": [1, 2, 1, 2], "min_rotation": [1, 2, 1, 2]},
+    {"id": "YxXy", "input": [-2, 1, -1, 2], "min_rotation": [-2, 1, -1, 2]},
+    {"id": "all_same", "input": [1, 1, 1, 1], "min_rotation": [1, 1, 1, 1]},
+    {
+      "id": "ms1y_r0",
+      "input": [-1, 2, 1, -2, -2],
+      "min_rotation": [-2, -2, -1, 2, 1]
+    }
+  ]
+}

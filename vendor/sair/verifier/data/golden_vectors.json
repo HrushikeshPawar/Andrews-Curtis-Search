@@ -1,0 +1,1732 @@
+{
+ "format": "acms-golden-v2",
+ "move_specs": [
+  {
+   "move_spec_version": "ac-r2-v1",
+   "move_spec_hash": "sha256:e13f57d82b5db1a79c1bd9d5ee1f6665ac4d96a634a3656ea20c0ada82e07643",
+   "file": "move_spec.json",
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ],
+   "max_rank": 2,
+   "id_prefix": "ac-"
+  },
+  {
+   "move_spec_version": "sac-r8-v1",
+   "move_spec_hash": "sha256:27ecd0ebd4af39871cbfb23ecbd8be73710e85e04d8be788c1d81117d9f4b2b0",
+   "file": "stable_move_spec.json",
+   "target_relators": [],
+   "max_rank": 8,
+   "id_prefix": "sac-"
+  }
+ ],
+ "manifest_hash": "sha256:eeeb5cfec64e5ac797f32516c6f1a659383262df6d710cb1a713744e6540b745",
+ "default_limits": {
+  "max_path_length": 100000,
+  "max_total_relator_length": 10000,
+  "max_work": 5000000
+ },
+ "note": "Self-contained conformance vectors.  'expected' is a subset: every key it contains must match the verifier output exactly.  From the repository or public package root, run: PYTHONPATH=competition/tools python3 -m verifier --golden competition/tools/verifier/data/golden_vectors.json",
+ "challenges": {
+  "ms-train-0160": {
+   "challenge_id": "ms-train-0160",
+   "move_spec_version": "ac-r2-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     1,
+     -2,
+     -2
+    ],
+    [
+     1,
+     2,
+     1,
+     2,
+     2,
+     -1,
+     -2
+    ]
+   ],
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "ms-train-0109": {
+   "challenge_id": "ms-train-0109",
+   "move_spec_version": "ac-r2-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2
+    ],
+    [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   ],
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "ms-train-0066": {
+   "challenge_id": "ms-train-0066",
+   "move_spec_version": "ac-r2-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2
+    ],
+    [
+     1,
+     1,
+     2,
+     -1,
+     -2
+    ]
+   ],
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "golden-yx": {
+   "challenge_id": "golden-yx",
+   "move_spec_version": "ac-r2-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     2
+    ],
+    [
+     1
+    ]
+   ],
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "golden-pump": {
+   "challenge_id": "golden-pump",
+   "move_spec_version": "ac-r2-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1,
+     2
+    ]
+   ],
+   "target_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ]
+  },
+  "sac-train-0160": {
+   "challenge_id": "sac-train-0160",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     1,
+     -2,
+     -2
+    ],
+    [
+     1,
+     2,
+     1,
+     2,
+     2,
+     -1,
+     -2
+    ]
+   ],
+   "target_relators": []
+  },
+  "sac-train-0109": {
+   "challenge_id": "sac-train-0109",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2
+    ],
+    [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ]
+   ],
+   "target_relators": []
+  },
+  "sac-train-0066": {
+   "challenge_id": "sac-train-0066",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     -1,
+     2,
+     2,
+     2,
+     2,
+     1,
+     -2,
+     -2,
+     -2,
+     -2,
+     -2
+    ],
+    [
+     1,
+     1,
+     2,
+     -1,
+     -2
+    ]
+   ],
+   "target_relators": []
+  },
+  "golden-stable-xy": {
+   "challenge_id": "golden-stable-xy",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     1
+    ],
+    [
+     2
+    ]
+   ],
+   "target_relators": []
+  },
+  "golden-stable-yx": {
+   "challenge_id": "golden-stable-yx",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     2
+    ],
+    [
+     1
+    ]
+   ],
+   "target_relators": []
+  },
+  "golden-stable-pump": {
+   "challenge_id": "golden-stable-pump",
+   "move_spec_version": "sac-r8-v1",
+   "generators": [
+    "x",
+    "y"
+   ],
+   "initial_relators": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     1,
+     2
+    ]
+   ],
+   "target_relators": []
+  }
+ },
+ "verify_vectors": [
+  {
+   "name": "accept-shortest-ms-train-0160",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1
+   ],
+   "expected": {
+    "ok": true,
+    "length": 7,
+    "peak_total_relator_length": 12,
+    "work": 46,
+    "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+   }
+  },
+  {
+   "name": "accept-median-ms-train-0109",
+   "challenge_id": "ms-train-0109",
+   "moves": [
+    6,
+    2,
+    9,
+    9,
+    9,
+    9,
+    11,
+    1,
+    4,
+    8,
+    2,
+    8,
+    2,
+    0,
+    4,
+    0,
+    8,
+    2,
+    0,
+    4,
+    4,
+    4,
+    3,
+    4,
+    3,
+    10
+   ],
+   "expected": {
+    "ok": true,
+    "length": 26,
+    "peak_total_relator_length": 23,
+    "work": 243,
+    "certificate_hash": "sha256:c6828d86573b040d7626728d90e26fdfc5c0df25056bc2d4d4426df7a742bf43"
+   }
+  },
+  {
+   "name": "accept-longest-ms-train-0066",
+   "challenge_id": "ms-train-0066",
+   "moves": [
+    0,
+    9,
+    1,
+    9,
+    9,
+    1,
+    9,
+    9,
+    6,
+    8,
+    1,
+    2,
+    0,
+    1,
+    7,
+    13,
+    11,
+    2,
+    7,
+    8,
+    12,
+    2,
+    6,
+    6,
+    6,
+    13,
+    2,
+    8,
+    6,
+    2,
+    0,
+    8,
+    6,
+    12,
+    1,
+    0,
+    10,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    9,
+    0,
+    11,
+    2,
+    0,
+    8,
+    10,
+    2,
+    7,
+    9,
+    2,
+    0,
+    8,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    9,
+    11,
+    2,
+    9,
+    2,
+    0,
+    8,
+    8,
+    10,
+    2,
+    7,
+    9,
+    2,
+    0,
+    8,
+    2,
+    0,
+    7,
+    2,
+    0,
+    9,
+    2,
+    8,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    9,
+    2,
+    7,
+    10,
+    2,
+    0,
+    6,
+    8,
+    11,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    9,
+    11,
+    2,
+    8,
+    7,
+    10,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    10,
+    2,
+    0,
+    7,
+    11,
+    11,
+    2,
+    7,
+    7,
+    2,
+    7,
+    7,
+    2,
+    0,
+    4,
+    0,
+    7,
+    4,
+    2,
+    7,
+    2,
+    2,
+    0,
+    4,
+    3
+   ],
+   "expected": {
+    "ok": true,
+    "length": 159,
+    "peak_total_relator_length": 16,
+    "work": 2161,
+    "certificate_hash": "sha256:bf0e6b0f97db6eddec4a7dd80146505561ac3ac18337626fd624d61fedc11095"
+   }
+  },
+  {
+   "name": "spec-mismatch",
+   "challenge_id": "ms-train-0160",
+   "move_spec_version": "ac-r1-v0",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_SPEC_MISMATCH",
+    "move_index": null
+   }
+  },
+  {
+   "name": "bad-move-id-negative",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    0,
+    -1
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 1,
+    "move": -1
+   }
+  },
+  {
+   "name": "bad-move-id-14",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    14
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 0
+   }
+  },
+  {
+   "name": "bad-move-id-float",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    0,
+    1.5
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 1
+   }
+  },
+  {
+   "name": "bad-move-id-string",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    "3"
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 0
+   }
+  },
+  {
+   "name": "bad-move-id-null",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    null
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 0
+   }
+  },
+  {
+   "name": "bad-move-id-bool",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    true
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 0
+   }
+  },
+  {
+   "name": "path-too-long",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    6,
+    7,
+    6,
+    7,
+    6
+   ],
+   "limits": {
+    "max_path_length": 4,
+    "max_total_relator_length": 10000,
+    "max_work": 5000000
+   },
+   "expected": {
+    "ok": false,
+    "code": "E_PATH_TOO_LONG",
+    "move_index": null,
+    "path_length": 5
+   }
+  },
+  {
+   "name": "not-target-truncated",
+   "challenge_id": "ms-train-0160",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_NOT_TARGET",
+    "move_index": null
+   }
+  },
+  {
+   "name": "not-target-empty-path",
+   "challenge_id": "ms-train-0160",
+   "moves": [],
+   "expected": {
+    "ok": false,
+    "code": "E_NOT_TARGET",
+    "move_index": null
+   }
+  },
+  {
+   "name": "not-target-wrong-order",
+   "challenge_id": "golden-yx",
+   "moves": [],
+   "expected": {
+    "ok": false,
+    "code": "E_NOT_TARGET",
+    "move_index": null,
+    "final_shape": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "name": "length-limit",
+   "challenge_id": "golden-pump",
+   "moves": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "limits": {
+    "max_path_length": 100000,
+    "max_total_relator_length": 20,
+    "max_work": 5000000
+   },
+   "expected": {
+    "ok": false,
+    "code": "E_LENGTH_LIMIT",
+    "move_index": 5
+   }
+  },
+  {
+   "name": "work-budget",
+   "challenge_id": "golden-pump",
+   "moves": [
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7,
+    6,
+    7
+   ],
+   "limits": {
+    "max_path_length": 100000,
+    "max_total_relator_length": 10000,
+    "max_work": 200
+   },
+   "expected": {
+    "ok": false,
+    "code": "E_WORK_BUDGET",
+    "move_index": 32
+   }
+  },
+  {
+   "name": "accept-stable-shortest-sac-train-0160",
+   "challenge_id": "sac-train-0160",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1,
+    16,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 9,
+    "peak_total_relator_length": 12,
+    "work": 47,
+    "certificate_hash": "sha256:e94492471688db5cb52971611a3617e75c165d89e3ed51cea9a3f5d96ccbb77e"
+   }
+  },
+  {
+   "name": "accept-stable-median-sac-train-0109",
+   "challenge_id": "sac-train-0109",
+   "moves": [
+    6,
+    2,
+    9,
+    9,
+    9,
+    9,
+    11,
+    1,
+    4,
+    8,
+    2,
+    8,
+    2,
+    0,
+    4,
+    0,
+    8,
+    2,
+    0,
+    4,
+    4,
+    4,
+    3,
+    4,
+    3,
+    10,
+    16,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 28,
+    "peak_total_relator_length": 23,
+    "work": 244,
+    "certificate_hash": "sha256:5eb490a85ad517fb1b65e9c3d4552b591928cd2b9d009b8626dac82c844189b0"
+   }
+  },
+  {
+   "name": "accept-stable-longest-sac-train-0066",
+   "challenge_id": "sac-train-0066",
+   "moves": [
+    0,
+    9,
+    1,
+    9,
+    9,
+    1,
+    9,
+    9,
+    6,
+    8,
+    1,
+    2,
+    0,
+    1,
+    7,
+    13,
+    11,
+    2,
+    7,
+    8,
+    12,
+    2,
+    6,
+    6,
+    6,
+    13,
+    2,
+    8,
+    6,
+    2,
+    0,
+    8,
+    6,
+    12,
+    1,
+    0,
+    10,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    9,
+    0,
+    11,
+    2,
+    0,
+    8,
+    10,
+    2,
+    7,
+    9,
+    2,
+    0,
+    8,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    9,
+    11,
+    2,
+    9,
+    2,
+    0,
+    8,
+    8,
+    10,
+    2,
+    7,
+    9,
+    2,
+    0,
+    8,
+    2,
+    0,
+    7,
+    2,
+    0,
+    9,
+    2,
+    8,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    9,
+    2,
+    7,
+    10,
+    2,
+    0,
+    6,
+    8,
+    11,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    9,
+    11,
+    2,
+    8,
+    7,
+    10,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    0,
+    7,
+    2,
+    7,
+    10,
+    2,
+    0,
+    7,
+    11,
+    11,
+    2,
+    7,
+    7,
+    2,
+    7,
+    7,
+    2,
+    0,
+    4,
+    0,
+    7,
+    4,
+    2,
+    7,
+    2,
+    2,
+    0,
+    4,
+    3,
+    16,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 161,
+    "peak_total_relator_length": 16,
+    "work": 2162,
+    "certificate_hash": "sha256:ba8be103db9fbb2ca0cca09113371ed1d1524f5a345612457ec2b3f130cfe036"
+   }
+  },
+  {
+   "name": "accept-stable-canon-xy",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    16,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 2,
+    "peak_total_relator_length": 2,
+    "work": 3,
+    "certificate_hash": "sha256:cec92868400d31ba9aa6ad9a130c9f984bf77925b20c74dbd3e8bba5e74f7151"
+   }
+  },
+  {
+   "name": "accept-stable-canon-yx",
+   "challenge_id": "golden-stable-yx",
+   "moves": [
+    15,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 2,
+    "peak_total_relator_length": 2,
+    "work": 3,
+    "certificate_hash": "sha256:236ec4ea675db99687bab8380a504acd496d7db35b168d8e811fce59a4ae0c10"
+   }
+  },
+  {
+   "name": "accept-stable-rank3-detour",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    14,
+    161,
+    162,
+    17,
+    16,
+    15
+   ],
+   "expected": {
+    "ok": true,
+    "length": 6,
+    "peak_total_relator_length": 5,
+    "work": 16,
+    "certificate_hash": "sha256:228e477d97802a9027b62e008131eab126e18cace055de318b477d2723629900"
+   }
+  },
+  {
+   "name": "not-target-stable-missing-destabilizations",
+   "challenge_id": "sac-train-0160",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_NOT_TARGET",
+    "final_shape": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "name": "not-target-stable-empty-path",
+   "challenge_id": "sac-train-0160",
+   "moves": [],
+   "expected": {
+    "ok": false,
+    "code": "E_NOT_TARGET"
+   }
+  },
+  {
+   "name": "move-not-applicable-relator-out-of-rank",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    16,
+    1
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 1,
+    "reason": "relator_out_of_rank"
+   }
+  },
+  {
+   "name": "move-not-applicable-generator-out-of-rank",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    16,
+    8
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 1,
+    "reason": "generator_out_of_rank"
+   }
+  },
+  {
+   "name": "move-not-applicable-max-rank-exceeded",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 6,
+    "reason": "max_rank_exceeded"
+   }
+  },
+  {
+   "name": "move-not-applicable-destabilize-precondition-long-relator",
+   "challenge_id": "golden-stable-pump",
+   "moves": [
+    15
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 0,
+    "reason": "destabilize_precondition"
+   }
+  },
+  {
+   "name": "move-not-applicable-destabilize-precondition-inverted",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    0,
+    15
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 1,
+    "reason": "destabilize_precondition"
+   }
+  },
+  {
+   "name": "move-not-applicable-destabilize-precondition-shared-generator",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    4,
+    15
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_MOVE_NOT_APPLICABLE",
+    "move_index": 1,
+    "reason": "destabilize_precondition"
+   }
+  },
+  {
+   "name": "bad-move-id-stable-257",
+   "challenge_id": "golden-stable-xy",
+   "moves": [
+    257
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_BAD_MOVE_ID",
+    "move_index": 0,
+    "move": 257
+   }
+  },
+  {
+   "name": "spec-mismatch-ac-version-on-stable-challenge",
+   "challenge_id": "sac-train-0160",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1,
+    16,
+    15
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_SPEC_MISMATCH",
+    "move_index": null,
+    "expected": "sac-r8-v1"
+   },
+   "move_spec_version": "ac-r2-v1"
+  },
+  {
+   "name": "spec-mismatch-stable-version-on-ac-challenge",
+   "challenge_id": "ms-train-0160",
+   "move_spec_version": "sac-r8-v1",
+   "moves": [
+    6,
+    4,
+    2,
+    9,
+    1,
+    4,
+    1
+   ],
+   "expected": {
+    "ok": false,
+    "code": "E_SPEC_MISMATCH",
+    "move_index": null,
+    "expected": "ac-r2-v1"
+   }
+  }
+ ],
+ "submission_vectors": [
+  {
+   "name": "sub-accept-one",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-accept-comments-and-blank-lines",
+   "raw": "\n# Method: search; score: 100 is only a comment.\n\nms-train-0160: [6, 4, 2, 9, 1, 4, 1] # Notes: thanks to the training data.\n# End.\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-accept-crlf-whitespace",
+   "raw": "\t# Method notes\r\n\r\n\tms-train-0160 \t: \t[6, 4, 2, 9, 1, 4, 1] \t# End\r\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-accept-utf8-bom",
+   "raw": "\ufeffms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-accept-long-unicode-comment",
+   "raw": "# \u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\u03bb\nms-train-0160: [6, 4, 2, 9, 1, 4, 1] # aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-malformed-truncated",
+   "raw": "ms-train-0160: [6, 4",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_moves_json",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-missing-colon",
+   "raw": "ms-train-0160 [6, 4]",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_solution_line",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-missing-id",
+   "raw": ": [6, 4]",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_solution_line",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-missing-moves",
+   "raw": "ms-train-0160: # No move list",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "moves_not_array",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-moves-without-brackets",
+   "raw": "ms-train-0160: 6, 4, 2",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "moves_not_array",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-trailing-comma",
+   "raw": "ms-train-0160: [6, 4,]",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_moves_json",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-noninteger-move-id",
+   "raw": "ms-train-0160: [6, 1.5]",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 1
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-malformed-trailing-text",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1] notes without a comment marker",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_moves_json",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-multiline-moves",
+   "raw": "ms-train-0160: [6,\n4]",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_moves_json",
+    "line_number": 1
+   }
+  },
+  {
+   "name": "sub-malformed-comments-only",
+   "raw": "\n# No solutions\n \t# Still no solutions\n",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "no_solutions"
+   }
+  },
+  {
+   "name": "sub-duplicate-after-success-skipped",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n# These later candidates are not replayed.\nms-train-0160: [14]\nms-train-0160: [true]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     },
+     {
+      "challenge_id": "ms-train-0160",
+      "ok": false,
+      "skipped": true,
+      "reason": "already_verified"
+     },
+     {
+      "challenge_id": "ms-train-0160",
+      "ok": false,
+      "skipped": true,
+      "reason": "already_verified"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-duplicate-first-valid-wins-before-shorter",
+   "raw": "ms-train-0160: [0, 0, 6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "length": 9,
+      "certificate_hash": "sha256:f85706a1ff726ab1efb6130d9317156d4786b454b13e6eb068af0ea2512fe5c8"
+     },
+     {
+      "challenge_id": "ms-train-0160",
+      "ok": false,
+      "skipped": true,
+      "reason": "already_verified"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-duplicate-failures-then-success",
+   "raw": "ms-train-0160: []\nms-train-0160: [14]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "challenge_id": "ms-train-0160",
+      "code": "E_NOT_TARGET"
+     },
+     {
+      "ok": false,
+      "challenge_id": "ms-train-0160",
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     },
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-duplicate-unknown-challenge-retried",
+   "raw": "ac-99999: []\nac-99999: []\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "challenge_id": "ac-99999",
+      "code": "E_UNKNOWN_CHALLENGE"
+     },
+     {
+      "ok": false,
+      "challenge_id": "ac-99999",
+      "code": "E_UNKNOWN_CHALLENGE"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-duplicate-malformed-later-line-rejects-whole-file",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n# A successful earlier path does not bypass parsing.\nms-train-0160: [1,]\n",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "bad_moves_json",
+    "line_number": 3,
+    "counts_against_quota": false
+   }
+  },
+  {
+   "name": "sub-duplicate-all-records-count-toward-limit",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "too_many_solutions",
+    "solutions": 501,
+    "max_solutions": 500,
+    "counts_against_quota": false
+   }
+  },
+  {
+   "name": "sub-unknown-challenge",
+   "raw": "ac-99999: []\ngolden-pump: [14]\nms-train-0160: [6, 4, 2, 9, 1, 4, 1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_UNKNOWN_CHALLENGE"
+     },
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     },
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-negative-move-id",
+   "raw": "ms-train-0160: [-1]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-too-many-solutions",
+   "raw": "ac-00001: []\nac-00002: []\nac-00003: []\nac-00004: []\nac-00005: []\nac-00006: []\nac-00007: []\nac-00008: []\nac-00009: []\nac-00010: []\nac-00011: []\nac-00012: []\nac-00013: []\nac-00014: []\nac-00015: []\nac-00016: []\nac-00017: []\nac-00018: []\nac-00019: []\nac-00020: []\nac-00021: []\nac-00022: []\nac-00023: []\nac-00024: []\nac-00025: []\nac-00026: []\nac-00027: []\nac-00028: []\nac-00029: []\nac-00030: []\nac-00031: []\nac-00032: []\nac-00033: []\nac-00034: []\nac-00035: []\nac-00036: []\nac-00037: []\nac-00038: []\nac-00039: []\nac-00040: []\nac-00041: []\nac-00042: []\nac-00043: []\nac-00044: []\nac-00045: []\nac-00046: []\nac-00047: []\nac-00048: []\nac-00049: []\nac-00050: []\nac-00051: []\nac-00052: []\nac-00053: []\nac-00054: []\nac-00055: []\nac-00056: []\nac-00057: []\nac-00058: []\nac-00059: []\nac-00060: []\nac-00061: []\nac-00062: []\nac-00063: []\nac-00064: []\nac-00065: []\nac-00066: []\nac-00067: []\nac-00068: []\nac-00069: []\nac-00070: []\nac-00071: []\nac-00072: []\nac-00073: []\nac-00074: []\nac-00075: []\nac-00076: []\nac-00077: []\nac-00078: []\nac-00079: []\nac-00080: []\nac-00081: []\nac-00082: []\nac-00083: []\nac-00084: []\nac-00085: []\nac-00086: []\nac-00087: []\nac-00088: []\nac-00089: []\nac-00090: []\nac-00091: []\nac-00092: []\nac-00093: []\nac-00094: []\nac-00095: []\nac-00096: []\nac-00097: []\nac-00098: []\nac-00099: []\nac-00100: []\nac-00101: []\nac-00102: []\nac-00103: []\nac-00104: []\nac-00105: []\nac-00106: []\nac-00107: []\nac-00108: []\nac-00109: []\nac-00110: []\nac-00111: []\nac-00112: []\nac-00113: []\nac-00114: []\nac-00115: []\nac-00116: []\nac-00117: []\nac-00118: []\nac-00119: []\nac-00120: []\nac-00121: []\nac-00122: []\nac-00123: []\nac-00124: []\nac-00125: []\nac-00126: []\nac-00127: []\nac-00128: []\nac-00129: []\nac-00130: []\nac-00131: []\nac-00132: []\nac-00133: []\nac-00134: []\nac-00135: []\nac-00136: []\nac-00137: []\nac-00138: []\nac-00139: []\nac-00140: []\nac-00141: []\nac-00142: []\nac-00143: []\nac-00144: []\nac-00145: []\nac-00146: []\nac-00147: []\nac-00148: []\nac-00149: []\nac-00150: []\nac-00151: []\nac-00152: []\nac-00153: []\nac-00154: []\nac-00155: []\nac-00156: []\nac-00157: []\nac-00158: []\nac-00159: []\nac-00160: []\nac-00161: []\nac-00162: []\nac-00163: []\nac-00164: []\nac-00165: []\nac-00166: []\nac-00167: []\nac-00168: []\nac-00169: []\nac-00170: []\nac-00171: []\nac-00172: []\nac-00173: []\nac-00174: []\nac-00175: []\nac-00176: []\nac-00177: []\nac-00178: []\nac-00179: []\nac-00180: []\nac-00181: []\nac-00182: []\nac-00183: []\nac-00184: []\nac-00185: []\nac-00186: []\nac-00187: []\nac-00188: []\nac-00189: []\nac-00190: []\nac-00191: []\nac-00192: []\nac-00193: []\nac-00194: []\nac-00195: []\nac-00196: []\nac-00197: []\nac-00198: []\nac-00199: []\nac-00200: []\nac-00201: []\nac-00202: []\nac-00203: []\nac-00204: []\nac-00205: []\nac-00206: []\nac-00207: []\nac-00208: []\nac-00209: []\nac-00210: []\nac-00211: []\nac-00212: []\nac-00213: []\nac-00214: []\nac-00215: []\nac-00216: []\nac-00217: []\nac-00218: []\nac-00219: []\nac-00220: []\nac-00221: []\nac-00222: []\nac-00223: []\nac-00224: []\nac-00225: []\nac-00226: []\nac-00227: []\nac-00228: []\nac-00229: []\nac-00230: []\nac-00231: []\nac-00232: []\nac-00233: []\nac-00234: []\nac-00235: []\nac-00236: []\nac-00237: []\nac-00238: []\nac-00239: []\nac-00240: []\nac-00241: []\nac-00242: []\nac-00243: []\nac-00244: []\nac-00245: []\nac-00246: []\nac-00247: []\nac-00248: []\nac-00249: []\nac-00250: []\nac-00251: []\nac-00252: []\nac-00253: []\nac-00254: []\nac-00255: []\nac-00256: []\nac-00257: []\nac-00258: []\nac-00259: []\nac-00260: []\nac-00261: []\nac-00262: []\nac-00263: []\nac-00264: []\nac-00265: []\nac-00266: []\nac-00267: []\nac-00268: []\nac-00269: []\nac-00270: []\nac-00271: []\nac-00272: []\nac-00273: []\nac-00274: []\nac-00275: []\nac-00276: []\nac-00277: []\nac-00278: []\nac-00279: []\nac-00280: []\nac-00281: []\nac-00282: []\nac-00283: []\nac-00284: []\nac-00285: []\nac-00286: []\nac-00287: []\nac-00288: []\nac-00289: []\nac-00290: []\nac-00291: []\nac-00292: []\nac-00293: []\nac-00294: []\nac-00295: []\nac-00296: []\nac-00297: []\nac-00298: []\nac-00299: []\nac-00300: []\nac-00301: []\nac-00302: []\nac-00303: []\nac-00304: []\nac-00305: []\nac-00306: []\nac-00307: []\nac-00308: []\nac-00309: []\nac-00310: []\nac-00311: []\nac-00312: []\nac-00313: []\nac-00314: []\nac-00315: []\nac-00316: []\nac-00317: []\nac-00318: []\nac-00319: []\nac-00320: []\nac-00321: []\nac-00322: []\nac-00323: []\nac-00324: []\nac-00325: []\nac-00326: []\nac-00327: []\nac-00328: []\nac-00329: []\nac-00330: []\nac-00331: []\nac-00332: []\nac-00333: []\nac-00334: []\nac-00335: []\nac-00336: []\nac-00337: []\nac-00338: []\nac-00339: []\nac-00340: []\nac-00341: []\nac-00342: []\nac-00343: []\nac-00344: []\nac-00345: []\nac-00346: []\nac-00347: []\nac-00348: []\nac-00349: []\nac-00350: []\nac-00351: []\nac-00352: []\nac-00353: []\nac-00354: []\nac-00355: []\nac-00356: []\nac-00357: []\nac-00358: []\nac-00359: []\nac-00360: []\nac-00361: []\nac-00362: []\nac-00363: []\nac-00364: []\nac-00365: []\nac-00366: []\nac-00367: []\nac-00368: []\nac-00369: []\nac-00370: []\nac-00371: []\nac-00372: []\nac-00373: []\nac-00374: []\nac-00375: []\nac-00376: []\nac-00377: []\nac-00378: []\nac-00379: []\nac-00380: []\nac-00381: []\nac-00382: []\nac-00383: []\nac-00384: []\nac-00385: []\nac-00386: []\nac-00387: []\nac-00388: []\nac-00389: []\nac-00390: []\nac-00391: []\nac-00392: []\nac-00393: []\nac-00394: []\nac-00395: []\nac-00396: []\nac-00397: []\nac-00398: []\nac-00399: []\nac-00400: []\nac-00401: []\nac-00402: []\nac-00403: []\nac-00404: []\nac-00405: []\nac-00406: []\nac-00407: []\nac-00408: []\nac-00409: []\nac-00410: []\nac-00411: []\nac-00412: []\nac-00413: []\nac-00414: []\nac-00415: []\nac-00416: []\nac-00417: []\nac-00418: []\nac-00419: []\nac-00420: []\nac-00421: []\nac-00422: []\nac-00423: []\nac-00424: []\nac-00425: []\nac-00426: []\nac-00427: []\nac-00428: []\nac-00429: []\nac-00430: []\nac-00431: []\nac-00432: []\nac-00433: []\nac-00434: []\nac-00435: []\nac-00436: []\nac-00437: []\nac-00438: []\nac-00439: []\nac-00440: []\nac-00441: []\nac-00442: []\nac-00443: []\nac-00444: []\nac-00445: []\nac-00446: []\nac-00447: []\nac-00448: []\nac-00449: []\nac-00450: []\nac-00451: []\nac-00452: []\nac-00453: []\nac-00454: []\nac-00455: []\nac-00456: []\nac-00457: []\nac-00458: []\nac-00459: []\nac-00460: []\nac-00461: []\nac-00462: []\nac-00463: []\nac-00464: []\nac-00465: []\nac-00466: []\nac-00467: []\nac-00468: []\nac-00469: []\nac-00470: []\nac-00471: []\nac-00472: []\nac-00473: []\nac-00474: []\nac-00475: []\nac-00476: []\nac-00477: []\nac-00478: []\nac-00479: []\nac-00480: []\nac-00481: []\nac-00482: []\nac-00483: []\nac-00484: []\nac-00485: []\nac-00486: []\nac-00487: []\nac-00488: []\nac-00489: []\nac-00490: []\nac-00491: []\nac-00492: []\nac-00493: []\nac-00494: []\nac-00495: []\nac-00496: []\nac-00497: []\nac-00498: []\nac-00499: []\nac-00500: []\nac-00501: []\n",
+   "expected": {
+    "accepted": false,
+    "code": "E_MALFORMED",
+    "detail": "too_many_solutions"
+   }
+  },
+  {
+   "name": "sub-bad-move-id-bool",
+   "raw": "ms-train-0160: [true]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-bad-move-id-string",
+   "raw": "ms-train-0160: [\"3\"]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-bad-move-id-null",
+   "raw": "ms-train-0160: [null]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": false,
+      "code": "E_BAD_MOVE_ID",
+      "move_index": 0
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-accept-mixed-tracks",
+   "raw": "# Both problems\nms-train-0160: [6, 4, 2, 9, 1, 4, 1] # AC\nsac-train-0160: [6, 4, 2, 9, 1, 4, 1, 16, 15] # Stable AC\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     },
+     {
+      "ok": true,
+      "challenge_id": "sac-train-0160",
+      "certificate_hash": "sha256:e94492471688db5cb52971611a3617e75c165d89e3ed51cea9a3f5d96ccbb77e"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-stable-comment-does-not-select-ac-spec",
+   "raw": "sac-train-0160: [6, 4, 2, 9, 1, 4, 1, 16, 15] # move_spec_version: ac-r2-v1\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "sac-train-0160",
+      "certificate_hash": "sha256:e94492471688db5cb52971611a3617e75c165d89e3ed51cea9a3f5d96ccbb77e"
+     }
+    ]
+   }
+  },
+  {
+   "name": "sub-duplicate-mixed-problems-select-independently",
+   "raw": "ms-train-0160: [6, 4, 2, 9, 1, 4, 1]\nsac-train-0160: []\nms-train-0160: [14]\nsac-train-0160: [6, 4, 2, 9, 1, 4, 1, 16, 15]\nsac-train-0160: [257]\n",
+   "expected": {
+    "accepted": true,
+    "results": [
+     {
+      "ok": true,
+      "challenge_id": "ms-train-0160",
+      "certificate_hash": "sha256:80dedf02b91d429b017fb0b3f48e950a9fc5e18363dbdf21c6e27297100c471f"
+     },
+     {
+      "ok": false,
+      "challenge_id": "sac-train-0160",
+      "code": "E_NOT_TARGET"
+     },
+     {
+      "ok": false,
+      "challenge_id": "ms-train-0160",
+      "skipped": true,
+      "reason": "already_verified"
+     },
+     {
+      "ok": true,
+      "challenge_id": "sac-train-0160",
+      "certificate_hash": "sha256:e94492471688db5cb52971611a3617e75c165d89e3ed51cea9a3f5d96ccbb77e"
+     },
+     {
+      "ok": false,
+      "challenge_id": "sac-train-0160",
+      "skipped": true,
+      "reason": "already_verified"
+     }
+    ]
+   }
+  }
+ ]
+}
