@@ -1,8 +1,6 @@
-//! C2 exact-state BFS: identical traversal contract to `legacy`, single-copy
-//! retained storage (`StateStore`). A node is still the exact ordered
-//! presentation; each outgoing edge is still one official move id 0..=13
-//! applied through ac-core; FIFO order plus first-visit-wins still yields
-//! deterministic shortest certificates.
+//! C2 exact-state BFS: exact ordered presentations, official move ids 0..=13
+//! in order, FIFO with first-visit-wins duplicate suppression — with
+//! single-copy retained storage (`StateStore`).
 //!
 //! Deliberately NOT optimized here (S2.1 retains storage, not transitions):
 //! successors are still materialized as temporary `Presentation`s through the

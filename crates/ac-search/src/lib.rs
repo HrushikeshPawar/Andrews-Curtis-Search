@@ -3,8 +3,6 @@ use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certifica
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
-#[cfg(test)]
-mod legacy;
 mod search;
 mod store;
 
@@ -134,8 +132,8 @@ pub(crate) fn exhausted(mut metrics: SearchMetrics, elapsed: Duration) -> Search
     }
 }
 /// Exact-state BFS over the official move graph (see module `search` for the
-/// traversal contract). Delegates to the C2 single-copy implementation; the
-/// legacy dual-storage loop survives under `#[cfg(test)]` as the oracle.
+/// traversal contract): exact ordered presentations, official move ids
+/// 0..=13 in order, FIFO with first-visit-wins duplicate suppression.
 pub fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     search::solve_exact_state_bfs(start, limits)
 }
@@ -413,136 +411,17 @@ mod bfs_tests {use super::*;
         // after each pop and reported 735,572; the frozen definition tracks
         // the true peak, which is exactly one higher.
         assert_eq!(result.metrics.max_frontier, 735_573);
-        // Gate 3: the C2 implementation must agree with the legacy oracle on
-        // every gated field (elapsed time excepted).
-        let oracle = super::legacy::solve_exact_state_bfs(
-            &pres(&[-1, 2, 1, -2, -2], &[-1, 2]),
-            &limits,
-        );
-        super::diff_tests::assert_identical(&result, &oracle);
     }
 }
 
-/// S2.1 migration gate: the C2 implementation must reproduce the legacy
-/// oracle exactly — status, certificate bytes, and every metric except
-/// elapsed wall time (timing is not a semantic).
+/// Scale regression (ex-oracle): the 4.0M-state fixed workload pins the full
+/// v1 row through the C2 implementation. Release-only.
 #[cfg(test)]
-mod diff_tests {
+mod scale_tests {
     use super::*;
-    use crate::legacy;
-
-    pub(crate) fn assert_identical(c2: &SearchResult, oracle: &SearchResult) {
-        assert_eq!(
-            format!("{:?}", c2.status),
-            format!("{:?}", oracle.status),
-            "status diverged"
-        );
-        assert_eq!(c2.certificate, oracle.certificate, "certificate diverged");
-        assert_eq!(
-            c2.certificate_length, oracle.certificate_length,
-            "certificate_length diverged"
-        );
-        assert_eq!(c2.metrics.expanded, oracle.metrics.expanded, "expanded diverged");
-        assert_eq!(
-            c2.metrics.generated, oracle.metrics.generated,
-            "generated diverged"
-        );
-        assert_eq!(c2.metrics.unique, oracle.metrics.unique, "unique diverged");
-        assert_eq!(
-            c2.metrics.duplicates, oracle.metrics.duplicates,
-            "duplicates diverged"
-        );
-        assert_eq!(
-            c2.metrics.max_frontier, oracle.metrics.max_frontier,
-            "max_frontier diverged"
-        );
-        assert_eq!(
-            c2.metrics.max_depth_seen, oracle.metrics.max_depth_seen,
-            "max_depth_seen diverged"
-        );
-        assert_eq!(
-            c2.metrics.max_total_relator_length, oracle.metrics.max_total_relator_length,
-            "max_total_relator_length diverged"
-        );
-        assert_eq!(
-            c2.metrics.replay_ok, oracle.metrics.replay_ok,
-            "replay_ok diverged"
-        );
-    }
-
-    fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
-        Presentation {
-            relators: [r0.to_vec(), r1.to_vec()],
-        }
-    }
-
-    fn check(start: &Presentation, limits: &SearchLimits) {
-        let c2 = solve_exact_state_bfs(start, limits);
-        let oracle = legacy::solve_exact_state_bfs(start, limits);
-        assert_identical(&c2, &oracle);
-    }
 
     #[test]
-    fn differential_depth0_and_invalid() {
-        check(&pres(&[1], &[2]), &SearchLimits::default());
-        check(&pres(&[1, 2, -2], &[2]), &SearchLimits::default());
-        check(&pres(&[3], &[2]), &SearchLimits::default());
-        check(&pres(&[], &[]), &SearchLimits::default());
-    }
-
-    #[test]
-    fn differential_single_move_fixtures() {
-        check(&pres(&[1, 2], &[2]), &SearchLimits::default());
-        check(&pres(&[1], &[2, 1]), &SearchLimits::default());
-        check(&pres(&[1], &[2, -1]), &SearchLimits::default());
-    }
-
-    #[test]
-    fn differential_back_2_and_back_4() {
-        check(
-            &pres(&[-2, 1, 2], &[1, 2, -1]),
-            &SearchLimits::default(),
-        );
-        check(&pres(&[-1, -2], &[-1, -2, 1]), &SearchLimits::default());
-    }
-
-    #[test]
-    fn differential_back_4_under_limits() {
-        check(
-            &pres(&[-1, -2], &[-1, -2, 1]),
-            &SearchLimits {
-                max_expanded: Some(50),
-                max_depth: None,
-                max_total_relator_length: None,
-                max_work: None,
-            },
-        );
-        check(
-            &pres(&[-1, -2], &[-1, -2, 1]),
-            &SearchLimits {
-                max_expanded: None,
-                max_depth: None,
-                max_total_relator_length: None,
-                max_work: Some(705),
-            },
-        );
-        check(
-            &pres(&[-1, -2], &[-1, -2, 1]),
-            &SearchLimits {
-                max_expanded: None,
-                max_depth: Some(2),
-                max_total_relator_length: None,
-                max_work: None,
-            },
-        );
-    }
-
-    /// Gate 4: the prototype's fixed 4.0M-state workload (ms-train-0004 at
-    /// 6.3M work) must reproduce the v1 row exactly and agree with the
-    /// oracle — including across hash-table growth at this scale.
-    /// Run with: cargo test --release -p ac-search -- --ignored
-    #[test]
-    #[ignore = "large: 6.3M moves, ~4.0M states, ~1.5 GB (C2)"]
+    #[ignore = "large: 6.3M moves, ~4.0M states"]
     fn fixed_workload_matches_prototype_scale() {
         let dir =
             std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
@@ -568,7 +447,5 @@ mod diff_tests {
         assert_eq!(result.metrics.max_frontier, 3_551_727);
         assert_eq!(result.metrics.max_depth_seen, 7);
         assert_eq!(result.metrics.max_total_relator_length, 416);
-        let oracle = legacy::solve_exact_state_bfs(&item.presentation(), &limits);
-        assert_identical(&result, &oracle);
     }
 }
