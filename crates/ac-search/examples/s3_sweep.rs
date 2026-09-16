@@ -108,7 +108,7 @@ fn main() -> Result<(), String> {
     // S4.1: the atlas solver needs the goal bank (1238 verified
     // trajectories) built once up front; per-case starts come from the
     // same loaders as `selected` above.
-    let bank: Option<GoalBank> = if solver.as_str() == "atlas" {
+    let bank: Option<GoalBank> = if solver.as_str() == "atlas" || solver.as_str() == "atlas2" {
         use std::collections::HashMap;
         let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
         let mut starts: HashMap<String, Presentation> = HashMap::new();
