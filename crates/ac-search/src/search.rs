@@ -6,28 +6,15 @@
 //! successors are still materialized as temporary `Presentation`s through the
 //! untouched `apply_move`. Only what is *retained* changed shape.
 
-use super::store::{StateId, StateStore};
+use super::store::{StateId, StateStore, reconstruct};
 use super::{Parent, SearchLimits, SearchMetrics, SearchResult};
 use super::{exhausted, failed, limit_reached, reduce_presentation, solved};
 use ac_core::{
-    Certificate, DEFAULT_N_GEN, Move, Presentation, all_move_ids, apply_move, is_ac_target,
+    DEFAULT_N_GEN, Move, Presentation, all_move_ids, apply_move, is_ac_target,
     move_from_id,
 };
 use std::collections::VecDeque;
 use std::time::Instant;
-
-/// Walk the first-discovery parent chain from `end` back to the root and
-/// return the move ids in root-to-end order.
-fn reconstruct(store: &StateStore, end: StateId) -> Certificate {
-    let mut ids = Vec::new();
-    let mut cur = end;
-    while let Some(parent) = store.parent(cur) {
-        ids.push(parent.move_id);
-        cur = parent.parent_index;
-    }
-    ids.reverse();
-    ids
-}
 
 pub(crate) fn solve_exact_state_bfs(
     start: &Presentation,

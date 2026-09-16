@@ -3,6 +3,7 @@ use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certifica
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
+mod greedy;
 mod portfolio;
 mod search;
 mod store;
@@ -139,6 +140,12 @@ pub(crate) fn exhausted(mut metrics: SearchMetrics, elapsed: Duration) -> Search
 /// 0..=13 in order, FIFO with first-visit-wins duplicate suppression.
 pub fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     search::solve_exact_state_bfs(start, limits)
+}
+/// Deterministic length-greedy search (see module `greedy` for the frozen
+/// v1 policy): best-first on total relator length, permanent exact-state
+/// suppression, first-discovery certificates. Not shortest-path guaranteed.
+pub fn solve_length_greedy(start: &Presentation, limits: &SearchLimits) -> SearchResult {
+    greedy::solve_length_greedy(start, limits)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -420,8 +427,7 @@ mod bfs_tests {use super::*;
 /// Scale regression (ex-oracle): the 4.0M-state fixed workload pins the full
 /// v1 row through the C2 implementation. Release-only.
 #[cfg(test)]
-mod scale_tests {
-    use super::*;
+mod scale_tests {use super::*;
 
     #[test]
     #[ignore = "large: 6.3M moves, ~4.0M states"]
@@ -450,5 +456,97 @@ mod scale_tests {
         assert_eq!(result.metrics.max_frontier, 3_551_727);
         assert_eq!(result.metrics.max_depth_seen, 7);
         assert_eq!(result.metrics.max_total_relator_length, 416);
+    }
+}
+
+/// S3.0b greedy checkpoint: deterministic length-greedy behavior and its
+/// relationship to BFS optima on small fixtures.
+#[cfg(test)]
+mod greedy_tests {
+    use super::*;
+
+    fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
+        Presentation {
+            relators: [r0.to_vec(), r1.to_vec()],
+        }
+    }
+
+    /// Greedy certificates are valid but never shorter than the BFS optimum.
+    fn check_not_shorter_than_optimum(r0: &[i8], r1: &[i8], bfs_depth: usize) {
+        let start = pres(r0, r1);
+        let bfs = solve_exact_state_bfs(&start, &SearchLimits::default());
+        assert!(matches!(bfs.status, SearchStatus::Solved));
+        assert_eq!(bfs.certificate_length, Some(bfs_depth));
+        let greedy = solve_length_greedy(&start, &SearchLimits::default());
+        assert!(
+            matches!(greedy.status, SearchStatus::Solved),
+            "greedy failed where BFS depth is {bfs_depth}"
+        );
+        assert!(greedy.metrics.replay_ok);
+        let glen = greedy.certificate_length.expect("solved");
+        assert!(
+            glen >= bfs_depth,
+            "greedy len {glen} beats BFS optimum {bfs_depth}"
+        );
+        println!(
+            "greedy_vs_bfs [{r0:?}],[{r1:?}]: bfs={bfs_depth} greedy={glen} \
+             greedy_gen={} bfs_gen={}",
+            greedy.metrics.generated, bfs.metrics.generated
+        );
+    }
+
+    #[test]
+    fn greedy_never_beats_bfs_optimum_on_fixtures() {
+        check_not_shorter_than_optimum(&[1, 2], &[2], 1);
+        check_not_shorter_than_optimum(&[1], &[2, 1], 1);
+        check_not_shorter_than_optimum(&[1], &[2, -1], 1);
+        check_not_shorter_than_optimum(&[-2, 1, 2], &[1, 2, -1], 2);
+        check_not_shorter_than_optimum(&[-1, -2], &[-1, -2, 1], 4);
+    }
+
+    #[test]
+    fn greedy_ms1y_finds_valid_certificate() {
+        // BFS optimum is 6; greedy finds a valid length-8 certificate at a
+        // fraction of the work (464 vs 1,303,629 generated). First slack +2.
+        let result = solve_length_greedy(
+            &pres(&[-1, 2, 1, -2, -2], &[-1, 2]),
+            &SearchLimits::default(),
+        );
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![0, 2, 9, 3, 1, 2, 5, 1]);
+        assert_eq!(result.certificate_length, Some(8));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 33);
+        assert_eq!(result.metrics.generated, 464);
+        assert_eq!(result.metrics.unique, 283);
+        assert_eq!(result.metrics.duplicates, 182);
+        assert_eq!(result.metrics.max_frontier, 248);
+        assert_eq!(result.metrics.max_depth_seen, 9);
+        assert_eq!(result.metrics.max_total_relator_length, 12);
+    }
+
+    #[test]
+    fn greedy_ms_train_0001_finds_valid_certificate() {
+        // BFS optimum is 5 (official walk is 8); greedy finds length 6 with
+        // 114 generated vs BFS's 7,402.
+        let dir =
+            std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
+        let item = ac_core::data::load_training(dir.join("examples/training_424.json"))
+            .expect("training data")
+            .into_iter()
+            .find(|x| x.training_id == "ms-train-0001")
+            .expect("ms-train-0001");
+        let result = solve_length_greedy(&item.presentation(), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![6, 2, 9, 1, 4, 1]);
+        assert_eq!(result.certificate_length, Some(6));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 8);
+        assert_eq!(result.metrics.generated, 114);
+        assert_eq!(result.metrics.unique, 88);
+        assert_eq!(result.metrics.duplicates, 27);
+        assert_eq!(result.metrics.max_frontier, 78);
+        assert_eq!(result.metrics.max_depth_seen, 6);
+        assert_eq!(result.metrics.max_total_relator_length, 12);
     }
 }

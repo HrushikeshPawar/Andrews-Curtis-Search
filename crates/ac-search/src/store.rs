@@ -166,6 +166,19 @@ impl StateStore {
     }
 }
 
+/// Walk the first-discovery parent chain from `end` back to the root and
+/// return the move ids in root-to-end order.
+pub(crate) fn reconstruct(store: &StateStore, end: StateId) -> Vec<u8> {
+    let mut ids = Vec::new();
+    let mut cur = end;
+    while let Some(parent) = store.parent(cur) {
+        ids.push(parent.move_id);
+        cur = parent.parent_index;
+    }
+    ids.reverse();
+    ids
+}
+
 #[cfg(test)]
 mod store_tests {
     use super::*;
@@ -305,5 +318,35 @@ mod store_tests {
         }
         assert_eq!(store.len(), distinct);
         assert_eq!(store.len() as usize, seen.len());
+    }
+
+    #[test]
+    fn reconstruct_walks_first_discovery_parents() {
+        let mut store = StateStore::new();
+        let root = insert(&mut store, &[1, 2], &[2]).expect("root is new");
+        let mid = store
+            .insert_new(
+                &[1],
+                &[2, 1],
+                Some(Parent {
+                    parent_index: root,
+                    move_id: 5,
+                }),
+                1,
+            )
+            .expect("mid is new");
+        let end = store
+            .insert_new(
+                &[1],
+                &[2],
+                Some(Parent {
+                    parent_index: mid,
+                    move_id: 3,
+                }),
+                2,
+            )
+            .expect("end is new");
+        assert_eq!(reconstruct(&store, root), Vec::<u8>::new());
+        assert_eq!(reconstruct(&store, end), vec![5, 3]);
     }
 }
