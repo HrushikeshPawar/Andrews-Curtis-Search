@@ -698,7 +698,6 @@ mod beam_tests {
         );
     }
 }
-
 /// S4.1 experiment tests: bank probing and inverse pruning.
 #[cfg(test)]
 mod atlas_tests {
@@ -756,6 +755,37 @@ mod atlas_tests {
         assert_eq!(outcome.result.metrics.expanded, 0);
         assert_eq!(outcome.result.metrics.generated, 4);
         assert_eq!(outcome.result.metrics.unique, 5);
+    }
+
+    #[test]
+    fn ball_probe_is_live_in_the_integrated_solver() {
+        // back_4 with an empty bank and ball-3: the root's move-0 successor
+        // sits in the ball at depth 3, so the run returns after a single
+        // generated successor with the optimal 4-move certificate. A zero
+        // hit-rate anywhere else is measurement, not a dead probe.
+        fn pres(r0: &[i8], r1: &[i8]) -> crate::Presentation {
+            crate::Presentation {
+                relators: [r0.to_vec(), r1.to_vec()],
+            }
+        }
+        let mut ball = crate::ball::ReverseBall::build(3);
+        let outcome = crate::solve_bank_greedy(
+            &pres(&[-1, -2], &[-1, -2, 1]),
+            &crate::SearchLimits::default(),
+            &crate::GoalBank::new(),
+            Some(&mut ball),
+        );
+        assert!(matches!(
+            outcome.result.status,
+            crate::SearchStatus::Solved
+        ));
+        assert!(!outcome.via_bank);
+        assert!(outcome.via_ball);
+        assert_eq!(outcome.ball_hit_depth, Some(3));
+        assert_eq!(outcome.result.certificate, vec![0, 2, 10, 1]);
+        assert_eq!(outcome.result.certificate_length, Some(4));
+        assert!(outcome.result.metrics.replay_ok);
+        assert_eq!(outcome.result.metrics.generated, 1);
     }
 
     #[test]
