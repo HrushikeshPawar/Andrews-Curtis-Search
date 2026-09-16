@@ -4,12 +4,15 @@ use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
 mod beam;
+mod goalbank;
 mod greedy;
 mod portfolio;
 mod search;
 mod store;
 
 pub use portfolio::{Budget, CaseReport};
+
+pub use goalbank::GoalBank;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
