@@ -3,8 +3,11 @@ use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certifica
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
+mod portfolio;
 mod search;
 mod store;
+
+pub use portfolio::{Budget, CaseReport};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
