@@ -42,7 +42,10 @@ fn pack_into(buf: &mut Vec<u8>, r0: &[i8], r1: &[i8]) {
     buf.extend_from_slice(&(r0.len() as u32).to_le_bytes());
     buf.extend_from_slice(&(r1.len() as u32).to_le_bytes());
     for &l in r0.iter().chain(r1.iter()) {
-        debug_assert!(l != 0 && l.unsigned_abs() <= 2, "store holds valid words only");
+        debug_assert!(
+            l != 0 && l.unsigned_abs() <= 2,
+            "store holds valid words only"
+        );
         buf.push((l + 2) as u8);
     }
 }
@@ -90,7 +93,9 @@ impl StateStore {
 
     fn append(&mut self, bytes: &[u8]) -> u64 {
         assert!(bytes.len() <= CHUNK_LEN, "record exceeds chunk size");
-        if self.chunks.is_empty() || self.used + bytes.len() > self.chunks.last().expect("chunk").len() {
+        if self.chunks.is_empty()
+            || self.used + bytes.len() > self.chunks.last().expect("chunk").len()
+        {
             self.chunks.push(vec![0u8; CHUNK_LEN].into_boxed_slice());
             self.used = 0;
         }
@@ -159,7 +164,11 @@ impl StateStore {
     /// Decode a state into caller-owned buffers (capacity reused across
     /// calls). The hot expansion path: no allocation per popped state.
     pub(crate) fn copy_state(&self, id: StateId, out0: &mut Vec<i8>, out1: &mut Vec<i8>) {
-        decode_into(out0, out1, record_of(&self.chunks, self.handles[id as usize]));
+        decode_into(
+            out0,
+            out1,
+            record_of(&self.chunks, self.handles[id as usize]),
+        );
     }
 
     pub(crate) fn parent(&self, id: StateId) -> Option<Parent> {

@@ -38,11 +38,12 @@ impl Budget {
 /// Parse a submission file (`challenge_id: [moves]` per line, `#` comments
 /// and blanks ignored) into id/certificate pairs. Shared by bank building
 /// and sweep consolidation so the format is read in exactly one place.
-pub fn load_submission(
-    path: &std::path::Path,
-) -> Result<Vec<(String, Vec<u8>)>, String> {
+pub fn load_submission(path: &std::path::Path) -> Result<Vec<(String, Vec<u8>)>, String> {
     let mut out = Vec::new();
-    for line in std::fs::read_to_string(path).map_err(|e| e.to_string())?.lines() {
+    for line in std::fs::read_to_string(path)
+        .map_err(|e| e.to_string())?
+        .lines()
+    {
         let line = line.trim();
         if line.is_empty() || line.starts_with('#') {
             continue;
@@ -178,9 +179,8 @@ mod portfolio_tests {
         let mut result = solved_result(9, 1_000);
         result.status = SearchStatus::LimitReached;
         result.certificate_length = None;
-        let report =
-            CaseReport::from_result("beam-16", Budget::Large, "ms-train-0004", &result)
-                .with_ground_truth(7);
+        let report = CaseReport::from_result("beam-16", Budget::Large, "ms-train-0004", &result)
+            .with_ground_truth(7);
         assert!(!report.solved);
         assert_eq!(report.best_known_length, Some(7));
         assert_eq!(report.slack_vs_bfs_optimum, None);

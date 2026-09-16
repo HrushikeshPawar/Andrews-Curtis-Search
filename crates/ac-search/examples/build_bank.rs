@@ -5,9 +5,9 @@
 //!
 //! Usage: `build_bank [out.json]` (default: /tmp/opencode/sweep/goalbank_v1.json).
 //! Needs SAIR_ACC_ROOT for the scored starts.
-use ac_core::data::{load_manifest, load_training};
 use ac_core::Presentation;
-use ac_search::{load_submission, GoalBank};
+use ac_core::data::{load_manifest, load_training};
+use ac_search::{GoalBank, load_submission};
 use std::collections::HashMap;
 use std::path::PathBuf;
 
@@ -22,9 +22,9 @@ fn main() -> Result<(), String> {
     }
     let sair = std::env::var("SAIR_ACC_ROOT")
         .map_err(|_| "SAIR_ACC_ROOT must point to the official SAIR checkout".to_string())?;
-    for c in load_manifest(
-        PathBuf::from(sair).join("competition/tools/verifier/data/manifest.json"),
-    )? {
+    for c in
+        load_manifest(PathBuf::from(sair).join("competition/tools/verifier/data/manifest.json"))?
+    {
         starts.insert(c.challenge_id.clone(), c.presentation());
     }
     let mut bank = GoalBank::new();

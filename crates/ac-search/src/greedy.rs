@@ -46,10 +46,7 @@ impl PartialOrd for HeapItem {
 
 /// Length-greedy certificate search. Returns a (non-guaranteed-shortest)
 /// certificate on first discovery of the exact target.
-pub(crate) fn solve_length_greedy(
-    start: &Presentation,
-    limits: &SearchLimits,
-) -> SearchResult {
+pub(crate) fn solve_length_greedy(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     let t0 = Instant::now();
     let root = match reduce_presentation(start) {
         Ok(root) => root,
@@ -98,21 +95,16 @@ pub(crate) fn solve_length_greedy(
         };
         // Each official move id in order.
         for id in all_move_ids() {
-            if limits
-                .max_work
-                .is_some_and(|cap| metrics.generated >= cap)
-            {
+            if limits.max_work.is_some_and(|cap| metrics.generated >= cap) {
                 return limit_reached(metrics, t0.elapsed());
             }
-            let successor =
-                match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
-                    Ok(p) => p,
-                    Err(e) => return failed(e.0, metrics, t0.elapsed()),
-                };
+            let successor = match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
+                Ok(p) => p,
+                Err(e) => return failed(e.0, metrics, t0.elapsed()),
+            };
             metrics.generated += 1;
             let length = successor.total_relator_length();
-            metrics.max_total_relator_length =
-                metrics.max_total_relator_length.max(length);
+            metrics.max_total_relator_length = metrics.max_total_relator_length.max(length);
             // Permanent suppression: seen once means seen forever.
             if store.contains(&successor.relators[0], &successor.relators[1]) {
                 metrics.duplicates += 1;
@@ -160,9 +152,7 @@ pub(crate) fn solve_length_greedy(
         // outgoing moves were generated.
         metrics.expanded += 1;
         // Recover the expansion buffers for the next pop (capacity retained).
-        let Presentation {
-            relators: [b0, b1],
-        } = current;
+        let Presentation { relators: [b0, b1] } = current;
         w0 = b0;
         w1 = b1;
     }

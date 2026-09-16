@@ -7,11 +7,11 @@
 //!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
 //!   idfile: optional JSON array of challenge ids to restrict the run
 //! Each shard writes CaseReport records (+ certificates) into `results/`.
-use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_core::Presentation;
+use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_search::{
-    load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs, solve_length_greedy,
     Budget, CaseReport, GoalBank, ReverseBall, SearchLimits, SearchResult, SearchStatus,
+    load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs, solve_length_greedy,
 };
 use serde::Serialize;
 use std::path::PathBuf;
@@ -70,7 +70,8 @@ fn main() -> Result<(), String> {
                 "source=scored needs SAIR_ACC_ROOT pointing at the official SAIR checkout"
                     .to_string()
             })?;
-            let manifest = PathBuf::from(root).join("competition/tools/verifier/data/manifest.json");
+            let manifest =
+                PathBuf::from(root).join("competition/tools/verifier/data/manifest.json");
             load_manifest(&manifest)?
                 .into_iter()
                 .filter(|c| wanted.as_ref().is_none_or(|w| w.contains(&c.challenge_id)))
@@ -85,10 +86,15 @@ fn main() -> Result<(), String> {
         }
         _ => {
             let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
-            let items: Vec<TrainingInstance> = load_training(root.join("examples/training_424.json"))?;
+            let items: Vec<TrainingInstance> =
+                load_training(root.join("examples/training_424.json"))?;
             items
                 .into_iter()
-                .filter(|item| wanted.as_ref().is_none_or(|w| w.contains(&item.training_id)))
+                .filter(|item| {
+                    wanted
+                        .as_ref()
+                        .is_none_or(|w| w.contains(&item.training_id))
+                })
                 .enumerate()
                 .filter(|(i, _)| i % shards == shard)
                 .map(|(_, item)| Item {
@@ -146,7 +152,11 @@ fn main() -> Result<(), String> {
     // process for the combined solver; measured before committing to 7.
     let mut ball: Option<ReverseBall> = if solver.as_str() == "atlas2" {
         let ball = ReverseBall::build(7);
-        eprintln!("ball built: {} states at depth {}", ball.len(), ball.max_depth());
+        eprintln!(
+            "ball built: {} states at depth {}",
+            ball.len(),
+            ball.max_depth()
+        );
         Some(ball)
     } else {
         None
@@ -181,14 +191,14 @@ fn main() -> Result<(), String> {
             no_probe(result)
         }
     };
-fn solver_name(s: &str) -> &str {
-    match s {
-        "beam4" => "beam-4",
-        "beam16" => "beam-16",
-        "beam64" => "beam-64",
-        other => other,
+    fn solver_name(s: &str) -> &str {
+        match s {
+            "beam4" => "beam-4",
+            "beam16" => "beam-16",
+            "beam64" => "beam-64",
+            other => other,
+        }
     }
-}
     let mut rows = Vec::with_capacity(selected.len());
     let t0 = std::time::Instant::now();
     for item in &selected {
@@ -219,12 +229,7 @@ fn solver_name(s: &str) -> &str {
             via_bank,
             via_ball,
             ball_hit_depth,
-            report: CaseReport::from_result(
-                solver_name(&solver),
-                budget,
-                item.id.clone(),
-                &result,
-            ),
+            report: CaseReport::from_result(solver_name(&solver), budget, item.id.clone(), &result),
             certificate: result.certificate.clone(),
         });
     }

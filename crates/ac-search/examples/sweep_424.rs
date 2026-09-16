@@ -43,7 +43,10 @@ fn main() -> Result<(), String> {
     let shard = args.next().and_then(|s| s.parse().ok()).unwrap_or(0);
     let shards = args.next().and_then(|s| s.parse().ok()).unwrap_or(1).max(1);
     let max_official = args.next().and_then(|s| s.parse().ok()).unwrap_or(0);
-    let max_work: u64 = args.next().and_then(|s| s.parse().ok()).unwrap_or(6_300_000);
+    let max_work: u64 = args
+        .next()
+        .and_then(|s| s.parse().ok())
+        .unwrap_or(6_300_000);
     let tag = args.next().unwrap_or_else(|| "v1".to_string());
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
     let instances = load_training(root.join("examples/training_424.json"))?;

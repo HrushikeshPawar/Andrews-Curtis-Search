@@ -10,16 +10,12 @@ use super::store::{StateId, StateStore, reconstruct};
 use super::{Parent, SearchLimits, SearchMetrics, SearchResult};
 use super::{exhausted, failed, limit_reached, reduce_presentation, solved};
 use ac_core::{
-    DEFAULT_N_GEN, Move, Presentation, all_move_ids, apply_move, is_ac_target,
-    move_from_id,
+    DEFAULT_N_GEN, Move, Presentation, all_move_ids, apply_move, is_ac_target, move_from_id,
 };
 use std::collections::VecDeque;
 use std::time::Instant;
 
-pub(crate) fn solve_exact_state_bfs(
-    start: &Presentation,
-    limits: &SearchLimits,
-) -> SearchResult {
+pub(crate) fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     let t0 = Instant::now();
     let root = match reduce_presentation(start) {
         Ok(root) => root,
@@ -63,17 +59,13 @@ pub(crate) fn solve_exact_state_bfs(
         };
         // Each official move id in order.
         for id in all_move_ids() {
-            if limits
-                .max_work
-                .is_some_and(|cap| metrics.generated >= cap)
-            {
+            if limits.max_work.is_some_and(|cap| metrics.generated >= cap) {
                 return limit_reached(metrics, t0.elapsed());
             }
-            let successor =
-                match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
-                    Ok(p) => p,
-                    Err(e) => return failed(e.0, metrics, t0.elapsed()),
-                };
+            let successor = match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
+                Ok(p) => p,
+                Err(e) => return failed(e.0, metrics, t0.elapsed()),
+            };
             metrics.generated += 1;
             metrics.max_total_relator_length = metrics
                 .max_total_relator_length
@@ -123,9 +115,7 @@ pub(crate) fn solve_exact_state_bfs(
         // outgoing moves were generated.
         metrics.expanded += 1;
         // Recover the expansion buffers for the next pop (capacity retained).
-        let Presentation {
-            relators: [b0, b1],
-        } = current;
+        let Presentation { relators: [b0, b1] } = current;
         w0 = b0;
         w1 = b1;
     }

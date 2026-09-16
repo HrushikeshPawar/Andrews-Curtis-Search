@@ -9,9 +9,9 @@
 //! The ball is membership-only for traversal (never iterated), so hash
 //! layout cannot affect determinism. Suffixes materialize on hits only.
 
+use super::Parent;
 use super::atlas_search::inverse_table;
 use super::store::{StateId, StateStore};
-use super::Parent;
 use ac_core::{DEFAULT_N_GEN, Move, MoveId, Presentation, all_move_ids, apply_move, move_from_id};
 use std::collections::VecDeque;
 
@@ -40,9 +40,8 @@ impl ReverseBall {
                 relators: [std::mem::take(&mut w0), std::mem::take(&mut w1)],
             };
             for id in all_move_ids() {
-                let successor =
-                    apply_move(&current, &table[id as usize], DEFAULT_N_GEN)
-                        .expect("official moves apply to reduced states");
+                let successor = apply_move(&current, &table[id as usize], DEFAULT_N_GEN)
+                    .expect("official moves apply to reduced states");
                 if store.contains(&successor.relators[0], &successor.relators[1]) {
                     continue;
                 }
@@ -59,9 +58,7 @@ impl ReverseBall {
                     .expect("probed-absent state must insert");
                 queue.push_back(child);
             }
-            let Presentation {
-                relators: [b0, b1],
-            } = current;
+            let Presentation { relators: [b0, b1] } = current;
             w0 = b0;
             w1 = b1;
         }
@@ -105,7 +102,10 @@ impl ReverseBall {
             cur = parent.parent_index;
         }
         path.reverse();
-        path.into_iter().map(|m| inverse[m as usize]).rev().collect()
+        path.into_iter()
+            .map(|m| inverse[m as usize])
+            .rev()
+            .collect()
     }
 }
 
