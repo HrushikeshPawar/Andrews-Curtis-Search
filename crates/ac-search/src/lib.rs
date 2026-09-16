@@ -1,9 +1,11 @@
 //! Search infrastructure. Exact-state BFS over the ordinary AC graph.
-use ac_core::{Certificate, Presentation};
+use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certificate};
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
+#[cfg(test)]
 mod legacy;
+mod search;
 mod store;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -69,11 +71,73 @@ pub struct Parent {
 pub trait ExactStateSolver {
     fn solve(&self, start: &Presentation, limits: &SearchLimits) -> SearchResult;
 }
-/// Exact-state BFS over the official move graph (see module `legacy` for the
-/// traversal contract). Delegates to the dual-storage implementation until
-/// the S2.1 C2 migration replaces it behind this unchanged signature.
+/// Freely reduce a presentation through the trusted kernel, exactly like
+/// `replay_certificate` does on entry, so the root state is canonical.
+pub(crate) fn reduce_presentation(p: &Presentation) -> Result<Presentation, String> {
+    Ok(Presentation {
+        relators: [
+            reduce(&p.relators[0], DEFAULT_N_GEN).map_err(|e| e.0)?,
+            reduce(&p.relators[1], DEFAULT_N_GEN).map_err(|e| e.0)?,
+        ],
+    })
+}
+pub(crate) fn failed(
+    msg: String,
+    mut metrics: SearchMetrics,
+    elapsed: Duration,
+) -> SearchResult {
+    metrics.elapsed = elapsed;
+    SearchResult {
+        status: SearchStatus::Failed(msg),
+        certificate: Vec::new(),
+        certificate_length: None,
+        metrics,
+    }
+}
+/// A run is only reported Solved after its certificate replays to the exact
+/// target through the trusted kernel; a replay mismatch is a loud failure.
+pub(crate) fn solved(
+    root: &Presentation,
+    certificate: Certificate,
+    mut metrics: SearchMetrics,
+    elapsed: Duration,
+) -> SearchResult {
+    metrics.elapsed = elapsed;
+    metrics.replay_ok = replay_certificate(root, &certificate).is_ok();
+    if metrics.replay_ok {
+        SearchResult {
+            status: SearchStatus::Solved,
+            certificate_length: Some(certificate.len()),
+            certificate,
+            metrics,
+        }
+    } else {
+        failed("replay_failed_after_reconstruction".into(), metrics, elapsed)
+    }
+}
+pub(crate) fn limit_reached(mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
+    metrics.elapsed = elapsed;
+    SearchResult {
+        status: SearchStatus::LimitReached,
+        certificate: Vec::new(),
+        certificate_length: None,
+        metrics,
+    }
+}
+pub(crate) fn exhausted(mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
+    metrics.elapsed = elapsed;
+    SearchResult {
+        status: SearchStatus::Exhausted,
+        certificate: Vec::new(),
+        certificate_length: None,
+        metrics,
+    }
+}
+/// Exact-state BFS over the official move graph (see module `search` for the
+/// traversal contract). Delegates to the C2 single-copy implementation; the
+/// legacy dual-storage loop survives under `#[cfg(test)]` as the oracle.
 pub fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> SearchResult {
-    legacy::solve_exact_state_bfs(start, limits)
+    search::solve_exact_state_bfs(start, limits)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -92,8 +156,7 @@ pub struct ExperimentRecord {
 }
 
 #[cfg(test)]
-mod bfs_tests {
-    use super::*;
+mod bfs_tests {use super::*;
     use ac_core::replay_certificate;
 
     fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
@@ -350,5 +413,127 @@ mod bfs_tests {
         // after each pop and reported 735,572; the frozen definition tracks
         // the true peak, which is exactly one higher.
         assert_eq!(result.metrics.max_frontier, 735_573);
+        // Gate 3: the C2 implementation must agree with the legacy oracle on
+        // every gated field (elapsed time excepted).
+        let oracle = super::legacy::solve_exact_state_bfs(
+            &pres(&[-1, 2, 1, -2, -2], &[-1, 2]),
+            &limits,
+        );
+        super::diff_tests::assert_identical(&result, &oracle);
+    }
+}
+
+/// S2.1 migration gate: the C2 implementation must reproduce the legacy
+/// oracle exactly — status, certificate bytes, and every metric except
+/// elapsed wall time (timing is not a semantic).
+#[cfg(test)]
+mod diff_tests {
+    use super::*;
+    use crate::legacy;
+
+    pub(crate) fn assert_identical(c2: &SearchResult, oracle: &SearchResult) {
+        assert_eq!(
+            format!("{:?}", c2.status),
+            format!("{:?}", oracle.status),
+            "status diverged"
+        );
+        assert_eq!(c2.certificate, oracle.certificate, "certificate diverged");
+        assert_eq!(
+            c2.certificate_length, oracle.certificate_length,
+            "certificate_length diverged"
+        );
+        assert_eq!(c2.metrics.expanded, oracle.metrics.expanded, "expanded diverged");
+        assert_eq!(
+            c2.metrics.generated, oracle.metrics.generated,
+            "generated diverged"
+        );
+        assert_eq!(c2.metrics.unique, oracle.metrics.unique, "unique diverged");
+        assert_eq!(
+            c2.metrics.duplicates, oracle.metrics.duplicates,
+            "duplicates diverged"
+        );
+        assert_eq!(
+            c2.metrics.max_frontier, oracle.metrics.max_frontier,
+            "max_frontier diverged"
+        );
+        assert_eq!(
+            c2.metrics.max_depth_seen, oracle.metrics.max_depth_seen,
+            "max_depth_seen diverged"
+        );
+        assert_eq!(
+            c2.metrics.max_total_relator_length, oracle.metrics.max_total_relator_length,
+            "max_total_relator_length diverged"
+        );
+        assert_eq!(
+            c2.metrics.replay_ok, oracle.metrics.replay_ok,
+            "replay_ok diverged"
+        );
+    }
+
+    fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
+        Presentation {
+            relators: [r0.to_vec(), r1.to_vec()],
+        }
+    }
+
+    fn check(start: &Presentation, limits: &SearchLimits) {
+        let c2 = solve_exact_state_bfs(start, limits);
+        let oracle = legacy::solve_exact_state_bfs(start, limits);
+        assert_identical(&c2, &oracle);
+    }
+
+    #[test]
+    fn differential_depth0_and_invalid() {
+        check(&pres(&[1], &[2]), &SearchLimits::default());
+        check(&pres(&[1, 2, -2], &[2]), &SearchLimits::default());
+        check(&pres(&[3], &[2]), &SearchLimits::default());
+        check(&pres(&[], &[]), &SearchLimits::default());
+    }
+
+    #[test]
+    fn differential_single_move_fixtures() {
+        check(&pres(&[1, 2], &[2]), &SearchLimits::default());
+        check(&pres(&[1], &[2, 1]), &SearchLimits::default());
+        check(&pres(&[1], &[2, -1]), &SearchLimits::default());
+    }
+
+    #[test]
+    fn differential_back_2_and_back_4() {
+        check(
+            &pres(&[-2, 1, 2], &[1, 2, -1]),
+            &SearchLimits::default(),
+        );
+        check(&pres(&[-1, -2], &[-1, -2, 1]), &SearchLimits::default());
+    }
+
+    #[test]
+    fn differential_back_4_under_limits() {
+        check(
+            &pres(&[-1, -2], &[-1, -2, 1]),
+            &SearchLimits {
+                max_expanded: Some(50),
+                max_depth: None,
+                max_total_relator_length: None,
+                max_work: None,
+            },
+        );
+        check(
+            &pres(&[-1, -2], &[-1, -2, 1]),
+            &SearchLimits {
+                max_expanded: None,
+                max_depth: None,
+                max_total_relator_length: None,
+                max_work: Some(705),
+            },
+        );
+        check(
+            &pres(&[-1, -2], &[-1, -2, 1]),
+            &SearchLimits {
+                max_expanded: None,
+                max_depth: Some(2),
+                max_total_relator_length: None,
+                max_work: None,
+            },
+        );
     }
 }

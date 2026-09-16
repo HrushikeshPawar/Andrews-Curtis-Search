@@ -18,7 +18,7 @@
 use super::Parent;
 use hashbrown::HashTable;
 use std::collections::hash_map::RandomState;
-use std::hash::{BuildHasher, Hash};
+use std::hash::BuildHasher;
 
 pub(crate) type StateId = u32;
 
@@ -35,7 +35,6 @@ pub(crate) struct StateStore {
     visited: HashTable<StateId>,
     build: RandomState,
     scratch: Vec<u8>,
-    decode: (Vec<i8>, Vec<i8>),
 }
 
 fn pack_into(buf: &mut Vec<u8>, r0: &[i8], r1: &[i8]) {
@@ -81,11 +80,11 @@ impl StateStore {
             visited: HashTable::new(),
             build: RandomState::new(),
             scratch: Vec::new(),
-            decode: (Vec::new(), Vec::new()),
         }
     }
 
-    /// Distinct states stored (== next discovery id).
+    /// Distinct states stored (== next discovery id). Test observability.
+    #[cfg(test)]
     pub(crate) fn len(&self) -> u32 {
         self.handles.len() as u32
     }
@@ -101,6 +100,18 @@ impl StateStore {
         self.chunks[idx][off..off + bytes.len()].copy_from_slice(bytes);
         self.used += bytes.len();
         ((idx as u64) << 32) | off as u64
+    }
+
+    /// Membership probe without inserting. Packs the candidate into the
+    /// scratch buffer and tests it against the visited table.
+    pub(crate) fn contains(&mut self, r0: &[i8], r1: &[i8]) -> bool {
+        pack_into(&mut self.scratch, r0, r1);
+        let hash = hash_bytes(&self.build, &self.scratch);
+        self.visited
+            .find(hash, |&id| {
+                record_of(&self.chunks, self.handles[id as usize]) == self.scratch.as_slice()
+            })
+            .is_some()
     }
 
     /// First-visit-wins insert. `None` if the exact state is already stored
@@ -140,11 +151,10 @@ impl StateStore {
         Some(id)
     }
 
-    /// Borrow a state's exact words through the reused decode buffers.
-    pub(crate) fn with_state<R>(&mut self, id: StateId, f: impl FnOnce(&[i8], &[i8]) -> R) -> R {
-        let record = record_of(&self.chunks, self.handles[id as usize]);
-        decode_into(&mut self.decode.0, &mut self.decode.1, record);
-        f(&self.decode.0, &self.decode.1)
+    /// Decode a state into caller-owned buffers (capacity reused across
+    /// calls). The hot expansion path: no allocation per popped state.
+    pub(crate) fn copy_state(&self, id: StateId, out0: &mut Vec<i8>, out1: &mut Vec<i8>) {
+        decode_into(out0, out1, record_of(&self.chunks, self.handles[id as usize]));
     }
 
     pub(crate) fn parent(&self, id: StateId) -> Option<Parent> {
@@ -216,12 +226,11 @@ mod store_tests {
         assert_eq!(store.len(), 1);
         assert_eq!(insert(&mut store, &[2], &[1]), Some(1));
         assert_eq!(store.len(), 2);
-        store.with_state(0, |r0, r1| {
-            assert_eq!((r0, r1), (&[1][..], &[2][..]));
-        });
-        store.with_state(1, |r0, r1| {
-            assert_eq!((r0, r1), (&[2][..], &[1][..]));
-        });
+        let (mut o0, mut o1) = (Vec::new(), Vec::new());
+        store.copy_state(0, &mut o0, &mut o1);
+        assert_eq!((&o0, &o1), (&vec![1], &vec![2]));
+        store.copy_state(1, &mut o0, &mut o1);
+        assert_eq!((&o0, &o1), (&vec![2], &vec![1]));
     }
 
     #[test]
@@ -251,6 +260,21 @@ mod store_tests {
             })
         );
         assert_eq!(store.depth(child), 1);
+    }
+
+    #[test]
+    fn copy_state_decodes_into_caller_buffers() {
+        let mut store = StateStore::new();
+        insert(&mut store, &[-1, 2, 1, -2, -2], &[-1, 2]);
+        insert(&mut store, &[1], &[2]);
+        let (mut o0, mut o1) = (Vec::new(), Vec::new());
+        store.copy_state(0, &mut o0, &mut o1);
+        assert_eq!((&o0, &o1), (&vec![-1, 2, 1, -2, -2], &vec![-1, 2]));
+        let cap = (o0.capacity(), o1.capacity());
+        store.copy_state(1, &mut o0, &mut o1);
+        assert_eq!((&o0, &o1), (&vec![1], &vec![2]));
+        // Buffers are reused, not reallocated, across calls.
+        assert!(o0.capacity() >= cap.0 && o1.capacity() >= cap.1);
     }
 
     #[test]
