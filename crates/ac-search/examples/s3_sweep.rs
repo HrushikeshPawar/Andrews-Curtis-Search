@@ -1,10 +1,11 @@
 //! S3 portfolio sweep: every solver × every budget tier over the official
 //! training instances or the scored competition corpus. Benchmark plumbing.
 //!
-//! Usage: `s3_sweep [shard shards solver budget source tag]`
+//! Usage: `s3_sweep [shard shards solver budget source tag idfile]`
 //!   solver: bfs | greedy | beam4 | beam16 | beam64   (default: greedy)
 //!   budget: small | medium | large                   (default: large)
 //!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
+//!   idfile: optional JSON array of challenge ids to restrict the run
 //! Each shard writes CaseReport records (+ certificates) into `results/`.
 use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_core::Presentation;
@@ -50,6 +51,9 @@ fn main() -> Result<(), String> {
     let budget = parse_budget(args.next());
     let source = args.next().unwrap_or_else(|| "train".to_string());
     let tag = args.next().unwrap_or_else(|| "s3".to_string());
+    let wanted: Option<std::collections::HashSet<String>> = args
+        .next()
+        .map(|p| serde_json::from_str(&std::fs::read_to_string(p).unwrap()).unwrap());
     struct Item {
         id: String,
         official: Option<usize>,
@@ -64,6 +68,7 @@ fn main() -> Result<(), String> {
             let manifest = PathBuf::from(root).join("competition/tools/verifier/data/manifest.json");
             load_manifest(&manifest)?
                 .into_iter()
+                .filter(|c| wanted.as_ref().is_none_or(|w| w.contains(&c.challenge_id)))
                 .enumerate()
                 .filter(|(i, _)| i % shards == shard)
                 .map(|(_, c)| Item {
@@ -78,6 +83,7 @@ fn main() -> Result<(), String> {
             let items: Vec<TrainingInstance> = load_training(root.join("examples/training_424.json"))?;
             items
                 .into_iter()
+                .filter(|item| wanted.as_ref().is_none_or(|w| w.contains(&item.training_id)))
                 .enumerate()
                 .filter(|(i, _)| i % shards == shard)
                 .map(|(_, item)| Item {
