@@ -1,11 +1,13 @@
 //! S3 portfolio sweep: every solver × every budget tier over the official
-//! 424 training instances. Local benchmark plumbing only.
+//! training instances or the scored competition corpus. Benchmark plumbing.
 //!
-//! Usage: `s3_sweep [shard shards solver budget max_official tag]`
+//! Usage: `s3_sweep [shard shards solver budget source tag]`
 //!   solver: bfs | greedy | beam4 | beam16 | beam64   (default: greedy)
 //!   budget: small | medium | large                   (default: large)
+//!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
 //! Each shard writes CaseReport records (+ certificates) into `results/`.
-use ac_core::data::load_training;
+use ac_core::data::{TrainingInstance, load_manifest, load_training};
+use ac_core::Presentation;
 use ac_search::{Budget, CaseReport, SearchLimits, SearchStatus};
 use ac_search::{solve_beam, solve_exact_state_bfs, solve_length_greedy};
 use serde::Serialize;
@@ -14,7 +16,8 @@ use std::path::PathBuf;
 #[derive(Serialize)]
 struct Row {
     training_id: String,
-    official_length: usize,
+    official_length: Option<usize>,
+    start_length: usize,
     #[serde(flatten)]
     report: CaseReport,
     certificate: Vec<u8>,
@@ -45,29 +48,58 @@ fn main() -> Result<(), String> {
     let shards = args.next().and_then(|s| s.parse().ok()).unwrap_or(1).max(1);
     let solver = args.next().unwrap_or_else(|| "greedy".to_string());
     let budget = parse_budget(args.next());
-    let max_official = args.next().and_then(|s| s.parse().ok()).unwrap_or(0);
+    let source = args.next().unwrap_or_else(|| "train".to_string());
     let tag = args.next().unwrap_or_else(|| "s3".to_string());
-    let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
-    let instances = load_training(root.join("examples/training_424.json"))?;
-    let selected: Vec<_> = instances
-        .into_iter()
-        .enumerate()
-        .filter(|(i, _)| i % shards == shard)
-        .filter(|(_, item)| max_official == 0 || item.length <= max_official)
-        .map(|(_, item)| item)
-        .collect();
+    struct Item {
+        id: String,
+        official: Option<usize>,
+        start: Presentation,
+    }
+    let selected: Vec<Item> = match source.as_str() {
+        "scored" => {
+            let root = std::env::var("SAIR_ACC_ROOT").map_err(|_| {
+                "source=scored needs SAIR_ACC_ROOT pointing at the official SAIR checkout"
+                    .to_string()
+            })?;
+            let manifest = PathBuf::from(root).join("competition/tools/verifier/data/manifest.json");
+            load_manifest(&manifest)?
+                .into_iter()
+                .enumerate()
+                .filter(|(i, _)| i % shards == shard)
+                .map(|(_, c)| Item {
+                    id: c.challenge_id.clone(),
+                    official: None,
+                    start: c.presentation(),
+                })
+                .collect()
+        }
+        _ => {
+            let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
+            let items: Vec<TrainingInstance> = load_training(root.join("examples/training_424.json"))?;
+            items
+                .into_iter()
+                .enumerate()
+                .filter(|(i, _)| i % shards == shard)
+                .map(|(_, item)| Item {
+                    id: item.training_id.clone(),
+                    official: Some(item.length),
+                    start: item.presentation(),
+                })
+                .collect()
+        }
+    };
     let limits = SearchLimits {
         max_expanded: None,
         max_depth: None,
         max_total_relator_length: Some(10_000),
         max_work: Some(budget.max_generated()),
     };
-    let solve = |item: &ac_core::data::TrainingInstance| match solver.as_str() {
-        "bfs" => solve_exact_state_bfs(&item.presentation(), &limits),
-        "greedy" => solve_length_greedy(&item.presentation(), &limits),
-        "beam4" => solve_beam(&item.presentation(), &limits, 4),
-        "beam16" => solve_beam(&item.presentation(), &limits, 16),
-        "beam64" => solve_beam(&item.presentation(), &limits, 64),
+    let solve = |start: &Presentation| match solver.as_str() {
+        "bfs" => solve_exact_state_bfs(start, &limits),
+        "greedy" => solve_length_greedy(start, &limits),
+        "beam4" => solve_beam(start, &limits, 4),
+        "beam16" => solve_beam(start, &limits, 16),
+        "beam64" => solve_beam(start, &limits, 64),
         other => panic!("unknown solver {other}"),
     };
 fn solver_name(s: &str) -> &str {
@@ -81,20 +113,20 @@ fn solver_name(s: &str) -> &str {
     let mut rows = Vec::with_capacity(selected.len());
     let t0 = std::time::Instant::now();
     for item in &selected {
-        let result = solve(item);
+        let result = solve(&item.start);
         let status = match &result.status {
             SearchStatus::Solved => "solved",
             SearchStatus::Exhausted => "exhausted",
             SearchStatus::LimitReached => "limit",
             SearchStatus::Unimplemented => "unimplemented",
             SearchStatus::Failed(msg) => {
-                return Err(format!("{} failed: {msg}", item.training_id));
+                return Err(format!("{} failed: {msg}", item.id));
             }
         };
         println!(
-            "{} official_len={} {} cert_len={:?} gen={} uniq={} ms={}",
-            item.training_id,
-            item.length,
+            "{} start_len={} {} cert_len={:?} gen={} uniq={} ms={}",
+            item.id,
+            item.start.total_relator_length(),
             status,
             result.certificate_length,
             result.metrics.generated,
@@ -102,12 +134,13 @@ fn solver_name(s: &str) -> &str {
             result.metrics.elapsed.as_millis(),
         );
         rows.push(Row {
-            training_id: item.training_id.clone(),
-            official_length: item.length,
+            training_id: item.id.clone(),
+            official_length: item.official,
+            start_length: item.start.total_relator_length(),
             report: CaseReport::from_result(
                 solver_name(&solver),
                 budget,
-                item.training_id.clone(),
+                item.id.clone(),
                 &result,
             ),
             certificate: result.certificate.clone(),
@@ -127,12 +160,16 @@ fn solver_name(s: &str) -> &str {
     std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
     let name = if shards > 1 {
         format!(
-            "s3_{tag}_{}_{}_shard_{shard}.json",
+            "s3_{tag}_{source}_{}_{}_shard_{shard}.json",
             solver_name(&solver),
             budget.name()
         )
     } else {
-        format!("s3_{tag}_{}_{}.json", solver_name(&solver), budget.name())
+        format!(
+            "s3_{tag}_{source}_{}_{}.json",
+            solver_name(&solver),
+            budget.name()
+        )
     };
     std::fs::write(
         out.join(name),
