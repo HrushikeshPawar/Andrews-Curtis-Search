@@ -11,7 +11,7 @@ use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_core::Presentation;
 use ac_search::{
     load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs, solve_length_greedy,
-    Budget, CaseReport, GoalBank, SearchLimits, SearchResult, SearchStatus,
+    Budget, CaseReport, GoalBank, ReverseBall, SearchLimits, SearchResult, SearchStatus,
 };
 use serde::Serialize;
 use std::path::PathBuf;
@@ -22,6 +22,8 @@ struct Row {
     official_length: Option<usize>,
     start_length: usize,
     via_bank: bool,
+    via_ball: bool,
+    ball_hit_depth: Option<u32>,
     #[serde(flatten)]
     report: CaseReport,
     certificate: Vec<u8>,
@@ -140,11 +142,33 @@ fn main() -> Result<(), String> {
     } else {
         None
     };
-    let solve = |start: &Presentation| -> (SearchResult, bool) {
+    // S4.1c: the reverse ball (depth 7, ~2.85M states) is built once per
+    // process for the combined solver; measured before committing to 7.
+    let mut ball: Option<ReverseBall> = if solver.as_str() == "atlas2" {
+        let ball = ReverseBall::build(7);
+        eprintln!("ball built: {} states at depth {}", ball.len(), ball.max_depth());
+        Some(ball)
+    } else {
+        None
+    };
+    let mut solve = |start: &Presentation| -> (SearchResult, bool, bool, Option<u32>) {
+        // Fresh solvers report no bank/ball provenance.
+        let no_probe = |result: SearchResult| (result, false, false, None);
         if solver.as_str() == "atlas" {
-            let outcome = solve_bank_greedy(start, &limits, bank.as_ref().expect("bank built"));
+            let outcome =
+                solve_bank_greedy(start, &limits, bank.as_ref().expect("bank built"), None);
             let via = outcome.via_bank;
-            (outcome.result, via)
+            (outcome.result, via, false, None)
+        } else if solver.as_str() == "atlas2" {
+            let outcome = solve_bank_greedy(
+                start,
+                &limits,
+                bank.as_ref().expect("bank built"),
+                Some(ball.as_mut().expect("ball built")),
+            );
+            let (via_bank, via_ball, depth) =
+                (outcome.via_bank, outcome.via_ball, outcome.ball_hit_depth);
+            (outcome.result, via_bank, via_ball, depth)
         } else {
             let result = match solver.as_str() {
                 "bfs" => solve_exact_state_bfs(start, &limits),
@@ -154,7 +178,7 @@ fn main() -> Result<(), String> {
                 "beam64" => solve_beam(start, &limits, 64),
                 other => panic!("unknown solver {other}"),
             };
-            (result, false)
+            no_probe(result)
         }
     };
 fn solver_name(s: &str) -> &str {
@@ -168,7 +192,7 @@ fn solver_name(s: &str) -> &str {
     let mut rows = Vec::with_capacity(selected.len());
     let t0 = std::time::Instant::now();
     for item in &selected {
-        let (result, via_bank) = solve(&item.start);
+        let (result, via_bank, via_ball, ball_hit_depth) = solve(&item.start);
         let status = match &result.status {
             SearchStatus::Solved => "solved",
             SearchStatus::Exhausted => "exhausted",
@@ -193,6 +217,8 @@ fn solver_name(s: &str) -> &str {
             official_length: item.official,
             start_length: item.start.total_relator_length(),
             via_bank,
+            via_ball,
+            ball_hit_depth,
             report: CaseReport::from_result(
                 solver_name(&solver),
                 budget,

@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
 mod atlas_search;
+mod ball;
 mod beam;
 mod goalbank;
 mod greedy;
@@ -14,6 +15,7 @@ mod store;
 pub use portfolio::{Budget, CaseReport, load_submission};
 
 pub use atlas_search::AtlasOutcome;
+pub use ball::ReverseBall;
 pub use goalbank::GoalBank;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -168,13 +170,15 @@ pub fn solve_beam(
     beam::solve_beam(start, limits, width)
 }
 /// Bank-probing greedy with immediate-inverse pruning (see module
-/// `atlas_search`): S4.1 experiment only, not a frozen solver.
+/// `atlas_search`): S4.1 experiment only, not a frozen solver. With `ball`,
+/// reverse-ball hits compete with bank hits by shorter completion.
 pub fn solve_bank_greedy(
     start: &Presentation,
     limits: &SearchLimits,
     bank: &GoalBank,
+    ball: Option<&mut ReverseBall>,
 ) -> atlas_search::AtlasOutcome {
-    atlas_search::solve_bank_greedy(start, limits, bank)
+    atlas_search::solve_bank_greedy(start, limits, bank, ball)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -719,9 +723,12 @@ mod atlas_tests {
             &pres(&[1, 2], &[2]),
             &SearchLimits::default(),
             &xy_bank(),
+            None,
         );
         assert!(matches!(outcome.result.status, SearchStatus::Solved));
         assert!(outcome.via_bank);
+        assert!(!outcome.via_ball);
+        assert_eq!(outcome.ball_hit_depth, None);
         assert_eq!(outcome.result.certificate, vec![3]);
         assert_eq!(outcome.result.certificate_length, Some(1));
         assert!(outcome.result.metrics.replay_ok);
@@ -738,9 +745,11 @@ mod atlas_tests {
             &pres(&[1, 2, 2], &[2]),
             &SearchLimits::default(),
             &xy_bank(),
+            None,
         );
         assert!(matches!(outcome.result.status, SearchStatus::Solved));
         assert!(outcome.via_bank);
+        assert!(!outcome.via_ball);
         assert_eq!(outcome.result.certificate, vec![3, 3]);
         assert_eq!(outcome.result.certificate_length, Some(2));
         assert!(outcome.result.metrics.replay_ok);
@@ -750,16 +759,39 @@ mod atlas_tests {
     }
 
     #[test]
+    fn ball_hit_prefers_the_optimal_suffix() {
+        // P=[[1,2,2],[2]] with an empty bank and ball-2: the 4th generated
+        // successor s0 sits in the ball at depth 1, so cert [3,3] wins via
+        // the ball with recorded depth 1.
+        let mut ball = ReverseBall::build(2);
+        let outcome = solve_bank_greedy(
+            &pres(&[1, 2, 2], &[2]),
+            &SearchLimits::default(),
+            &GoalBank::new(),
+            Some(&mut ball),
+        );
+        assert!(matches!(outcome.result.status, SearchStatus::Solved));
+        assert!(!outcome.via_bank);
+        assert!(outcome.via_ball);
+        assert_eq!(outcome.ball_hit_depth, Some(1));
+        assert_eq!(outcome.result.certificate, vec![3, 3]);
+        assert_eq!(outcome.result.certificate_length, Some(2));
+        assert!(outcome.result.metrics.replay_ok);
+        assert_eq!(outcome.result.metrics.generated, 4);
+    }
+
+    #[test]
     fn empty_bank_matches_greedy_modulo_pruned_edges() {
         // With nothing banked, inverse pruning removes only certain
         // duplicates: same traversal, fewer generated/dups, and the
         // difference is exactly the pruned edges.
         let start = pres(&[-1, -2], &[-1, -2, 1]);
         let empty = GoalBank::new();
-        let a = solve_bank_greedy(&start, &SearchLimits::default(), &empty);
-        let b = solve_bank_greedy(&start, &SearchLimits::default(), &empty);
+        let a = solve_bank_greedy(&start, &SearchLimits::default(), &empty, None);
+        let b = solve_bank_greedy(&start, &SearchLimits::default(), &empty, None);
         let g = solve_length_greedy(&start, &SearchLimits::default());
         assert!(!a.via_bank);
+        assert!(!a.via_ball);
         for x in [&a.result, &b.result] {
             assert_eq!(format!("{:?}", x.status), format!("{:?}", g.status));
             assert_eq!(x.certificate, g.certificate);

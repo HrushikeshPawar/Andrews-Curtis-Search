@@ -83,8 +83,7 @@ impl StateStore {
         }
     }
 
-    /// Distinct states stored (== next discovery id). Test observability.
-    #[cfg(test)]
+    /// Distinct states stored (== next discovery id).
     pub(crate) fn len(&self) -> u32 {
         self.handles.len() as u32
     }
@@ -105,13 +104,19 @@ impl StateStore {
     /// Membership probe without inserting. Packs the candidate into the
     /// scratch buffer and tests it against the visited table.
     pub(crate) fn contains(&mut self, r0: &[i8], r1: &[i8]) -> bool {
+        self.find(r0, r1).is_some()
+    }
+
+    /// Lookup without inserting: the `StateId` of the stored exact state,
+    /// or `None` if absent.
+    pub(crate) fn find(&mut self, r0: &[i8], r1: &[i8]) -> Option<StateId> {
         pack_into(&mut self.scratch, r0, r1);
         let hash = hash_bytes(&self.build, &self.scratch);
         self.visited
             .find(hash, |&id| {
                 record_of(&self.chunks, self.handles[id as usize]) == self.scratch.as_slice()
             })
-            .is_some()
+            .copied()
     }
 
     /// First-visit-wins insert. `None` if the exact state is already stored

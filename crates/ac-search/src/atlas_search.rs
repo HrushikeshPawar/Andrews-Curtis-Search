@@ -16,9 +16,10 @@
 //! Frozen `greedy`/`beam`/`search` semantics are untouched; this module is
 //! the S4.1 measurement vehicle only.
 
+use super::ball::ReverseBall;
 use super::goalbank::GoalBank;
 use super::greedy::HeapItem;
-use super::store::{StateStore, reconstruct};
+use super::store::{StateId, StateStore, reconstruct};
 use super::{Parent, SearchLimits, SearchMetrics, SearchResult};
 use super::{exhausted, failed, limit_reached, reduce_presentation, solved};
 use ac_core::{
@@ -28,14 +29,17 @@ use ac_core::{
 use std::collections::BinaryHeap;
 use std::time::Instant;
 
-/// Outcome of a bank-probing run: the standard result plus whether the
-/// winning certificate came through the bank (`false` = exact target).
+/// Outcome of a bank-probing run: the standard result, whether the winning
+/// certificate came through the atlas bank or the reverse ball (`false` for
+/// both = exact target), and the ball-hit depth when applicable.
 pub struct AtlasOutcome {
     pub result: SearchResult,
     pub via_bank: bool,
+    pub via_ball: bool,
+    pub ball_hit_depth: Option<u32>,
 }
 
-fn inverse_table() -> [u8; 14] {
+pub(crate) fn inverse_table() -> [u8; 14] {
     core::array::from_fn(|i| {
         let mv = move_from_id(i as u8).expect("ids 0..=13 are pinned");
         let inv = inverse_move(&mv).expect("every official move inverts");
@@ -47,12 +51,27 @@ pub(crate) fn solve_bank_greedy(
     start: &Presentation,
     limits: &SearchLimits,
     bank: &GoalBank,
+    mut ball: Option<&mut ReverseBall>,
 ) -> AtlasOutcome {
-    let done = |result: SearchResult, via_bank: bool| AtlasOutcome { result, via_bank };
+    let done = |result: SearchResult, via_bank: bool, via_ball: bool, ball_hit_depth: Option<u32>| {
+        AtlasOutcome {
+            result,
+            via_bank,
+            via_ball,
+            ball_hit_depth,
+        }
+    };
     let t0 = Instant::now();
     let root = match reduce_presentation(start) {
         Ok(root) => root,
-        Err(msg) => return done(failed(msg, SearchMetrics::default(), t0.elapsed()), false),
+        Err(msg) => {
+            return done(
+                failed(msg, SearchMetrics::default(), t0.elapsed()),
+                false,
+                false,
+                None,
+            );
+        }
     };
     let mut metrics = SearchMetrics {
         max_total_relator_length: root.total_relator_length(),
@@ -61,14 +80,23 @@ pub(crate) fn solve_bank_greedy(
     // The initial state may already be the exact target: solved, no expansion.
     if is_ac_target(&root) {
         metrics.unique = 1;
-        return done(solved(&root, Vec::new(), metrics, t0.elapsed()), false);
+        return done(
+            solved(&root, Vec::new(), metrics, t0.elapsed()),
+            false,
+            false,
+            None,
+        );
     }
-    // A banked start already knows a suffix: no expansion needed.
+    // A banked start already knows a suffix: no expansion needed. (The ball
+    // holds the root with the empty suffix, but the exact-target check above
+    // already covers that case.)
     if let Some(suffix) = bank.suffix(&root) {
         metrics.unique = 1;
         return done(
             solved(&root, suffix.to_vec(), metrics, t0.elapsed()),
             true,
+            false,
+            None,
         );
     }
     // Seed the store and the heap with the root (id 0).
@@ -97,7 +125,7 @@ pub(crate) fn solve_bank_greedy(
             .max_expanded
             .is_some_and(|cap| metrics.expanded >= cap)
         {
-            return done(limit_reached(metrics, t0.elapsed()), false);
+            return done(limit_reached(metrics, t0.elapsed()), false, false, None);
         }
         let depth = store.depth(item.id);
         // The edge back to the producer is a certain duplicate: skip it
@@ -117,12 +145,14 @@ pub(crate) fn solve_bank_greedy(
                 .max_work
                 .is_some_and(|cap| metrics.generated >= cap)
             {
-                return done(limit_reached(metrics, t0.elapsed()), false);
+                return done(limit_reached(metrics, t0.elapsed()), false, false, None);
             }
             let successor =
                 match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
                     Ok(p) => p,
-                    Err(e) => return done(failed(e.0, metrics, t0.elapsed()), false),
+                    Err(e) => {
+                        return done(failed(e.0, metrics, t0.elapsed()), false, false, None);
+                    }
                 };
             metrics.generated += 1;
             let length = successor.total_relator_length();
@@ -161,13 +191,50 @@ pub(crate) fn solve_bank_greedy(
             // Exact target first: suffix-0 is always the shortest completion.
             if is_ac_target(&successor) {
                 let certificate = reconstruct(&store, child);
-                return done(solved(&root, certificate, metrics, t0.elapsed()), false);
+                return done(
+                    solved(&root, certificate, metrics, t0.elapsed()),
+                    false,
+                    false,
+                    None,
+                );
             }
-            // Bank hit: complete with the stored suffix and return at once.
+            // Known-suffix hits: the atlas bank and the reverse ball are
+            // both exact, so the shorter completion wins (ties go to the
+            // ball: its suffix is optimal by construction). Either way the
+            // run returns at once with a fully replay-gated certificate.
+            let bank_len = bank.suffix(&successor).map(<[u8]>::len);
+            let ball_hit: Option<(StateId, u32)> = match ball.as_mut() {
+                Some(b) => b
+                    .lookup(&successor.relators[0], &successor.relators[1])
+                    .map(|hid| (hid, b.depth(hid))),
+                None => None,
+            };
+            let use_ball = match (bank_len, ball_hit) {
+                (Some(a), Some((_, b))) => (b as usize) <= a,
+                (None, Some(_)) => true,
+                _ => false,
+            };
+            if use_ball {
+                let (hid, depth) = ball_hit.expect("selected ball path");
+                let suffix = ball.as_ref().expect("ball probed above").suffix(hid);
+                let mut certificate = reconstruct(&store, child);
+                certificate.extend_from_slice(&suffix);
+                return done(
+                    solved(&root, certificate, metrics, t0.elapsed()),
+                    false,
+                    true,
+                    Some(depth),
+                );
+            }
             if let Some(suffix) = bank.suffix(&successor) {
                 let mut certificate = reconstruct(&store, child);
                 certificate.extend_from_slice(suffix);
-                return done(solved(&root, certificate, metrics, t0.elapsed()), true);
+                return done(
+                    solved(&root, certificate, metrics, t0.elapsed()),
+                    true,
+                    false,
+                    None,
+                );
             }
             heap.push(HeapItem {
                 length,
@@ -189,8 +256,8 @@ pub(crate) fn solve_bank_greedy(
     }
     // The frontier drained. Exhausted only if no limit ever cut the graph.
     if pruned {
-        done(limit_reached(metrics, t0.elapsed()), false)
+        done(limit_reached(metrics, t0.elapsed()), false, false, None)
     } else {
-        done(exhausted(metrics, t0.elapsed()), false)
+        done(exhausted(metrics, t0.elapsed()), false, false, None)
     }
 }
