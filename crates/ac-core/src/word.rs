@@ -5,7 +5,7 @@ pub const DEFAULT_N_GEN: i8 = 2;
 pub type Letter = i8;
 pub type Word = Vec<Letter>;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Hash)]
 pub struct Presentation {
     pub relators: [Word; 2],
 }
