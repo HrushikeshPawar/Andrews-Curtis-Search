@@ -9,8 +9,10 @@
 //! Each shard writes CaseReport records (+ certificates) into `results/`.
 use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_core::Presentation;
-use ac_search::{Budget, CaseReport, SearchLimits, SearchStatus};
-use ac_search::{solve_beam, solve_exact_state_bfs, solve_length_greedy};
+use ac_search::{
+    load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs, solve_length_greedy,
+    Budget, CaseReport, GoalBank, SearchLimits, SearchResult, SearchStatus,
+};
 use serde::Serialize;
 use std::path::PathBuf;
 
@@ -19,6 +21,7 @@ struct Row {
     training_id: String,
     official_length: Option<usize>,
     start_length: usize,
+    via_bank: bool,
     #[serde(flatten)]
     report: CaseReport,
     certificate: Vec<u8>,
@@ -100,13 +103,59 @@ fn main() -> Result<(), String> {
         max_total_relator_length: Some(10_000),
         max_work: Some(budget.max_generated()),
     };
-    let solve = |start: &Presentation| match solver.as_str() {
-        "bfs" => solve_exact_state_bfs(start, &limits),
-        "greedy" => solve_length_greedy(start, &limits),
-        "beam4" => solve_beam(start, &limits, 4),
-        "beam16" => solve_beam(start, &limits, 16),
-        "beam64" => solve_beam(start, &limits, 64),
-        other => panic!("unknown solver {other}"),
+    // S4.1: the atlas solver needs the goal bank (1238 verified
+    // trajectories) built once up front; per-case starts come from the
+    // same loaders as `selected` above.
+    let bank: Option<GoalBank> = if solver.as_str() == "atlas" {
+        use std::collections::HashMap;
+        let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+        let mut starts: HashMap<String, Presentation> = HashMap::new();
+        for item in load_training(repo.join("vendor/sair/examples/training_424.json"))? {
+            starts.insert(item.training_id.clone(), item.presentation());
+        }
+        let sair = std::env::var("SAIR_ACC_ROOT").map_err(|_| {
+            "solver=atlas needs SAIR_ACC_ROOT pointing at the official SAIR checkout".to_string()
+        })?;
+        for c in load_manifest(
+            PathBuf::from(sair).join("competition/tools/verifier/data/manifest.json"),
+        )? {
+            starts.insert(c.challenge_id.clone(), c.presentation());
+        }
+        let mut bank = GoalBank::new();
+        for name in [
+            "results/s3_403_submission.txt",
+            "results/bfs_21_submission.txt",
+            "results/s31_814_a.txt",
+            "results/s31_814_b.txt",
+        ] {
+            for (id, cert) in load_submission(&repo.join(name))? {
+                let start = starts
+                    .get(&id)
+                    .ok_or_else(|| format!("unknown challenge {id}"))?;
+                bank.insert_certificate(start, &cert)?;
+            }
+        }
+        eprintln!("bank built: {} states", bank.len());
+        Some(bank)
+    } else {
+        None
+    };
+    let solve = |start: &Presentation| -> (SearchResult, bool) {
+        if solver.as_str() == "atlas" {
+            let outcome = solve_bank_greedy(start, &limits, bank.as_ref().expect("bank built"));
+            let via = outcome.via_bank;
+            (outcome.result, via)
+        } else {
+            let result = match solver.as_str() {
+                "bfs" => solve_exact_state_bfs(start, &limits),
+                "greedy" => solve_length_greedy(start, &limits),
+                "beam4" => solve_beam(start, &limits, 4),
+                "beam16" => solve_beam(start, &limits, 16),
+                "beam64" => solve_beam(start, &limits, 64),
+                other => panic!("unknown solver {other}"),
+            };
+            (result, false)
+        }
     };
 fn solver_name(s: &str) -> &str {
     match s {
@@ -119,7 +168,7 @@ fn solver_name(s: &str) -> &str {
     let mut rows = Vec::with_capacity(selected.len());
     let t0 = std::time::Instant::now();
     for item in &selected {
-        let result = solve(&item.start);
+        let (result, via_bank) = solve(&item.start);
         let status = match &result.status {
             SearchStatus::Solved => "solved",
             SearchStatus::Exhausted => "exhausted",
@@ -143,6 +192,7 @@ fn solver_name(s: &str) -> &str {
             training_id: item.id.clone(),
             official_length: item.official,
             start_length: item.start.total_relator_length(),
+            via_bank,
             report: CaseReport::from_result(
                 solver_name(&solver),
                 budget,
