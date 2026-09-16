@@ -1,0 +1,9577 @@
+{
+  "buckets_failed": [
+    {
+      "bucket": 10,
+      "mean_qdist": 4.881064162754304,
+      "n": 639,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 15,
+      "mean_qdist": 4.800128265524046,
+      "n": 1110197,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 20,
+      "mean_qdist": 4.73328723955045,
+      "n": 5844606,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 25,
+      "mean_qdist": 4.712627543070604,
+      "n": 4973810,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 30,
+      "mean_qdist": 4.701149355743652,
+      "n": 3470901,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 35,
+      "mean_qdist": 4.635106674076072,
+      "n": 2013657,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 40,
+      "mean_qdist": 4.665056571215676,
+      "n": 917958,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 45,
+      "mean_qdist": 4.619310631490777,
+      "n": 476349,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 50,
+      "mean_qdist": 4.548499865544927,
+      "n": 208248,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 55,
+      "mean_qdist": 4.326067686221086,
+      "n": 107171,
+      "p50_qdist": 4
+    },
+    {
+      "bucket": 60,
+      "mean_qdist": 4.367394530421878,
+      "n": 84906,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 65,
+      "mean_qdist": 4.575713337757134,
+      "n": 22605,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 70,
+      "mean_qdist": 4.999823695345557,
+      "n": 17016,
+      "p50_qdist": 5
+    }
+  ],
+  "buckets_solved_runs": [
+    {
+      "bucket": 10,
+      "mean_qdist": 6.0,
+      "n": 1,
+      "p50_qdist": 6
+    },
+    {
+      "bucket": 15,
+      "mean_qdist": 4.531295824650768,
+      "n": 12957,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 20,
+      "mean_qdist": 4.51619385595485,
+      "n": 46777,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 25,
+      "mean_qdist": 4.612812616332194,
+      "n": 29549,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 30,
+      "mean_qdist": 4.806958671847403,
+      "n": 16986,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 35,
+      "mean_qdist": 5.051853589863914,
+      "n": 4262,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 40,
+      "mean_qdist": 4.880072137060415,
+      "n": 1109,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 45,
+      "mean_qdist": 4.795454545454546,
+      "n": 44,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 50,
+      "mean_qdist": 4.529411764705882,
+      "n": 17,
+      "p50_qdist": 5
+    },
+    {
+      "bucket": 55,
+      "mean_qdist": 4.767441860465116,
+      "n": 43,
+      "p50_qdist": 5
+    }
+  ],
+  "budget_generated": 1000000,
+  "case_rows": [
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00001",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 627594,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00002",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 609143,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00004",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 631523,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00005",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 647906,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00006",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 636468,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00007",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 606482,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00008",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 633052,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00009",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 632996,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00010",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 633144,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00011",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 675673,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00012",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 645515,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00013",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 629478,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00014",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 664762,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00015",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 637913,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00016",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 644117,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00017",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 675651,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00018",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 644406,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00019",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 653391,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00020",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 631809,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00021",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 645413,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00023",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 661873,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00024",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 641245,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00025",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 654285,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00026",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 595057,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00027",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 643132,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 11,
+      "id": "ac-00028",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "solved",
+      "unique": 12,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00029",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 662692,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00030",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 651844,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00031",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 633624,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00033",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 663003,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00035",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 663954,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00036",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 596219,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00037",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 664818,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00038",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 630630,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00039",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 624938,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00040",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 619815,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00041",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 629491,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00042",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 646651,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00043",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 646305,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00044",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 614909,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00045",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 636398,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00046",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 629146,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00048",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 642410,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00050",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 636471,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00051",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 600485,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00052",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 628765,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00053",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 18,
+      "status": "limit",
+      "unique": 640459,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00054",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 631614,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00055",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 649501,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00056",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 639359,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00057",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 638901,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00059",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 644132,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00060",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 600347,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00061",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 669045,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00062",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 624034,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00063",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 637017,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00064",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 669889,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00065",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 662768,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00066",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 626783,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00067",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 630997,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00068",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 643668,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00069",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 622631,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00071",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 651353,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00072",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 600525,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00073",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 649227,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00074",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 637956,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00075",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 652528,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00077",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 629443,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00078",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 625225,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00079",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 626334,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00080",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 645853,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00081",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 622641,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00082",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 625531,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00084",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 639360,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00085",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 656928,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00086",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 644762,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00087",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 643904,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00088",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 655521,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00089",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 594403,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00090",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 633223,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00091",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 636187,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00092",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 647804,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00093",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 638019,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00094",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 632243,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00095",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 631004,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00096",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 632409,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00097",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 648424,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00098",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 649404,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00099",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 660657,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00100",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 639121,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 9,
+      "id": "ac-00101",
+      "solved": true,
+      "start_c2_dist": 4,
+      "start_len": 17,
+      "status": "solved",
+      "unique": 10,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00103",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 662770,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00105",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 616290,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00106",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 672132,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00107",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 635965,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00108",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 661174,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00109",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 589759,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00110",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 638008,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00111",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 677496,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00112",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 646121,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00113",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 646850,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00114",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 649842,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00115",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 652059,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00116",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 18,
+      "status": "limit",
+      "unique": 646524,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00117",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 638858,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00118",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 613955,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00119",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 697099,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00120",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 629522,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00121",
+      "solved": false,
+      "start_c2_dist": 1,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 645348,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00122",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 646037,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00123",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 647606,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00124",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 663501,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00125",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 628137,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00126",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 645767,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00127",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 640113,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00128",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 645826,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00129",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 642459,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00130",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 641093,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00131",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 634490,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00132",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 642302,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00133",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 650740,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00134",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 594102,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 24,
+      "id": "ac-00135",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "solved",
+      "unique": 25,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00136",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 678824,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00137",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 658914,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00138",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 651391,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00139",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 634714,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00140",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 597552,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00141",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 645105,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00142",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 643834,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00143",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 636447,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00144",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 633439,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00146",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 633975,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00148",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 639421,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00149",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 657476,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00151",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 645725,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00152",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 654245,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00153",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 659899,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00154",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 641666,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00155",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 677257,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00156",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 646791,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00157",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 641452,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00158",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 632370,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 311839,
+      "id": "ac-00159",
+      "solved": true,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "solved",
+      "unique": 194880,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00160",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 654373,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00161",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 631846,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00162",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 642803,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00164",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 610049,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00165",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 633745,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00166",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 634346,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00167",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 632518,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00168",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 649195,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00169",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 647656,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 831,
+      "id": "ac-00170",
+      "solved": true,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "solved",
+      "unique": 660,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00173",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 645196,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 542515,
+      "id": "ac-00174",
+      "solved": true,
+      "start_c2_dist": 4,
+      "start_len": 17,
+      "status": "solved",
+      "unique": 357002,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00175",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 638589,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00176",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 641062,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00177",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 644051,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00178",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 601989,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00179",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 593983,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00180",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 647340,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00181",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 662737,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00183",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 15,
+      "status": "limit",
+      "unique": 646542,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00184",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 632175,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00185",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 636019,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00186",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 656168,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00187",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 631169,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00188",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 640010,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00189",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 601049,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00190",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 633451,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00191",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 613625,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00192",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 676999,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00193",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 641310,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00194",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 676022,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00195",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 639534,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1452,
+      "id": "ac-00196",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "solved",
+      "unique": 1088,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00198",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 635442,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00199",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 657319,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00200",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 641997,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00202",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 600308,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00203",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 612260,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00204",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 627263,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00205",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 622881,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00206",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 601057,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00208",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 628694,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00209",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 637221,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00210",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 645495,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00211",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 662898,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00213",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 629696,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00214",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 675590,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00215",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 615248,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00218",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 643512,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00220",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 645268,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00222",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 627129,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00224",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 675292,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00225",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 650491,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00226",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 651017,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00227",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 643853,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00228",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 673215,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00229",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 631398,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00230",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 642237,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00231",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 652030,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 99,
+      "id": "ac-00232",
+      "solved": true,
+      "start_c2_dist": 3,
+      "start_len": 33,
+      "status": "solved",
+      "unique": 100,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 712048,
+      "id": "ac-00234",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "solved",
+      "unique": 464606,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00235",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 669719,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00237",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 641718,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00238",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 610049,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00239",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 642702,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00240",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 651714,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00241",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 638820,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00242",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 662156,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00243",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 668871,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00244",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 647255,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00245",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 634661,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00246",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 637176,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00247",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 608749,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00248",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 597482,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00249",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 636333,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00250",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 644154,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00251",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 648085,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 285,
+      "id": "ac-00252",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "solved",
+      "unique": 240,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00253",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 646942,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00254",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 636579,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00255",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 608219,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00256",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 654409,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00257",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 675947,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00258",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 634881,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 121134,
+      "id": "ac-00259",
+      "solved": true,
+      "start_c2_dist": 6,
+      "start_len": 28,
+      "status": "solved",
+      "unique": 81545,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00260",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 619810,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 2327,
+      "id": "ac-00261",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "solved",
+      "unique": 1704,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00262",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 620843,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00263",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 613869,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00264",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 656290,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00265",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 598028,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00266",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 653843,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 24023,
+      "id": "ac-00267",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "solved",
+      "unique": 17008,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00268",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 636550,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00269",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 622110,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00271",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 619112,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00272",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 641953,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00273",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 18,
+      "status": "limit",
+      "unique": 646228,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00274",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 642750,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00275",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 660813,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00277",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 625435,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00278",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 659720,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00279",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 680700,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00280",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 646769,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00281",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 684718,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00282",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 645134,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00283",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 627379,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00284",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 638322,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00285",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 658343,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00287",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 647406,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00289",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 626139,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00290",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 642810,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00291",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 633122,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00292",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 659815,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00293",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 607289,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00294",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 622356,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00295",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 647430,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00296",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 627878,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00297",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 659596,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00298",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 615694,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00299",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 641282,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00300",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 643912,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00301",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 608201,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00302",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 669076,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00303",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 652634,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00304",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 655078,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00305",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 629508,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00306",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 679035,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00307",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 602994,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00308",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 631232,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00309",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 618596,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00310",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 624927,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00311",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 641808,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00312",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 646623,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00313",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 653572,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00314",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 652256,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00315",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 626446,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00316",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 645686,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 54,
+      "id": "ac-00317",
+      "solved": true,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "solved",
+      "unique": 54,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00319",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 640851,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00320",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 649543,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00321",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 620871,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00322",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 654943,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00323",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 642875,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00324",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 673809,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00325",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 678991,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00326",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 662656,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00327",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 645773,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00328",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 654700,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00329",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 639186,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00330",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 630341,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00332",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 638245,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 7123,
+      "id": "ac-00333",
+      "solved": true,
+      "start_c2_dist": 4,
+      "start_len": 35,
+      "status": "solved",
+      "unique": 5115,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00334",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 654143,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00335",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 592731,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00336",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 616244,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00338",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 647012,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00339",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 601055,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00340",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 642351,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00341",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 622892,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00342",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 645665,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00345",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 631479,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00346",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 665741,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00347",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 661809,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00348",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 634881,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00349",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 650471,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00350",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 647887,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00351",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 627525,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00352",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 622963,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00353",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 645164,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00354",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 623992,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00355",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 629568,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00357",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 631159,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00358",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 631809,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00359",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 628532,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00360",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 623604,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00361",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 621729,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00363",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 615133,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00364",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 663246,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00365",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 694105,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00366",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 37,
+      "status": "limit",
+      "unique": 675368,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00367",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 657048,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00368",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 622736,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00369",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 637965,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00370",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 638569,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00371",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 639013,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00372",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 636989,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00373",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 608508,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00374",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 635193,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00375",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 625419,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00376",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 683570,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 507625,
+      "id": "ac-00377",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "solved",
+      "unique": 331508,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00378",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 679029,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00379",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 647612,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00380",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 633440,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00381",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 662788,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00382",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 629800,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00384",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 626732,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00386",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 630133,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00387",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 636795,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00388",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 633334,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00389",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 657431,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00390",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 625831,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00391",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 655154,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00392",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 650343,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 3016,
+      "id": "ac-00393",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "solved",
+      "unique": 2192,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00394",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 39,
+      "status": "limit",
+      "unique": 646887,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00395",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 635907,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00397",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 624360,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00398",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 656930,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00399",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 13,
+      "status": "limit",
+      "unique": 628956,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00400",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 681759,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00401",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 636309,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00402",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 638756,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00403",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 649490,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00404",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 641170,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00405",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 634650,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00406",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 602313,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00407",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 606572,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00408",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 655864,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00409",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 607661,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00410",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 608319,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00411",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 656463,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00412",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 636928,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00413",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 14,
+      "status": "limit",
+      "unique": 660090,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00414",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 20,
+      "status": "limit",
+      "unique": 662776,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00415",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 633297,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00416",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 632873,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00417",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 622498,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00418",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 648996,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00419",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 37,
+      "status": "limit",
+      "unique": 634959,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00420",
+      "solved": false,
+      "start_c2_dist": 1,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 640048,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00421",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 642154,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00422",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 629413,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00423",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 597305,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00424",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 662982,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00425",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 644604,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00426",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 37,
+      "status": "limit",
+      "unique": 675367,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00427",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 635400,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00429",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 629610,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00430",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 645010,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00431",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 627918,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00432",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 639828,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00433",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 689917,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00434",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 636650,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00436",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 656265,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00437",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 595069,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00438",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 649430,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00439",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 637429,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00440",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 607661,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00441",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 645562,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00443",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 602741,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00444",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 643536,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00445",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 662891,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00446",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 602281,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00447",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 638100,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00448",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 626376,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00449",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 632071,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00450",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 641642,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00451",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 636598,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00452",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 650363,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00453",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 647423,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00454",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 623197,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00455",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 665787,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00456",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 643023,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00457",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 632157,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00458",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 622963,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00459",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 641715,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00460",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 681809,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00461",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 642830,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00462",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 626773,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00463",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 682242,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00464",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 643125,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00465",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 667299,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00466",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 656582,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00467",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 651166,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00468",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 639994,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00469",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 602313,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00470",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 637721,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00471",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 657439,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00472",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 15,
+      "status": "limit",
+      "unique": 641990,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00473",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 645224,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00474",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 18,
+      "status": "limit",
+      "unique": 655004,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00475",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 655270,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00476",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 630869,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00477",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 616101,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 2195,
+      "id": "ac-00478",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "solved",
+      "unique": 1633,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00479",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 662704,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00480",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 639526,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00481",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 605669,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00482",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 629375,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00485",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 639002,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00486",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 685017,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00489",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 629711,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00490",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 648785,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00491",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 16,
+      "status": "limit",
+      "unique": 646939,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00492",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 635366,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00493",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 638182,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00494",
+      "solved": false,
+      "start_c2_dist": 1,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 642637,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00495",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 638981,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00496",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 684576,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00497",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 615617,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00498",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 637961,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00499",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 640455,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00500",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 623276,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00501",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 703020,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00502",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 647386,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00503",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 17,
+      "status": "limit",
+      "unique": 640067,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00504",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 652451,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00505",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 607606,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00506",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 668817,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00507",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 19,
+      "status": "limit",
+      "unique": 615381,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00508",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 648894,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00509",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 30,
+      "status": "limit",
+      "unique": 649237,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00510",
+      "solved": false,
+      "start_c2_dist": 7,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 645418,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00511",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 681115,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00512",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 622579,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00514",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 639432,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00515",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 643587,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00517",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 593569,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00518",
+      "solved": false,
+      "start_c2_dist": 2,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 655404,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00519",
+      "solved": false,
+      "start_c2_dist": 3,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 643553,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00520",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 22,
+      "status": "limit",
+      "unique": 641889,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00521",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 626893,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00522",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 638421,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00523",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 677987,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00524",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 599515,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00525",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 653394,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00526",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 632788,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00527",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 619825,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00528",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 648462,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00529",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 26,
+      "status": "limit",
+      "unique": 627867,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00530",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 647715,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00531",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 656606,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00532",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 23,
+      "status": "limit",
+      "unique": 631597,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00533",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 627601,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 493007,
+      "id": "ac-00534",
+      "solved": true,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "solved",
+      "unique": 328723,
+      "via_ball": false,
+      "via_bank": true
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00535",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 652189,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00536",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 682286,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00537",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 624218,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00538",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 627656,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00539",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 643617,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00540",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 665898,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00542",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 629676,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00543",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 35,
+      "status": "limit",
+      "unique": 628690,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00546",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 32,
+      "status": "limit",
+      "unique": 657368,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00548",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 31,
+      "status": "limit",
+      "unique": 626021,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00549",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 25,
+      "status": "limit",
+      "unique": 641358,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00550",
+      "solved": false,
+      "start_c2_dist": 6,
+      "start_len": 36,
+      "status": "limit",
+      "unique": 634694,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00552",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 27,
+      "status": "limit",
+      "unique": 681131,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00553",
+      "solved": false,
+      "start_c2_dist": 4,
+      "start_len": 24,
+      "status": "limit",
+      "unique": 610777,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00554",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 28,
+      "status": "limit",
+      "unique": 633267,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00555",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 34,
+      "status": "limit",
+      "unique": 641852,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00556",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 21,
+      "status": "limit",
+      "unique": 597480,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00557",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 29,
+      "status": "limit",
+      "unique": 655508,
+      "via_ball": false,
+      "via_bank": false
+    },
+    {
+      "ball_hit_depth": null,
+      "generated": 1000000,
+      "id": "ac-00558",
+      "solved": false,
+      "start_c2_dist": 5,
+      "start_len": 33,
+      "status": "limit",
+      "unique": 663610,
+      "via_ball": false,
+      "via_bank": false
+    }
+  ],
+  "cases": 500,
+  "format_version": 1,
+  "hist_failed": [
+    {
+      "count": 9,
+      "qdist": 3,
+      "total_len": 13
+    },
+    {
+      "count": 17,
+      "qdist": 4,
+      "total_len": 13
+    },
+    {
+      "count": 34,
+      "qdist": 5,
+      "total_len": 13
+    },
+    {
+      "count": 3,
+      "qdist": 6,
+      "total_len": 13
+    },
+    {
+      "count": 6,
+      "qdist": 2,
+      "total_len": 14
+    },
+    {
+      "count": 27,
+      "qdist": 3,
+      "total_len": 14
+    },
+    {
+      "count": 113,
+      "qdist": 4,
+      "total_len": 14
+    },
+    {
+      "count": 289,
+      "qdist": 5,
+      "total_len": 14
+    },
+    {
+      "count": 141,
+      "qdist": 6,
+      "total_len": 14
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 15
+    },
+    {
+      "count": 9,
+      "qdist": 1,
+      "total_len": 15
+    },
+    {
+      "count": 69,
+      "qdist": 2,
+      "total_len": 15
+    },
+    {
+      "count": 474,
+      "qdist": 3,
+      "total_len": 15
+    },
+    {
+      "count": 2219,
+      "qdist": 4,
+      "total_len": 15
+    },
+    {
+      "count": 4787,
+      "qdist": 5,
+      "total_len": 15
+    },
+    {
+      "count": 1614,
+      "qdist": 6,
+      "total_len": 15
+    },
+    {
+      "count": 25,
+      "qdist": 7,
+      "total_len": 15
+    },
+    {
+      "count": 28,
+      "qdist": 1,
+      "total_len": 16
+    },
+    {
+      "count": 189,
+      "qdist": 2,
+      "total_len": 16
+    },
+    {
+      "count": 1204,
+      "qdist": 3,
+      "total_len": 16
+    },
+    {
+      "count": 4582,
+      "qdist": 4,
+      "total_len": 16
+    },
+    {
+      "count": 12420,
+      "qdist": 5,
+      "total_len": 16
+    },
+    {
+      "count": 6668,
+      "qdist": 6,
+      "total_len": 16
+    },
+    {
+      "count": 19,
+      "qdist": 0,
+      "total_len": 17
+    },
+    {
+      "count": 180,
+      "qdist": 1,
+      "total_len": 17
+    },
+    {
+      "count": 1124,
+      "qdist": 2,
+      "total_len": 17
+    },
+    {
+      "count": 7137,
+      "qdist": 3,
+      "total_len": 17
+    },
+    {
+      "count": 32403,
+      "qdist": 4,
+      "total_len": 17
+    },
+    {
+      "count": 66861,
+      "qdist": 5,
+      "total_len": 17
+    },
+    {
+      "count": 23620,
+      "qdist": 6,
+      "total_len": 17
+    },
+    {
+      "count": 735,
+      "qdist": 7,
+      "total_len": 17
+    },
+    {
+      "count": 10,
+      "qdist": 0,
+      "total_len": 18
+    },
+    {
+      "count": 191,
+      "qdist": 1,
+      "total_len": 18
+    },
+    {
+      "count": 2049,
+      "qdist": 2,
+      "total_len": 18
+    },
+    {
+      "count": 12288,
+      "qdist": 3,
+      "total_len": 18
+    },
+    {
+      "count": 43346,
+      "qdist": 4,
+      "total_len": 18
+    },
+    {
+      "count": 103670,
+      "qdist": 5,
+      "total_len": 18
+    },
+    {
+      "count": 53293,
+      "qdist": 6,
+      "total_len": 18
+    },
+    {
+      "count": 10,
+      "qdist": 7,
+      "total_len": 18
+    },
+    {
+      "count": 132,
+      "qdist": 0,
+      "total_len": 19
+    },
+    {
+      "count": 1317,
+      "qdist": 1,
+      "total_len": 19
+    },
+    {
+      "count": 7952,
+      "qdist": 2,
+      "total_len": 19
+    },
+    {
+      "count": 44271,
+      "qdist": 3,
+      "total_len": 19
+    },
+    {
+      "count": 184925,
+      "qdist": 4,
+      "total_len": 19
+    },
+    {
+      "count": 363178,
+      "qdist": 5,
+      "total_len": 19
+    },
+    {
+      "count": 122944,
+      "qdist": 6,
+      "total_len": 19
+    },
+    {
+      "count": 4253,
+      "qdist": 7,
+      "total_len": 19
+    },
+    {
+      "count": 44,
+      "qdist": 0,
+      "total_len": 20
+    },
+    {
+      "count": 1074,
+      "qdist": 1,
+      "total_len": 20
+    },
+    {
+      "count": 10934,
+      "qdist": 2,
+      "total_len": 20
+    },
+    {
+      "count": 59403,
+      "qdist": 3,
+      "total_len": 20
+    },
+    {
+      "count": 196816,
+      "qdist": 4,
+      "total_len": 20
+    },
+    {
+      "count": 444615,
+      "qdist": 5,
+      "total_len": 20
+    },
+    {
+      "count": 221596,
+      "qdist": 6,
+      "total_len": 20
+    },
+    {
+      "count": 106,
+      "qdist": 7,
+      "total_len": 20
+    },
+    {
+      "count": 573,
+      "qdist": 0,
+      "total_len": 21
+    },
+    {
+      "count": 4884,
+      "qdist": 1,
+      "total_len": 21
+    },
+    {
+      "count": 26183,
+      "qdist": 2,
+      "total_len": 21
+    },
+    {
+      "count": 123917,
+      "qdist": 3,
+      "total_len": 21
+    },
+    {
+      "count": 442708,
+      "qdist": 4,
+      "total_len": 21
+    },
+    {
+      "count": 787745,
+      "qdist": 5,
+      "total_len": 21
+    },
+    {
+      "count": 248159,
+      "qdist": 6,
+      "total_len": 21
+    },
+    {
+      "count": 7272,
+      "qdist": 7,
+      "total_len": 21
+    },
+    {
+      "count": 3,
+      "qdist": 8,
+      "total_len": 21
+    },
+    {
+      "count": 71,
+      "qdist": 0,
+      "total_len": 22
+    },
+    {
+      "count": 2082,
+      "qdist": 1,
+      "total_len": 22
+    },
+    {
+      "count": 19114,
+      "qdist": 2,
+      "total_len": 22
+    },
+    {
+      "count": 87831,
+      "qdist": 3,
+      "total_len": 22
+    },
+    {
+      "count": 251942,
+      "qdist": 4,
+      "total_len": 22
+    },
+    {
+      "count": 502627,
+      "qdist": 5,
+      "total_len": 22
+    },
+    {
+      "count": 224453,
+      "qdist": 6,
+      "total_len": 22
+    },
+    {
+      "count": 710,
+      "qdist": 7,
+      "total_len": 22
+    },
+    {
+      "count": 541,
+      "qdist": 0,
+      "total_len": 23
+    },
+    {
+      "count": 4479,
+      "qdist": 1,
+      "total_len": 23
+    },
+    {
+      "count": 24588,
+      "qdist": 2,
+      "total_len": 23
+    },
+    {
+      "count": 115038,
+      "qdist": 3,
+      "total_len": 23
+    },
+    {
+      "count": 401050,
+      "qdist": 4,
+      "total_len": 23
+    },
+    {
+      "count": 726475,
+      "qdist": 5,
+      "total_len": 23
+    },
+    {
+      "count": 255663,
+      "qdist": 6,
+      "total_len": 23
+    },
+    {
+      "count": 9030,
+      "qdist": 7,
+      "total_len": 23
+    },
+    {
+      "count": 23,
+      "qdist": 8,
+      "total_len": 23
+    },
+    {
+      "count": 121,
+      "qdist": 0,
+      "total_len": 24
+    },
+    {
+      "count": 1697,
+      "qdist": 1,
+      "total_len": 24
+    },
+    {
+      "count": 12677,
+      "qdist": 2,
+      "total_len": 24
+    },
+    {
+      "count": 55295,
+      "qdist": 3,
+      "total_len": 24
+    },
+    {
+      "count": 153491,
+      "qdist": 4,
+      "total_len": 24
+    },
+    {
+      "count": 290620,
+      "qdist": 5,
+      "total_len": 24
+    },
+    {
+      "count": 127851,
+      "qdist": 6,
+      "total_len": 24
+    },
+    {
+      "count": 1105,
+      "qdist": 7,
+      "total_len": 24
+    },
+    {
+      "count": 361,
+      "qdist": 0,
+      "total_len": 25
+    },
+    {
+      "count": 3750,
+      "qdist": 1,
+      "total_len": 25
+    },
+    {
+      "count": 23103,
+      "qdist": 2,
+      "total_len": 25
+    },
+    {
+      "count": 104190,
+      "qdist": 3,
+      "total_len": 25
+    },
+    {
+      "count": 345007,
+      "qdist": 4,
+      "total_len": 25
+    },
+    {
+      "count": 613093,
+      "qdist": 5,
+      "total_len": 25
+    },
+    {
+      "count": 232754,
+      "qdist": 6,
+      "total_len": 25
+    },
+    {
+      "count": 12085,
+      "qdist": 7,
+      "total_len": 25
+    },
+    {
+      "count": 103,
+      "qdist": 8,
+      "total_len": 25
+    },
+    {
+      "count": 144,
+      "qdist": 0,
+      "total_len": 26
+    },
+    {
+      "count": 1720,
+      "qdist": 1,
+      "total_len": 26
+    },
+    {
+      "count": 11096,
+      "qdist": 2,
+      "total_len": 26
+    },
+    {
+      "count": 46433,
+      "qdist": 3,
+      "total_len": 26
+    },
+    {
+      "count": 135173,
+      "qdist": 4,
+      "total_len": 26
+    },
+    {
+      "count": 267283,
+      "qdist": 5,
+      "total_len": 26
+    },
+    {
+      "count": 113174,
+      "qdist": 6,
+      "total_len": 26
+    },
+    {
+      "count": 1579,
+      "qdist": 7,
+      "total_len": 26
+    },
+    {
+      "count": 337,
+      "qdist": 0,
+      "total_len": 27
+    },
+    {
+      "count": 3511,
+      "qdist": 1,
+      "total_len": 27
+    },
+    {
+      "count": 22300,
+      "qdist": 2,
+      "total_len": 27
+    },
+    {
+      "count": 101549,
+      "qdist": 3,
+      "total_len": 27
+    },
+    {
+      "count": 320332,
+      "qdist": 4,
+      "total_len": 27
+    },
+    {
+      "count": 561271,
+      "qdist": 5,
+      "total_len": 27
+    },
+    {
+      "count": 220291,
+      "qdist": 6,
+      "total_len": 27
+    },
+    {
+      "count": 12536,
+      "qdist": 7,
+      "total_len": 27
+    },
+    {
+      "count": 195,
+      "qdist": 8,
+      "total_len": 27
+    },
+    {
+      "count": 233,
+      "qdist": 0,
+      "total_len": 28
+    },
+    {
+      "count": 2143,
+      "qdist": 1,
+      "total_len": 28
+    },
+    {
+      "count": 11482,
+      "qdist": 2,
+      "total_len": 28
+    },
+    {
+      "count": 45983,
+      "qdist": 3,
+      "total_len": 28
+    },
+    {
+      "count": 130702,
+      "qdist": 4,
+      "total_len": 28
+    },
+    {
+      "count": 245741,
+      "qdist": 5,
+      "total_len": 28
+    },
+    {
+      "count": 109096,
+      "qdist": 6,
+      "total_len": 28
+    },
+    {
+      "count": 3222,
+      "qdist": 7,
+      "total_len": 28
+    },
+    {
+      "count": 26,
+      "qdist": 8,
+      "total_len": 28
+    },
+    {
+      "count": 284,
+      "qdist": 0,
+      "total_len": 29
+    },
+    {
+      "count": 3437,
+      "qdist": 1,
+      "total_len": 29
+    },
+    {
+      "count": 23281,
+      "qdist": 2,
+      "total_len": 29
+    },
+    {
+      "count": 108802,
+      "qdist": 3,
+      "total_len": 29
+    },
+    {
+      "count": 333260,
+      "qdist": 4,
+      "total_len": 29
+    },
+    {
+      "count": 565421,
+      "qdist": 5,
+      "total_len": 29
+    },
+    {
+      "count": 222225,
+      "qdist": 6,
+      "total_len": 29
+    },
+    {
+      "count": 14785,
+      "qdist": 7,
+      "total_len": 29
+    },
+    {
+      "count": 317,
+      "qdist": 8,
+      "total_len": 29
+    },
+    {
+      "count": 298,
+      "qdist": 0,
+      "total_len": 30
+    },
+    {
+      "count": 2454,
+      "qdist": 1,
+      "total_len": 30
+    },
+    {
+      "count": 12989,
+      "qdist": 2,
+      "total_len": 30
+    },
+    {
+      "count": 52227,
+      "qdist": 3,
+      "total_len": 30
+    },
+    {
+      "count": 146818,
+      "qdist": 4,
+      "total_len": 30
+    },
+    {
+      "count": 256855,
+      "qdist": 5,
+      "total_len": 30
+    },
+    {
+      "count": 102573,
+      "qdist": 6,
+      "total_len": 30
+    },
+    {
+      "count": 4228,
+      "qdist": 7,
+      "total_len": 30
+    },
+    {
+      "count": 35,
+      "qdist": 8,
+      "total_len": 30
+    },
+    {
+      "count": 240,
+      "qdist": 0,
+      "total_len": 31
+    },
+    {
+      "count": 2695,
+      "qdist": 1,
+      "total_len": 31
+    },
+    {
+      "count": 18460,
+      "qdist": 2,
+      "total_len": 31
+    },
+    {
+      "count": 86908,
+      "qdist": 3,
+      "total_len": 31
+    },
+    {
+      "count": 272369,
+      "qdist": 4,
+      "total_len": 31
+    },
+    {
+      "count": 482152,
+      "qdist": 5,
+      "total_len": 31
+    },
+    {
+      "count": 212429,
+      "qdist": 6,
+      "total_len": 31
+    },
+    {
+      "count": 15372,
+      "qdist": 7,
+      "total_len": 31
+    },
+    {
+      "count": 267,
+      "qdist": 8,
+      "total_len": 31
+    },
+    {
+      "count": 396,
+      "qdist": 0,
+      "total_len": 32
+    },
+    {
+      "count": 3099,
+      "qdist": 1,
+      "total_len": 32
+    },
+    {
+      "count": 14951,
+      "qdist": 2,
+      "total_len": 32
+    },
+    {
+      "count": 54602,
+      "qdist": 3,
+      "total_len": 32
+    },
+    {
+      "count": 142234,
+      "qdist": 4,
+      "total_len": 32
+    },
+    {
+      "count": 237210,
+      "qdist": 5,
+      "total_len": 32
+    },
+    {
+      "count": 97041,
+      "qdist": 6,
+      "total_len": 32
+    },
+    {
+      "count": 4217,
+      "qdist": 7,
+      "total_len": 32
+    },
+    {
+      "count": 55,
+      "qdist": 8,
+      "total_len": 32
+    },
+    {
+      "count": 177,
+      "qdist": 0,
+      "total_len": 33
+    },
+    {
+      "count": 1835,
+      "qdist": 1,
+      "total_len": 33
+    },
+    {
+      "count": 13640,
+      "qdist": 2,
+      "total_len": 33
+    },
+    {
+      "count": 69679,
+      "qdist": 3,
+      "total_len": 33
+    },
+    {
+      "count": 232011,
+      "qdist": 4,
+      "total_len": 33
+    },
+    {
+      "count": 397490,
+      "qdist": 5,
+      "total_len": 33
+    },
+    {
+      "count": 144129,
+      "qdist": 6,
+      "total_len": 33
+    },
+    {
+      "count": 12505,
+      "qdist": 7,
+      "total_len": 33
+    },
+    {
+      "count": 368,
+      "qdist": 8,
+      "total_len": 33
+    },
+    {
+      "count": 129,
+      "qdist": 0,
+      "total_len": 34
+    },
+    {
+      "count": 1270,
+      "qdist": 1,
+      "total_len": 34
+    },
+    {
+      "count": 8178,
+      "qdist": 2,
+      "total_len": 34
+    },
+    {
+      "count": 34263,
+      "qdist": 3,
+      "total_len": 34
+    },
+    {
+      "count": 94551,
+      "qdist": 4,
+      "total_len": 34
+    },
+    {
+      "count": 167996,
+      "qdist": 5,
+      "total_len": 34
+    },
+    {
+      "count": 67684,
+      "qdist": 6,
+      "total_len": 34
+    },
+    {
+      "count": 1815,
+      "qdist": 7,
+      "total_len": 34
+    },
+    {
+      "count": 7,
+      "qdist": 8,
+      "total_len": 34
+    },
+    {
+      "count": 117,
+      "qdist": 0,
+      "total_len": 35
+    },
+    {
+      "count": 1691,
+      "qdist": 1,
+      "total_len": 35
+    },
+    {
+      "count": 12326,
+      "qdist": 2,
+      "total_len": 35
+    },
+    {
+      "count": 59632,
+      "qdist": 3,
+      "total_len": 35
+    },
+    {
+      "count": 177572,
+      "qdist": 4,
+      "total_len": 35
+    },
+    {
+      "count": 284369,
+      "qdist": 5,
+      "total_len": 35
+    },
+    {
+      "count": 110113,
+      "qdist": 6,
+      "total_len": 35
+    },
+    {
+      "count": 7117,
+      "qdist": 7,
+      "total_len": 35
+    },
+    {
+      "count": 117,
+      "qdist": 8,
+      "total_len": 35
+    },
+    {
+      "count": 196,
+      "qdist": 0,
+      "total_len": 36
+    },
+    {
+      "count": 1599,
+      "qdist": 1,
+      "total_len": 36
+    },
+    {
+      "count": 6955,
+      "qdist": 2,
+      "total_len": 36
+    },
+    {
+      "count": 24734,
+      "qdist": 3,
+      "total_len": 36
+    },
+    {
+      "count": 65619,
+      "qdist": 4,
+      "total_len": 36
+    },
+    {
+      "count": 113322,
+      "qdist": 5,
+      "total_len": 36
+    },
+    {
+      "count": 42571,
+      "qdist": 6,
+      "total_len": 36
+    },
+    {
+      "count": 1183,
+      "qdist": 7,
+      "total_len": 36
+    },
+    {
+      "count": 3,
+      "qdist": 8,
+      "total_len": 36
+    },
+    {
+      "count": 135,
+      "qdist": 0,
+      "total_len": 37
+    },
+    {
+      "count": 1393,
+      "qdist": 1,
+      "total_len": 37
+    },
+    {
+      "count": 9877,
+      "qdist": 2,
+      "total_len": 37
+    },
+    {
+      "count": 43732,
+      "qdist": 3,
+      "total_len": 37
+    },
+    {
+      "count": 127759,
+      "qdist": 4,
+      "total_len": 37
+    },
+    {
+      "count": 204195,
+      "qdist": 5,
+      "total_len": 37
+    },
+    {
+      "count": 77080,
+      "qdist": 6,
+      "total_len": 37
+    },
+    {
+      "count": 6665,
+      "qdist": 7,
+      "total_len": 37
+    },
+    {
+      "count": 135,
+      "qdist": 8,
+      "total_len": 37
+    },
+    {
+      "count": 241,
+      "qdist": 0,
+      "total_len": 38
+    },
+    {
+      "count": 1833,
+      "qdist": 1,
+      "total_len": 38
+    },
+    {
+      "count": 6677,
+      "qdist": 2,
+      "total_len": 38
+    },
+    {
+      "count": 20182,
+      "qdist": 3,
+      "total_len": 38
+    },
+    {
+      "count": 50356,
+      "qdist": 4,
+      "total_len": 38
+    },
+    {
+      "count": 87069,
+      "qdist": 5,
+      "total_len": 38
+    },
+    {
+      "count": 35166,
+      "qdist": 6,
+      "total_len": 38
+    },
+    {
+      "count": 868,
+      "qdist": 7,
+      "total_len": 38
+    },
+    {
+      "count": 1,
+      "qdist": 8,
+      "total_len": 38
+    },
+    {
+      "count": 69,
+      "qdist": 0,
+      "total_len": 39
+    },
+    {
+      "count": 1250,
+      "qdist": 1,
+      "total_len": 39
+    },
+    {
+      "count": 10087,
+      "qdist": 2,
+      "total_len": 39
+    },
+    {
+      "count": 45117,
+      "qdist": 3,
+      "total_len": 39
+    },
+    {
+      "count": 123483,
+      "qdist": 4,
+      "total_len": 39
+    },
+    {
+      "count": 183728,
+      "qdist": 5,
+      "total_len": 39
+    },
+    {
+      "count": 62711,
+      "qdist": 6,
+      "total_len": 39
+    },
+    {
+      "count": 4478,
+      "qdist": 7,
+      "total_len": 39
+    },
+    {
+      "count": 134,
+      "qdist": 8,
+      "total_len": 39
+    },
+    {
+      "count": 266,
+      "qdist": 0,
+      "total_len": 40
+    },
+    {
+      "count": 1599,
+      "qdist": 1,
+      "total_len": 40
+    },
+    {
+      "count": 5722,
+      "qdist": 2,
+      "total_len": 40
+    },
+    {
+      "count": 17642,
+      "qdist": 3,
+      "total_len": 40
+    },
+    {
+      "count": 44908,
+      "qdist": 4,
+      "total_len": 40
+    },
+    {
+      "count": 76439,
+      "qdist": 5,
+      "total_len": 40
+    },
+    {
+      "count": 29454,
+      "qdist": 6,
+      "total_len": 40
+    },
+    {
+      "count": 1078,
+      "qdist": 7,
+      "total_len": 40
+    },
+    {
+      "count": 4,
+      "qdist": 8,
+      "total_len": 40
+    },
+    {
+      "count": 50,
+      "qdist": 0,
+      "total_len": 41
+    },
+    {
+      "count": 710,
+      "qdist": 1,
+      "total_len": 41
+    },
+    {
+      "count": 5681,
+      "qdist": 2,
+      "total_len": 41
+    },
+    {
+      "count": 27434,
+      "qdist": 3,
+      "total_len": 41
+    },
+    {
+      "count": 83328,
+      "qdist": 4,
+      "total_len": 41
+    },
+    {
+      "count": 131026,
+      "qdist": 5,
+      "total_len": 41
+    },
+    {
+      "count": 44488,
+      "qdist": 6,
+      "total_len": 41
+    },
+    {
+      "count": 4627,
+      "qdist": 7,
+      "total_len": 41
+    },
+    {
+      "count": 171,
+      "qdist": 8,
+      "total_len": 41
+    },
+    {
+      "count": 61,
+      "qdist": 0,
+      "total_len": 42
+    },
+    {
+      "count": 447,
+      "qdist": 1,
+      "total_len": 42
+    },
+    {
+      "count": 2198,
+      "qdist": 2,
+      "total_len": 42
+    },
+    {
+      "count": 8892,
+      "qdist": 3,
+      "total_len": 42
+    },
+    {
+      "count": 32079,
+      "qdist": 4,
+      "total_len": 42
+    },
+    {
+      "count": 69667,
+      "qdist": 5,
+      "total_len": 42
+    },
+    {
+      "count": 26383,
+      "qdist": 6,
+      "total_len": 42
+    },
+    {
+      "count": 910,
+      "qdist": 7,
+      "total_len": 42
+    },
+    {
+      "count": 4,
+      "qdist": 8,
+      "total_len": 42
+    },
+    {
+      "count": 53,
+      "qdist": 0,
+      "total_len": 43
+    },
+    {
+      "count": 575,
+      "qdist": 1,
+      "total_len": 43
+    },
+    {
+      "count": 4333,
+      "qdist": 2,
+      "total_len": 43
+    },
+    {
+      "count": 19603,
+      "qdist": 3,
+      "total_len": 43
+    },
+    {
+      "count": 59276,
+      "qdist": 4,
+      "total_len": 43
+    },
+    {
+      "count": 94826,
+      "qdist": 5,
+      "total_len": 43
+    },
+    {
+      "count": 32522,
+      "qdist": 6,
+      "total_len": 43
+    },
+    {
+      "count": 2703,
+      "qdist": 7,
+      "total_len": 43
+    },
+    {
+      "count": 64,
+      "qdist": 8,
+      "total_len": 43
+    },
+    {
+      "count": 26,
+      "qdist": 0,
+      "total_len": 44
+    },
+    {
+      "count": 311,
+      "qdist": 1,
+      "total_len": 44
+    },
+    {
+      "count": 1721,
+      "qdist": 2,
+      "total_len": 44
+    },
+    {
+      "count": 7295,
+      "qdist": 3,
+      "total_len": 44
+    },
+    {
+      "count": 22189,
+      "qdist": 4,
+      "total_len": 44
+    },
+    {
+      "count": 38559,
+      "qdist": 5,
+      "total_len": 44
+    },
+    {
+      "count": 17623,
+      "qdist": 6,
+      "total_len": 44
+    },
+    {
+      "count": 1007,
+      "qdist": 7,
+      "total_len": 44
+    },
+    {
+      "count": 4,
+      "qdist": 8,
+      "total_len": 44
+    },
+    {
+      "count": 35,
+      "qdist": 0,
+      "total_len": 45
+    },
+    {
+      "count": 510,
+      "qdist": 1,
+      "total_len": 45
+    },
+    {
+      "count": 3839,
+      "qdist": 2,
+      "total_len": 45
+    },
+    {
+      "count": 16328,
+      "qdist": 3,
+      "total_len": 45
+    },
+    {
+      "count": 45637,
+      "qdist": 4,
+      "total_len": 45
+    },
+    {
+      "count": 72466,
+      "qdist": 5,
+      "total_len": 45
+    },
+    {
+      "count": 24071,
+      "qdist": 6,
+      "total_len": 45
+    },
+    {
+      "count": 1794,
+      "qdist": 7,
+      "total_len": 45
+    },
+    {
+      "count": 42,
+      "qdist": 8,
+      "total_len": 45
+    },
+    {
+      "count": 43,
+      "qdist": 0,
+      "total_len": 46
+    },
+    {
+      "count": 285,
+      "qdist": 1,
+      "total_len": 46
+    },
+    {
+      "count": 1400,
+      "qdist": 2,
+      "total_len": 46
+    },
+    {
+      "count": 5722,
+      "qdist": 3,
+      "total_len": 46
+    },
+    {
+      "count": 16347,
+      "qdist": 4,
+      "total_len": 46
+    },
+    {
+      "count": 28800,
+      "qdist": 5,
+      "total_len": 46
+    },
+    {
+      "count": 12607,
+      "qdist": 6,
+      "total_len": 46
+    },
+    {
+      "count": 618,
+      "qdist": 7,
+      "total_len": 46
+    },
+    {
+      "count": 28,
+      "qdist": 0,
+      "total_len": 47
+    },
+    {
+      "count": 398,
+      "qdist": 1,
+      "total_len": 47
+    },
+    {
+      "count": 2512,
+      "qdist": 2,
+      "total_len": 47
+    },
+    {
+      "count": 11193,
+      "qdist": 3,
+      "total_len": 47
+    },
+    {
+      "count": 32749,
+      "qdist": 4,
+      "total_len": 47
+    },
+    {
+      "count": 53458,
+      "qdist": 5,
+      "total_len": 47
+    },
+    {
+      "count": 16966,
+      "qdist": 6,
+      "total_len": 47
+    },
+    {
+      "count": 809,
+      "qdist": 7,
+      "total_len": 47
+    },
+    {
+      "count": 6,
+      "qdist": 8,
+      "total_len": 47
+    },
+    {
+      "count": 5,
+      "qdist": 0,
+      "total_len": 48
+    },
+    {
+      "count": 146,
+      "qdist": 1,
+      "total_len": 48
+    },
+    {
+      "count": 916,
+      "qdist": 2,
+      "total_len": 48
+    },
+    {
+      "count": 3838,
+      "qdist": 3,
+      "total_len": 48
+    },
+    {
+      "count": 10198,
+      "qdist": 4,
+      "total_len": 48
+    },
+    {
+      "count": 17455,
+      "qdist": 5,
+      "total_len": 48
+    },
+    {
+      "count": 7294,
+      "qdist": 6,
+      "total_len": 48
+    },
+    {
+      "count": 378,
+      "qdist": 7,
+      "total_len": 48
+    },
+    {
+      "count": 44,
+      "qdist": 0,
+      "total_len": 49
+    },
+    {
+      "count": 346,
+      "qdist": 1,
+      "total_len": 49
+    },
+    {
+      "count": 2419,
+      "qdist": 2,
+      "total_len": 49
+    },
+    {
+      "count": 9428,
+      "qdist": 3,
+      "total_len": 49
+    },
+    {
+      "count": 24258,
+      "qdist": 4,
+      "total_len": 49
+    },
+    {
+      "count": 37959,
+      "qdist": 5,
+      "total_len": 49
+    },
+    {
+      "count": 12645,
+      "qdist": 6,
+      "total_len": 49
+    },
+    {
+      "count": 357,
+      "qdist": 7,
+      "total_len": 49
+    },
+    {
+      "count": 18,
+      "qdist": 0,
+      "total_len": 50
+    },
+    {
+      "count": 136,
+      "qdist": 1,
+      "total_len": 50
+    },
+    {
+      "count": 692,
+      "qdist": 2,
+      "total_len": 50
+    },
+    {
+      "count": 2789,
+      "qdist": 3,
+      "total_len": 50
+    },
+    {
+      "count": 7214,
+      "qdist": 4,
+      "total_len": 50
+    },
+    {
+      "count": 11058,
+      "qdist": 5,
+      "total_len": 50
+    },
+    {
+      "count": 3873,
+      "qdist": 6,
+      "total_len": 50
+    },
+    {
+      "count": 118,
+      "qdist": 7,
+      "total_len": 50
+    },
+    {
+      "count": 11,
+      "qdist": 0,
+      "total_len": 51
+    },
+    {
+      "count": 230,
+      "qdist": 1,
+      "total_len": 51
+    },
+    {
+      "count": 1676,
+      "qdist": 2,
+      "total_len": 51
+    },
+    {
+      "count": 7376,
+      "qdist": 3,
+      "total_len": 51
+    },
+    {
+      "count": 21499,
+      "qdist": 4,
+      "total_len": 51
+    },
+    {
+      "count": 35342,
+      "qdist": 5,
+      "total_len": 51
+    },
+    {
+      "count": 11521,
+      "qdist": 6,
+      "total_len": 51
+    },
+    {
+      "count": 345,
+      "qdist": 7,
+      "total_len": 51
+    },
+    {
+      "count": 48,
+      "qdist": 0,
+      "total_len": 52
+    },
+    {
+      "count": 216,
+      "qdist": 1,
+      "total_len": 52
+    },
+    {
+      "count": 1148,
+      "qdist": 2,
+      "total_len": 52
+    },
+    {
+      "count": 3590,
+      "qdist": 3,
+      "total_len": 52
+    },
+    {
+      "count": 8287,
+      "qdist": 4,
+      "total_len": 52
+    },
+    {
+      "count": 12819,
+      "qdist": 5,
+      "total_len": 52
+    },
+    {
+      "count": 4856,
+      "qdist": 6,
+      "total_len": 52
+    },
+    {
+      "count": 69,
+      "qdist": 7,
+      "total_len": 52
+    },
+    {
+      "count": 18,
+      "qdist": 0,
+      "total_len": 53
+    },
+    {
+      "count": 202,
+      "qdist": 1,
+      "total_len": 53
+    },
+    {
+      "count": 1307,
+      "qdist": 2,
+      "total_len": 53
+    },
+    {
+      "count": 5378,
+      "qdist": 3,
+      "total_len": 53
+    },
+    {
+      "count": 14348,
+      "qdist": 4,
+      "total_len": 53
+    },
+    {
+      "count": 21447,
+      "qdist": 5,
+      "total_len": 53
+    },
+    {
+      "count": 6756,
+      "qdist": 6,
+      "total_len": 53
+    },
+    {
+      "count": 161,
+      "qdist": 7,
+      "total_len": 53
+    },
+    {
+      "count": 44,
+      "qdist": 0,
+      "total_len": 54
+    },
+    {
+      "count": 263,
+      "qdist": 1,
+      "total_len": 54
+    },
+    {
+      "count": 1065,
+      "qdist": 2,
+      "total_len": 54
+    },
+    {
+      "count": 3239,
+      "qdist": 3,
+      "total_len": 54
+    },
+    {
+      "count": 6608,
+      "qdist": 4,
+      "total_len": 54
+    },
+    {
+      "count": 9677,
+      "qdist": 5,
+      "total_len": 54
+    },
+    {
+      "count": 2777,
+      "qdist": 6,
+      "total_len": 54
+    },
+    {
+      "count": 27,
+      "qdist": 7,
+      "total_len": 54
+    },
+    {
+      "count": 40,
+      "qdist": 0,
+      "total_len": 55
+    },
+    {
+      "count": 235,
+      "qdist": 1,
+      "total_len": 55
+    },
+    {
+      "count": 1040,
+      "qdist": 2,
+      "total_len": 55
+    },
+    {
+      "count": 3749,
+      "qdist": 3,
+      "total_len": 55
+    },
+    {
+      "count": 8546,
+      "qdist": 4,
+      "total_len": 55
+    },
+    {
+      "count": 12417,
+      "qdist": 5,
+      "total_len": 55
+    },
+    {
+      "count": 4186,
+      "qdist": 6,
+      "total_len": 55
+    },
+    {
+      "count": 164,
+      "qdist": 7,
+      "total_len": 55
+    },
+    {
+      "count": 74,
+      "qdist": 0,
+      "total_len": 56
+    },
+    {
+      "count": 378,
+      "qdist": 1,
+      "total_len": 56
+    },
+    {
+      "count": 1364,
+      "qdist": 2,
+      "total_len": 56
+    },
+    {
+      "count": 3735,
+      "qdist": 3,
+      "total_len": 56
+    },
+    {
+      "count": 6387,
+      "qdist": 4,
+      "total_len": 56
+    },
+    {
+      "count": 6377,
+      "qdist": 5,
+      "total_len": 56
+    },
+    {
+      "count": 1462,
+      "qdist": 6,
+      "total_len": 56
+    },
+    {
+      "count": 1,
+      "qdist": 7,
+      "total_len": 56
+    },
+    {
+      "count": 7,
+      "qdist": 0,
+      "total_len": 57
+    },
+    {
+      "count": 119,
+      "qdist": 1,
+      "total_len": 57
+    },
+    {
+      "count": 683,
+      "qdist": 2,
+      "total_len": 57
+    },
+    {
+      "count": 2240,
+      "qdist": 3,
+      "total_len": 57
+    },
+    {
+      "count": 4538,
+      "qdist": 4,
+      "total_len": 57
+    },
+    {
+      "count": 6331,
+      "qdist": 5,
+      "total_len": 57
+    },
+    {
+      "count": 1603,
+      "qdist": 6,
+      "total_len": 57
+    },
+    {
+      "count": 6,
+      "qdist": 7,
+      "total_len": 57
+    },
+    {
+      "count": 75,
+      "qdist": 0,
+      "total_len": 58
+    },
+    {
+      "count": 420,
+      "qdist": 1,
+      "total_len": 58
+    },
+    {
+      "count": 1344,
+      "qdist": 2,
+      "total_len": 58
+    },
+    {
+      "count": 3698,
+      "qdist": 3,
+      "total_len": 58
+    },
+    {
+      "count": 6742,
+      "qdist": 4,
+      "total_len": 58
+    },
+    {
+      "count": 7026,
+      "qdist": 5,
+      "total_len": 58
+    },
+    {
+      "count": 1691,
+      "qdist": 6,
+      "total_len": 58
+    },
+    {
+      "count": 17,
+      "qdist": 7,
+      "total_len": 58
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 59
+    },
+    {
+      "count": 82,
+      "qdist": 1,
+      "total_len": 59
+    },
+    {
+      "count": 625,
+      "qdist": 2,
+      "total_len": 59
+    },
+    {
+      "count": 2584,
+      "qdist": 3,
+      "total_len": 59
+    },
+    {
+      "count": 5669,
+      "qdist": 4,
+      "total_len": 59
+    },
+    {
+      "count": 8086,
+      "qdist": 5,
+      "total_len": 59
+    },
+    {
+      "count": 3419,
+      "qdist": 6,
+      "total_len": 59
+    },
+    {
+      "count": 10,
+      "qdist": 7,
+      "total_len": 59
+    },
+    {
+      "count": 42,
+      "qdist": 0,
+      "total_len": 60
+    },
+    {
+      "count": 383,
+      "qdist": 1,
+      "total_len": 60
+    },
+    {
+      "count": 1401,
+      "qdist": 2,
+      "total_len": 60
+    },
+    {
+      "count": 4035,
+      "qdist": 3,
+      "total_len": 60
+    },
+    {
+      "count": 7008,
+      "qdist": 4,
+      "total_len": 60
+    },
+    {
+      "count": 7727,
+      "qdist": 5,
+      "total_len": 60
+    },
+    {
+      "count": 2085,
+      "qdist": 6,
+      "total_len": 60
+    },
+    {
+      "count": 71,
+      "qdist": 7,
+      "total_len": 60
+    },
+    {
+      "count": 18,
+      "qdist": 0,
+      "total_len": 61
+    },
+    {
+      "count": 134,
+      "qdist": 1,
+      "total_len": 61
+    },
+    {
+      "count": 788,
+      "qdist": 2,
+      "total_len": 61
+    },
+    {
+      "count": 2467,
+      "qdist": 3,
+      "total_len": 61
+    },
+    {
+      "count": 5356,
+      "qdist": 4,
+      "total_len": 61
+    },
+    {
+      "count": 5875,
+      "qdist": 5,
+      "total_len": 61
+    },
+    {
+      "count": 1469,
+      "qdist": 6,
+      "total_len": 61
+    },
+    {
+      "count": 62,
+      "qdist": 7,
+      "total_len": 61
+    },
+    {
+      "count": 1,
+      "qdist": 8,
+      "total_len": 61
+    },
+    {
+      "count": 40,
+      "qdist": 0,
+      "total_len": 62
+    },
+    {
+      "count": 176,
+      "qdist": 1,
+      "total_len": 62
+    },
+    {
+      "count": 744,
+      "qdist": 2,
+      "total_len": 62
+    },
+    {
+      "count": 2245,
+      "qdist": 3,
+      "total_len": 62
+    },
+    {
+      "count": 5219,
+      "qdist": 4,
+      "total_len": 62
+    },
+    {
+      "count": 7358,
+      "qdist": 5,
+      "total_len": 62
+    },
+    {
+      "count": 1852,
+      "qdist": 6,
+      "total_len": 62
+    },
+    {
+      "count": 42,
+      "qdist": 7,
+      "total_len": 62
+    },
+    {
+      "count": 19,
+      "qdist": 1,
+      "total_len": 63
+    },
+    {
+      "count": 229,
+      "qdist": 2,
+      "total_len": 63
+    },
+    {
+      "count": 1363,
+      "qdist": 3,
+      "total_len": 63
+    },
+    {
+      "count": 4099,
+      "qdist": 4,
+      "total_len": 63
+    },
+    {
+      "count": 5833,
+      "qdist": 5,
+      "total_len": 63
+    },
+    {
+      "count": 2033,
+      "qdist": 6,
+      "total_len": 63
+    },
+    {
+      "count": 240,
+      "qdist": 7,
+      "total_len": 63
+    },
+    {
+      "count": 11,
+      "qdist": 8,
+      "total_len": 63
+    },
+    {
+      "count": 20,
+      "qdist": 0,
+      "total_len": 64
+    },
+    {
+      "count": 122,
+      "qdist": 1,
+      "total_len": 64
+    },
+    {
+      "count": 438,
+      "qdist": 2,
+      "total_len": 64
+    },
+    {
+      "count": 1559,
+      "qdist": 3,
+      "total_len": 64
+    },
+    {
+      "count": 4176,
+      "qdist": 4,
+      "total_len": 64
+    },
+    {
+      "count": 6289,
+      "qdist": 5,
+      "total_len": 64
+    },
+    {
+      "count": 1839,
+      "qdist": 6,
+      "total_len": 64
+    },
+    {
+      "count": 38,
+      "qdist": 7,
+      "total_len": 64
+    },
+    {
+      "count": 39,
+      "qdist": 1,
+      "total_len": 65
+    },
+    {
+      "count": 221,
+      "qdist": 2,
+      "total_len": 65
+    },
+    {
+      "count": 871,
+      "qdist": 3,
+      "total_len": 65
+    },
+    {
+      "count": 2159,
+      "qdist": 4,
+      "total_len": 65
+    },
+    {
+      "count": 3159,
+      "qdist": 5,
+      "total_len": 65
+    },
+    {
+      "count": 2048,
+      "qdist": 6,
+      "total_len": 65
+    },
+    {
+      "count": 184,
+      "qdist": 7,
+      "total_len": 65
+    },
+    {
+      "count": 1,
+      "qdist": 8,
+      "total_len": 65
+    },
+    {
+      "count": 9,
+      "qdist": 0,
+      "total_len": 66
+    },
+    {
+      "count": 49,
+      "qdist": 1,
+      "total_len": 66
+    },
+    {
+      "count": 299,
+      "qdist": 2,
+      "total_len": 66
+    },
+    {
+      "count": 1003,
+      "qdist": 3,
+      "total_len": 66
+    },
+    {
+      "count": 2159,
+      "qdist": 4,
+      "total_len": 66
+    },
+    {
+      "count": 2456,
+      "qdist": 5,
+      "total_len": 66
+    },
+    {
+      "count": 479,
+      "qdist": 6,
+      "total_len": 66
+    },
+    {
+      "count": 7,
+      "qdist": 1,
+      "total_len": 67
+    },
+    {
+      "count": 100,
+      "qdist": 2,
+      "total_len": 67
+    },
+    {
+      "count": 443,
+      "qdist": 3,
+      "total_len": 67
+    },
+    {
+      "count": 984,
+      "qdist": 4,
+      "total_len": 67
+    },
+    {
+      "count": 1240,
+      "qdist": 5,
+      "total_len": 67
+    },
+    {
+      "count": 551,
+      "qdist": 6,
+      "total_len": 67
+    },
+    {
+      "count": 37,
+      "qdist": 7,
+      "total_len": 67
+    },
+    {
+      "count": 4,
+      "qdist": 1,
+      "total_len": 69
+    },
+    {
+      "count": 69,
+      "qdist": 2,
+      "total_len": 69
+    },
+    {
+      "count": 317,
+      "qdist": 3,
+      "total_len": 69
+    },
+    {
+      "count": 969,
+      "qdist": 4,
+      "total_len": 69
+    },
+    {
+      "count": 1827,
+      "qdist": 5,
+      "total_len": 69
+    },
+    {
+      "count": 909,
+      "qdist": 6,
+      "total_len": 69
+    },
+    {
+      "count": 12,
+      "qdist": 7,
+      "total_len": 69
+    },
+    {
+      "count": 14,
+      "qdist": 1,
+      "total_len": 71
+    },
+    {
+      "count": 52,
+      "qdist": 2,
+      "total_len": 71
+    },
+    {
+      "count": 311,
+      "qdist": 3,
+      "total_len": 71
+    },
+    {
+      "count": 1254,
+      "qdist": 4,
+      "total_len": 71
+    },
+    {
+      "count": 2620,
+      "qdist": 5,
+      "total_len": 71
+    },
+    {
+      "count": 1349,
+      "qdist": 6,
+      "total_len": 71
+    },
+    {
+      "count": 19,
+      "qdist": 7,
+      "total_len": 71
+    },
+    {
+      "count": 46,
+      "qdist": 2,
+      "total_len": 73
+    },
+    {
+      "count": 329,
+      "qdist": 3,
+      "total_len": 73
+    },
+    {
+      "count": 2079,
+      "qdist": 4,
+      "total_len": 73
+    },
+    {
+      "count": 5409,
+      "qdist": 5,
+      "total_len": 73
+    },
+    {
+      "count": 3495,
+      "qdist": 6,
+      "total_len": 73
+    },
+    {
+      "count": 39,
+      "qdist": 7,
+      "total_len": 73
+    }
+  ],
+  "hist_solved_runs": [
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 14
+    },
+    {
+      "count": 2,
+      "qdist": 3,
+      "total_len": 15
+    },
+    {
+      "count": 4,
+      "qdist": 4,
+      "total_len": 15
+    },
+    {
+      "count": 10,
+      "qdist": 5,
+      "total_len": 15
+    },
+    {
+      "count": 20,
+      "qdist": 6,
+      "total_len": 15
+    },
+    {
+      "count": 1,
+      "qdist": 1,
+      "total_len": 16
+    },
+    {
+      "count": 7,
+      "qdist": 2,
+      "total_len": 16
+    },
+    {
+      "count": 16,
+      "qdist": 3,
+      "total_len": 16
+    },
+    {
+      "count": 28,
+      "qdist": 4,
+      "total_len": 16
+    },
+    {
+      "count": 69,
+      "qdist": 5,
+      "total_len": 16
+    },
+    {
+      "count": 64,
+      "qdist": 6,
+      "total_len": 16
+    },
+    {
+      "count": 11,
+      "qdist": 1,
+      "total_len": 17
+    },
+    {
+      "count": 47,
+      "qdist": 2,
+      "total_len": 17
+    },
+    {
+      "count": 181,
+      "qdist": 3,
+      "total_len": 17
+    },
+    {
+      "count": 484,
+      "qdist": 4,
+      "total_len": 17
+    },
+    {
+      "count": 669,
+      "qdist": 5,
+      "total_len": 17
+    },
+    {
+      "count": 232,
+      "qdist": 6,
+      "total_len": 17
+    },
+    {
+      "count": 3,
+      "qdist": 1,
+      "total_len": 18
+    },
+    {
+      "count": 29,
+      "qdist": 2,
+      "total_len": 18
+    },
+    {
+      "count": 107,
+      "qdist": 3,
+      "total_len": 18
+    },
+    {
+      "count": 181,
+      "qdist": 4,
+      "total_len": 18
+    },
+    {
+      "count": 329,
+      "qdist": 5,
+      "total_len": 18
+    },
+    {
+      "count": 291,
+      "qdist": 6,
+      "total_len": 18
+    },
+    {
+      "count": 40,
+      "qdist": 1,
+      "total_len": 19
+    },
+    {
+      "count": 277,
+      "qdist": 2,
+      "total_len": 19
+    },
+    {
+      "count": 1148,
+      "qdist": 3,
+      "total_len": 19
+    },
+    {
+      "count": 3048,
+      "qdist": 4,
+      "total_len": 19
+    },
+    {
+      "count": 4386,
+      "qdist": 5,
+      "total_len": 19
+    },
+    {
+      "count": 1273,
+      "qdist": 6,
+      "total_len": 19
+    },
+    {
+      "count": 16,
+      "qdist": 1,
+      "total_len": 20
+    },
+    {
+      "count": 118,
+      "qdist": 2,
+      "total_len": 20
+    },
+    {
+      "count": 403,
+      "qdist": 3,
+      "total_len": 20
+    },
+    {
+      "count": 829,
+      "qdist": 4,
+      "total_len": 20
+    },
+    {
+      "count": 951,
+      "qdist": 5,
+      "total_len": 20
+    },
+    {
+      "count": 590,
+      "qdist": 6,
+      "total_len": 20
+    },
+    {
+      "count": 12,
+      "qdist": 0,
+      "total_len": 21
+    },
+    {
+      "count": 122,
+      "qdist": 1,
+      "total_len": 21
+    },
+    {
+      "count": 810,
+      "qdist": 2,
+      "total_len": 21
+    },
+    {
+      "count": 3051,
+      "qdist": 3,
+      "total_len": 21
+    },
+    {
+      "count": 9096,
+      "qdist": 4,
+      "total_len": 21
+    },
+    {
+      "count": 13548,
+      "qdist": 5,
+      "total_len": 21
+    },
+    {
+      "count": 2832,
+      "qdist": 6,
+      "total_len": 21
+    },
+    {
+      "count": 3,
+      "qdist": 7,
+      "total_len": 21
+    },
+    {
+      "count": 2,
+      "qdist": 1,
+      "total_len": 22
+    },
+    {
+      "count": 42,
+      "qdist": 2,
+      "total_len": 22
+    },
+    {
+      "count": 102,
+      "qdist": 3,
+      "total_len": 22
+    },
+    {
+      "count": 215,
+      "qdist": 4,
+      "total_len": 22
+    },
+    {
+      "count": 403,
+      "qdist": 5,
+      "total_len": 22
+    },
+    {
+      "count": 179,
+      "qdist": 6,
+      "total_len": 22
+    },
+    {
+      "count": 3,
+      "qdist": 7,
+      "total_len": 22
+    },
+    {
+      "count": 27,
+      "qdist": 1,
+      "total_len": 23
+    },
+    {
+      "count": 223,
+      "qdist": 2,
+      "total_len": 23
+    },
+    {
+      "count": 1094,
+      "qdist": 3,
+      "total_len": 23
+    },
+    {
+      "count": 3505,
+      "qdist": 4,
+      "total_len": 23
+    },
+    {
+      "count": 5593,
+      "qdist": 5,
+      "total_len": 23
+    },
+    {
+      "count": 1364,
+      "qdist": 6,
+      "total_len": 23
+    },
+    {
+      "count": 7,
+      "qdist": 7,
+      "total_len": 23
+    },
+    {
+      "count": 4,
+      "qdist": 0,
+      "total_len": 24
+    },
+    {
+      "count": 13,
+      "qdist": 1,
+      "total_len": 24
+    },
+    {
+      "count": 36,
+      "qdist": 2,
+      "total_len": 24
+    },
+    {
+      "count": 120,
+      "qdist": 3,
+      "total_len": 24
+    },
+    {
+      "count": 361,
+      "qdist": 4,
+      "total_len": 24
+    },
+    {
+      "count": 714,
+      "qdist": 5,
+      "total_len": 24
+    },
+    {
+      "count": 367,
+      "qdist": 6,
+      "total_len": 24
+    },
+    {
+      "count": 22,
+      "qdist": 7,
+      "total_len": 24
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 25
+    },
+    {
+      "count": 18,
+      "qdist": 1,
+      "total_len": 25
+    },
+    {
+      "count": 200,
+      "qdist": 2,
+      "total_len": 25
+    },
+    {
+      "count": 914,
+      "qdist": 3,
+      "total_len": 25
+    },
+    {
+      "count": 2480,
+      "qdist": 4,
+      "total_len": 25
+    },
+    {
+      "count": 3756,
+      "qdist": 5,
+      "total_len": 25
+    },
+    {
+      "count": 868,
+      "qdist": 6,
+      "total_len": 25
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 26
+    },
+    {
+      "count": 14,
+      "qdist": 1,
+      "total_len": 26
+    },
+    {
+      "count": 59,
+      "qdist": 2,
+      "total_len": 26
+    },
+    {
+      "count": 225,
+      "qdist": 3,
+      "total_len": 26
+    },
+    {
+      "count": 677,
+      "qdist": 4,
+      "total_len": 26
+    },
+    {
+      "count": 1177,
+      "qdist": 5,
+      "total_len": 26
+    },
+    {
+      "count": 522,
+      "qdist": 6,
+      "total_len": 26
+    },
+    {
+      "count": 19,
+      "qdist": 7,
+      "total_len": 26
+    },
+    {
+      "count": 2,
+      "qdist": 0,
+      "total_len": 27
+    },
+    {
+      "count": 24,
+      "qdist": 1,
+      "total_len": 27
+    },
+    {
+      "count": 174,
+      "qdist": 2,
+      "total_len": 27
+    },
+    {
+      "count": 664,
+      "qdist": 3,
+      "total_len": 27
+    },
+    {
+      "count": 2725,
+      "qdist": 4,
+      "total_len": 27
+    },
+    {
+      "count": 5489,
+      "qdist": 5,
+      "total_len": 27
+    },
+    {
+      "count": 1146,
+      "qdist": 6,
+      "total_len": 27
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 28
+    },
+    {
+      "count": 16,
+      "qdist": 1,
+      "total_len": 28
+    },
+    {
+      "count": 70,
+      "qdist": 2,
+      "total_len": 28
+    },
+    {
+      "count": 307,
+      "qdist": 3,
+      "total_len": 28
+    },
+    {
+      "count": 921,
+      "qdist": 4,
+      "total_len": 28
+    },
+    {
+      "count": 1765,
+      "qdist": 5,
+      "total_len": 28
+    },
+    {
+      "count": 607,
+      "qdist": 6,
+      "total_len": 28
+    },
+    {
+      "count": 6,
+      "qdist": 0,
+      "total_len": 29
+    },
+    {
+      "count": 22,
+      "qdist": 1,
+      "total_len": 29
+    },
+    {
+      "count": 89,
+      "qdist": 2,
+      "total_len": 29
+    },
+    {
+      "count": 387,
+      "qdist": 3,
+      "total_len": 29
+    },
+    {
+      "count": 1271,
+      "qdist": 4,
+      "total_len": 29
+    },
+    {
+      "count": 2279,
+      "qdist": 5,
+      "total_len": 29
+    },
+    {
+      "count": 653,
+      "qdist": 6,
+      "total_len": 29
+    },
+    {
+      "count": 1,
+      "qdist": 0,
+      "total_len": 30
+    },
+    {
+      "count": 21,
+      "qdist": 1,
+      "total_len": 30
+    },
+    {
+      "count": 74,
+      "qdist": 2,
+      "total_len": 30
+    },
+    {
+      "count": 289,
+      "qdist": 3,
+      "total_len": 30
+    },
+    {
+      "count": 1127,
+      "qdist": 4,
+      "total_len": 30
+    },
+    {
+      "count": 2502,
+      "qdist": 5,
+      "total_len": 30
+    },
+    {
+      "count": 911,
+      "qdist": 6,
+      "total_len": 30
+    },
+    {
+      "count": 8,
+      "qdist": 1,
+      "total_len": 31
+    },
+    {
+      "count": 32,
+      "qdist": 2,
+      "total_len": 31
+    },
+    {
+      "count": 167,
+      "qdist": 3,
+      "total_len": 31
+    },
+    {
+      "count": 515,
+      "qdist": 4,
+      "total_len": 31
+    },
+    {
+      "count": 900,
+      "qdist": 5,
+      "total_len": 31
+    },
+    {
+      "count": 299,
+      "qdist": 6,
+      "total_len": 31
+    },
+    {
+      "count": 5,
+      "qdist": 7,
+      "total_len": 31
+    },
+    {
+      "count": 5,
+      "qdist": 0,
+      "total_len": 32
+    },
+    {
+      "count": 29,
+      "qdist": 1,
+      "total_len": 32
+    },
+    {
+      "count": 71,
+      "qdist": 2,
+      "total_len": 32
+    },
+    {
+      "count": 339,
+      "qdist": 3,
+      "total_len": 32
+    },
+    {
+      "count": 1400,
+      "qdist": 4,
+      "total_len": 32
+    },
+    {
+      "count": 3330,
+      "qdist": 5,
+      "total_len": 32
+    },
+    {
+      "count": 1266,
+      "qdist": 6,
+      "total_len": 32
+    },
+    {
+      "count": 4,
+      "qdist": 2,
+      "total_len": 33
+    },
+    {
+      "count": 68,
+      "qdist": 3,
+      "total_len": 33
+    },
+    {
+      "count": 170,
+      "qdist": 4,
+      "total_len": 33
+    },
+    {
+      "count": 380,
+      "qdist": 5,
+      "total_len": 33
+    },
+    {
+      "count": 224,
+      "qdist": 6,
+      "total_len": 33
+    },
+    {
+      "count": 3,
+      "qdist": 7,
+      "total_len": 33
+    },
+    {
+      "count": 12,
+      "qdist": 1,
+      "total_len": 34
+    },
+    {
+      "count": 36,
+      "qdist": 2,
+      "total_len": 34
+    },
+    {
+      "count": 137,
+      "qdist": 3,
+      "total_len": 34
+    },
+    {
+      "count": 512,
+      "qdist": 4,
+      "total_len": 34
+    },
+    {
+      "count": 1460,
+      "qdist": 5,
+      "total_len": 34
+    },
+    {
+      "count": 688,
+      "qdist": 6,
+      "total_len": 34
+    },
+    {
+      "count": 1,
+      "qdist": 7,
+      "total_len": 34
+    },
+    {
+      "count": 12,
+      "qdist": 2,
+      "total_len": 35
+    },
+    {
+      "count": 91,
+      "qdist": 3,
+      "total_len": 35
+    },
+    {
+      "count": 308,
+      "qdist": 4,
+      "total_len": 35
+    },
+    {
+      "count": 617,
+      "qdist": 5,
+      "total_len": 35
+    },
+    {
+      "count": 468,
+      "qdist": 6,
+      "total_len": 35
+    },
+    {
+      "count": 2,
+      "qdist": 2,
+      "total_len": 36
+    },
+    {
+      "count": 34,
+      "qdist": 3,
+      "total_len": 36
+    },
+    {
+      "count": 175,
+      "qdist": 4,
+      "total_len": 36
+    },
+    {
+      "count": 487,
+      "qdist": 5,
+      "total_len": 36
+    },
+    {
+      "count": 432,
+      "qdist": 6,
+      "total_len": 36
+    },
+    {
+      "count": 3,
+      "qdist": 2,
+      "total_len": 37
+    },
+    {
+      "count": 14,
+      "qdist": 3,
+      "total_len": 37
+    },
+    {
+      "count": 104,
+      "qdist": 4,
+      "total_len": 37
+    },
+    {
+      "count": 274,
+      "qdist": 5,
+      "total_len": 37
+    },
+    {
+      "count": 156,
+      "qdist": 6,
+      "total_len": 37
+    },
+    {
+      "count": 1,
+      "qdist": 1,
+      "total_len": 38
+    },
+    {
+      "count": 5,
+      "qdist": 2,
+      "total_len": 38
+    },
+    {
+      "count": 27,
+      "qdist": 3,
+      "total_len": 38
+    },
+    {
+      "count": 86,
+      "qdist": 4,
+      "total_len": 38
+    },
+    {
+      "count": 247,
+      "qdist": 5,
+      "total_len": 38
+    },
+    {
+      "count": 191,
+      "qdist": 6,
+      "total_len": 38
+    },
+    {
+      "count": 1,
+      "qdist": 7,
+      "total_len": 38
+    },
+    {
+      "count": 24,
+      "qdist": 3,
+      "total_len": 39
+    },
+    {
+      "count": 95,
+      "qdist": 4,
+      "total_len": 39
+    },
+    {
+      "count": 218,
+      "qdist": 5,
+      "total_len": 39
+    },
+    {
+      "count": 190,
+      "qdist": 6,
+      "total_len": 39
+    },
+    {
+      "count": 1,
+      "qdist": 1,
+      "total_len": 40
+    },
+    {
+      "count": 21,
+      "qdist": 2,
+      "total_len": 40
+    },
+    {
+      "count": 88,
+      "qdist": 3,
+      "total_len": 40
+    },
+    {
+      "count": 187,
+      "qdist": 4,
+      "total_len": 40
+    },
+    {
+      "count": 396,
+      "qdist": 5,
+      "total_len": 40
+    },
+    {
+      "count": 299,
+      "qdist": 6,
+      "total_len": 40
+    },
+    {
+      "count": 13,
+      "qdist": 7,
+      "total_len": 40
+    },
+    {
+      "count": 7,
+      "qdist": 3,
+      "total_len": 41
+    },
+    {
+      "count": 17,
+      "qdist": 4,
+      "total_len": 41
+    },
+    {
+      "count": 34,
+      "qdist": 5,
+      "total_len": 41
+    },
+    {
+      "count": 20,
+      "qdist": 6,
+      "total_len": 41
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 42
+    },
+    {
+      "count": 5,
+      "qdist": 4,
+      "total_len": 42
+    },
+    {
+      "count": 5,
+      "qdist": 5,
+      "total_len": 42
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 44
+    },
+    {
+      "count": 10,
+      "qdist": 4,
+      "total_len": 44
+    },
+    {
+      "count": 2,
+      "qdist": 5,
+      "total_len": 44
+    },
+    {
+      "count": 2,
+      "qdist": 6,
+      "total_len": 44
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 46
+    },
+    {
+      "count": 3,
+      "qdist": 4,
+      "total_len": 46
+    },
+    {
+      "count": 3,
+      "qdist": 5,
+      "total_len": 46
+    },
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 46
+    },
+    {
+      "count": 1,
+      "qdist": 5,
+      "total_len": 47
+    },
+    {
+      "count": 2,
+      "qdist": 3,
+      "total_len": 48
+    },
+    {
+      "count": 9,
+      "qdist": 4,
+      "total_len": 48
+    },
+    {
+      "count": 13,
+      "qdist": 5,
+      "total_len": 48
+    },
+    {
+      "count": 8,
+      "qdist": 6,
+      "total_len": 48
+    },
+    {
+      "count": 1,
+      "qdist": 4,
+      "total_len": 49
+    },
+    {
+      "count": 1,
+      "qdist": 5,
+      "total_len": 49
+    },
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 49
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 50
+    },
+    {
+      "count": 1,
+      "qdist": 4,
+      "total_len": 50
+    },
+    {
+      "count": 1,
+      "qdist": 5,
+      "total_len": 50
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 52
+    },
+    {
+      "count": 5,
+      "qdist": 4,
+      "total_len": 52
+    },
+    {
+      "count": 6,
+      "qdist": 5,
+      "total_len": 52
+    },
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 52
+    },
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 54
+    },
+    {
+      "count": 1,
+      "qdist": 4,
+      "total_len": 55
+    },
+    {
+      "count": 2,
+      "qdist": 5,
+      "total_len": 55
+    },
+    {
+      "count": 1,
+      "qdist": 4,
+      "total_len": 56
+    },
+    {
+      "count": 2,
+      "qdist": 5,
+      "total_len": 56
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 57
+    },
+    {
+      "count": 4,
+      "qdist": 4,
+      "total_len": 57
+    },
+    {
+      "count": 11,
+      "qdist": 5,
+      "total_len": 57
+    },
+    {
+      "count": 3,
+      "qdist": 6,
+      "total_len": 57
+    },
+    {
+      "count": 1,
+      "qdist": 3,
+      "total_len": 58
+    },
+    {
+      "count": 4,
+      "qdist": 4,
+      "total_len": 58
+    },
+    {
+      "count": 12,
+      "qdist": 5,
+      "total_len": 58
+    },
+    {
+      "count": 1,
+      "qdist": 6,
+      "total_len": 58
+    }
+  ],
+  "p": 5,
+  "phase": "failed",
+  "sample_stride": 16,
+  "solved": 19
+}
