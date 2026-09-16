@@ -489,4 +489,36 @@ mod bfs_tests {
         assert_eq!(result.metrics.max_frontier, 1120);
         assert_eq!(result.metrics.max_total_relator_length, 19);
     }
+
+    /// First serious regression. Orientation (release, 2026-09) recorded:
+    /// depth 6, certificate [9,10,2,0,8,4], 93,117 expansions counted at pop
+    /// time, 1,303,629 generated, 828,690 unique, 474,940 duplicates, max
+    /// total relator length 131, ~234 MB peak RSS. The frozen metric counts
+    /// only full expansions, so 93,116 here.
+    /// Run with: cargo test --release -p ac-search -- --ignored
+    #[test]
+    #[ignore = "large: ~93k expansions, ~1.3M moves, ~234 MB"]
+    fn ms1y_solves_at_depth_6() {
+        let limits = SearchLimits {
+            max_expanded: Some(200_000),
+            max_depth: None,
+            max_total_relator_length: Some(10_000),
+            max_work: Some(2_000_000),
+        };
+        let result = solve_exact_state_bfs(&pres(&[-1, 2, 1, -2, -2], &[-1, 2]), &limits);
+        assert!(matches!(result.status, SearchStatus::Solved), "{:?}", result.status);
+        assert_eq!(result.certificate, vec![9, 10, 2, 0, 8, 4]);
+        assert_eq!(result.certificate_length, Some(6));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 93_116);
+        assert_eq!(result.metrics.generated, 1_303_629);
+        assert_eq!(result.metrics.unique, 828_690);
+        assert_eq!(result.metrics.duplicates, 474_940);
+        assert_eq!(result.metrics.max_total_relator_length, 131);
+        assert_eq!(result.metrics.max_depth_seen, 6);
+        // Pinned from the deterministic run. Orientation sampled the queue
+        // after each pop and reported 735,572; the frozen definition tracks
+        // the true peak, which is exactly one higher.
+        assert_eq!(result.metrics.max_frontier, 735_573);
+    }
 }
