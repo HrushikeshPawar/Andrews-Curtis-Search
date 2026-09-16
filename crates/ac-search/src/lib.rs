@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
 mod legacy;
+mod store;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
@@ -60,7 +61,7 @@ impl SearchResult {
         }
     }
 }
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Parent {
     pub parent_index: u32,
     pub move_id: u8,
