@@ -3,6 +3,7 @@ use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certifica
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
+mod beam;
 mod greedy;
 mod portfolio;
 mod search;
@@ -39,6 +40,10 @@ pub struct SearchMetrics {
     pub elapsed: Duration,
     pub replay_ok: bool,
     pub official_verifier_status: Option<String>,
+    /// Beam only: beam size after each layer truncation, index = depth.
+    /// `None` for BFS/greedy. Defaulted so older records still decode.
+    #[serde(default)]
+    pub surviving_width_per_depth: Option<Vec<u32>>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum SearchStatus {
@@ -146,6 +151,16 @@ pub fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> Sea
 /// suppression, first-discovery certificates. Not shortest-path guaranteed.
 pub fn solve_length_greedy(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     greedy::solve_length_greedy(start, limits)
+}
+/// Deterministic beam search (see module `beam` for the frozen v1 policy):
+/// layered best-first on total relator length with the given width, global
+/// exact-state suppression, first-discovery certificates.
+pub fn solve_beam(
+    start: &Presentation,
+    limits: &SearchLimits,
+    width: usize,
+) -> SearchResult {
+    beam::solve_beam(start, limits, width)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -548,5 +563,120 @@ mod greedy_tests {
         assert_eq!(result.metrics.max_frontier, 78);
         assert_eq!(result.metrics.max_depth_seen, 6);
         assert_eq!(result.metrics.max_total_relator_length, 12);
+    }
+}
+
+/// S3.0c beam checkpoint: layers, truncation, widths, determinism.
+#[cfg(test)]
+mod beam_tests {
+    use super::*;
+
+    fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
+        Presentation {
+            relators: [r0.to_vec(), r1.to_vec()],
+        }
+    }
+
+    #[test]
+    fn beam_widths_pin_on_back_4() {
+        // BFS optimum is 4; all three widths find optimal certificates.
+        // Narrower beams do strictly less work (128 vs 422 vs 1094).
+        let start = pres(&[-1, -2], &[-1, -2, 1]);
+        let w4 = solve_beam(&start, &SearchLimits::default(), 4);
+        assert!(matches!(w4.status, SearchStatus::Solved));
+        assert_eq!(w4.certificate, vec![10, 3, 0, 1]);
+        assert_eq!(w4.certificate_length, Some(4));
+        assert!(w4.metrics.replay_ok);
+        assert_eq!(w4.metrics.expanded, 9);
+        assert_eq!(w4.metrics.generated, 128);
+        assert_eq!(w4.metrics.unique, 88);
+        assert_eq!(w4.metrics.duplicates, 41);
+        assert_eq!(w4.metrics.max_frontier, 41);
+        assert_eq!(w4.metrics.max_depth_seen, 4);
+        assert_eq!(w4.metrics.max_total_relator_length, 8);
+        assert_eq!(
+            w4.metrics.surviving_width_per_depth,
+            Some(vec![1, 4, 4, 4])
+        );
+        let w16 = solve_beam(&start, &SearchLimits::default(), 16);
+        assert!(matches!(w16.status, SearchStatus::Solved));
+        assert_eq!(w16.certificate, vec![10, 3, 0, 1]);
+        assert_eq!(w16.certificate_length, Some(4));
+        assert!(w16.metrics.replay_ok);
+        assert_eq!(w16.metrics.expanded, 30);
+        assert_eq!(w16.metrics.generated, 422);
+        assert_eq!(w16.metrics.unique, 266);
+        assert_eq!(w16.metrics.duplicates, 157);
+        assert_eq!(w16.metrics.max_frontier, 126);
+        assert_eq!(w16.metrics.max_depth_seen, 4);
+        assert_eq!(w16.metrics.max_total_relator_length, 12);
+        assert_eq!(
+            w16.metrics.surviving_width_per_depth,
+            Some(vec![1, 13, 16, 16])
+        );
+        let w64 = solve_beam(&start, &SearchLimits::default(), 64);
+        assert!(matches!(w64.status, SearchStatus::Solved));
+        assert_eq!(w64.certificate, vec![10, 3, 0, 1]);
+        assert_eq!(w64.certificate_length, Some(4));
+        assert!(w64.metrics.replay_ok);
+        assert_eq!(w64.metrics.expanded, 78);
+        assert_eq!(w64.metrics.generated, 1094);
+        assert_eq!(w64.metrics.unique, 697);
+        assert_eq!(w64.metrics.duplicates, 398);
+        assert_eq!(w64.metrics.max_frontier, 556);
+        assert_eq!(w64.metrics.max_depth_seen, 4);
+        assert_eq!(w64.metrics.max_total_relator_length, 13);
+        assert_eq!(
+            w64.metrics.surviving_width_per_depth,
+            Some(vec![1, 13, 64, 64])
+        );
+    }
+
+    #[test]
+    fn beam_ms1y_finds_optimal_certificate() {
+        // BFS optimum is 6; beam-16 matches it with 883 generated vs
+        // BFS's 1,303,629.
+        let result = solve_beam(
+            &pres(&[-1, 2, 1, -2, -2], &[-1, 2]),
+            &SearchLimits::default(),
+            16,
+        );
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![9, 10, 2, 8, 5, 0]);
+        assert_eq!(result.certificate_length, Some(6));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 63);
+        assert_eq!(result.metrics.generated, 883);
+        assert_eq!(result.metrics.unique, 586);
+        assert_eq!(result.metrics.duplicates, 298);
+        assert_eq!(result.metrics.max_frontier, 152);
+        assert_eq!(result.metrics.max_depth_seen, 6);
+        assert_eq!(result.metrics.max_total_relator_length, 19);
+        assert_eq!(
+            result.metrics.surviving_width_per_depth,
+            Some(vec![1, 13, 16, 16, 16, 16])
+        );
+    }
+
+    #[test]
+    fn beam_is_deterministic_across_runs() {
+        // Randomized hash layout must not leak into traversal: two runs
+        // agree on everything except wall time.
+        let start = pres(&[-1, -2], &[-1, -2, 1]);
+        let a = solve_beam(&start, &SearchLimits::default(), 16);
+        let b = solve_beam(&start, &SearchLimits::default(), 16);
+        assert_eq!(a.certificate, b.certificate);
+        assert_eq!(a.certificate_length, b.certificate_length);
+        assert_eq!(format!("{:?}", a.status), format!("{:?}", b.status));
+        assert_eq!(a.metrics.expanded, b.metrics.expanded);
+        assert_eq!(a.metrics.generated, b.metrics.generated);
+        assert_eq!(a.metrics.unique, b.metrics.unique);
+        assert_eq!(a.metrics.duplicates, b.metrics.duplicates);
+        assert_eq!(a.metrics.max_frontier, b.metrics.max_frontier);
+        assert_eq!(a.metrics.max_depth_seen, b.metrics.max_depth_seen);
+        assert_eq!(
+            a.metrics.surviving_width_per_depth,
+            b.metrics.surviving_width_per_depth
+        );
     }
 }

@@ -74,7 +74,7 @@ impl CaseReport {
             expanded: result.metrics.expanded,
             unique: result.metrics.unique,
             peak_frontier: result.metrics.max_frontier,
-            surviving_width_per_depth: None,
+            surviving_width_per_depth: result.metrics.surviving_width_per_depth.clone(),
             elapsed_ms: result.metrics.elapsed.as_millis(),
         }
     }
