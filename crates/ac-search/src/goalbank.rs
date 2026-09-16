@@ -76,6 +76,14 @@ impl GoalBank {
         self.table.get(state).map(Vec::as_slice)
     }
 
+    /// Iterate every banked state with its shortest known suffix (analysis
+    /// and build statistics only; traversal never iterates the bank).
+    pub fn iter(&self) -> impl Iterator<Item = (&Presentation, &[MoveId])> {
+        self.table
+            .iter()
+            .map(|(state, suffix)| (state, suffix.as_slice()))
+    }
+
     /// Suffix lengths over all banked states (build statistics).
     pub fn suffix_lengths(&self) -> impl Iterator<Item = usize> + '_ {
         self.table.values().map(Vec::len)
@@ -121,7 +129,7 @@ mod goalbank_tests {
 
     #[test]
     fn every_banked_suffix_replays_to_the_target() {
-        use ac_core::{apply_move, move_from_id, DEFAULT_N_GEN};
+        use ac_core::{DEFAULT_N_GEN, apply_move, move_from_id};
         let mut bank = GoalBank::new();
         let start = pres(&[-1, -2], &[-1, -2, 1]);
         bank.insert_certificate(&start, &[0, 1, 3, 10]).unwrap();
@@ -143,7 +151,10 @@ mod goalbank_tests {
     #[test]
     fn bad_move_id_fails_honestly() {
         let mut bank = GoalBank::new();
-        assert!(bank.insert_certificate(&pres(&[1, 2], &[2]), &[14]).is_err());
+        assert!(
+            bank.insert_certificate(&pres(&[1, 2], &[2]), &[14])
+                .is_err()
+        );
         assert!(bank.is_empty());
     }
 }

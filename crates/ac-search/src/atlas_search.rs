@@ -51,16 +51,35 @@ pub(crate) fn solve_bank_greedy(
     start: &Presentation,
     limits: &SearchLimits,
     bank: &GoalBank,
-    mut ball: Option<&mut ReverseBall>,
+    ball: Option<&mut ReverseBall>,
 ) -> AtlasOutcome {
-    let done = |result: SearchResult, via_bank: bool, via_ball: bool, ball_hit_depth: Option<u32>| {
-        AtlasOutcome {
-            result,
-            via_bank,
-            via_ball,
-            ball_hit_depth,
-        }
-    };
+    solve_bank_greedy_observed(start, limits, bank, ball, None)
+}
+
+/// Discovery observer for instrumentation runs: receives each freshly stored
+/// exact state and its discovery depth.
+pub type DiscoverObserver<'a> = &'a mut dyn FnMut(&Presentation, u32);
+
+/// Same traversal as `solve_bank_greedy`, additionally reporting every newly
+/// discovered exact state and its discovery depth to `on_discover`.
+/// Instrumentation hook for the S4.2a quotient probe: the callback sees
+/// states in discovery order and cannot influence traversal.
+pub(crate) fn solve_bank_greedy_observed(
+    start: &Presentation,
+    limits: &SearchLimits,
+    bank: &GoalBank,
+    mut ball: Option<&mut ReverseBall>,
+    mut on_discover: Option<DiscoverObserver<'_>>,
+) -> AtlasOutcome {
+    let done =
+        |result: SearchResult, via_bank: bool, via_ball: bool, ball_hit_depth: Option<u32>| {
+            AtlasOutcome {
+                result,
+                via_bank,
+                via_ball,
+                ball_hit_depth,
+            }
+        };
     let t0 = Instant::now();
     let root = match reduce_presentation(start) {
         Ok(root) => root,
@@ -141,23 +160,18 @@ pub(crate) fn solve_bank_greedy(
             if Some(id) == skip {
                 continue;
             }
-            if limits
-                .max_work
-                .is_some_and(|cap| metrics.generated >= cap)
-            {
+            if limits.max_work.is_some_and(|cap| metrics.generated >= cap) {
                 return done(limit_reached(metrics, t0.elapsed()), false, false, None);
             }
-            let successor =
-                match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
-                    Ok(p) => p,
-                    Err(e) => {
-                        return done(failed(e.0, metrics, t0.elapsed()), false, false, None);
-                    }
-                };
+            let successor = match apply_move(&current, &table[id as usize], DEFAULT_N_GEN) {
+                Ok(p) => p,
+                Err(e) => {
+                    return done(failed(e.0, metrics, t0.elapsed()), false, false, None);
+                }
+            };
             metrics.generated += 1;
             let length = successor.total_relator_length();
-            metrics.max_total_relator_length =
-                metrics.max_total_relator_length.max(length);
+            metrics.max_total_relator_length = metrics.max_total_relator_length.max(length);
             // Permanent suppression: seen once means seen forever.
             if store.contains(&successor.relators[0], &successor.relators[1]) {
                 metrics.duplicates += 1;
@@ -188,6 +202,11 @@ pub(crate) fn solve_bank_greedy(
                 .expect("probed-absent state must insert");
             metrics.unique += 1;
             metrics.max_depth_seen = metrics.max_depth_seen.max(child_depth);
+            // Instrumentation hook: report the freshly discovered state
+            // before any terminating probe can end the run.
+            if let Some(cb) = on_discover.as_deref_mut() {
+                cb(&successor, child_depth);
+            }
             // Exact target first: suffix-0 is always the shortest completion.
             if is_ac_target(&successor) {
                 let certificate = reconstruct(&store, child);
@@ -248,9 +267,7 @@ pub(crate) fn solve_bank_greedy(
         // completed: every non-skipped move was generated.
         metrics.expanded += 1;
         // Recover the expansion buffers for the next pop (capacity retained).
-        let Presentation {
-            relators: [b0, b1],
-        } = current;
+        let Presentation { relators: [b0, b1] } = current;
         w0 = b0;
         w1 = b1;
     }

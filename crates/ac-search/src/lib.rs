@@ -9,6 +9,7 @@ mod beam;
 mod goalbank;
 mod greedy;
 mod portfolio;
+mod quotient;
 mod search;
 mod store;
 
@@ -17,6 +18,9 @@ pub use portfolio::{Budget, CaseReport, load_submission};
 pub use atlas_search::AtlasOutcome;
 pub use ball::ReverseBall;
 pub use goalbank::GoalBank;
+pub use quotient::{
+    AbelianQuotient, AbelianSignature, Class2Quotient, Class2Signature, DistanceTable, UNREACHABLE,
+};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
@@ -95,11 +99,7 @@ pub(crate) fn reduce_presentation(p: &Presentation) -> Result<Presentation, Stri
         ],
     })
 }
-pub(crate) fn failed(
-    msg: String,
-    mut metrics: SearchMetrics,
-    elapsed: Duration,
-) -> SearchResult {
+pub(crate) fn failed(msg: String, mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
     metrics.elapsed = elapsed;
     SearchResult {
         status: SearchStatus::Failed(msg),
@@ -126,7 +126,11 @@ pub(crate) fn solved(
             metrics,
         }
     } else {
-        failed("replay_failed_after_reconstruction".into(), metrics, elapsed)
+        failed(
+            "replay_failed_after_reconstruction".into(),
+            metrics,
+            elapsed,
+        )
     }
 }
 pub(crate) fn limit_reached(mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
@@ -162,11 +166,7 @@ pub fn solve_length_greedy(start: &Presentation, limits: &SearchLimits) -> Searc
 /// Deterministic beam search (see module `beam` for the frozen v1 policy):
 /// layered best-first on total relator length with the given width, global
 /// exact-state suppression, first-discovery certificates.
-pub fn solve_beam(
-    start: &Presentation,
-    limits: &SearchLimits,
-    width: usize,
-) -> SearchResult {
+pub fn solve_beam(start: &Presentation, limits: &SearchLimits, width: usize) -> SearchResult {
     beam::solve_beam(start, limits, width)
 }
 /// Bank-probing greedy with immediate-inverse pruning (see module
@@ -179,6 +179,18 @@ pub fn solve_bank_greedy(
     ball: Option<&mut ReverseBall>,
 ) -> atlas_search::AtlasOutcome {
     atlas_search::solve_bank_greedy(start, limits, bank, ball)
+}
+/// `solve_bank_greedy` with a discovery observer for instrumentation runs
+/// (S4.2a quotient probe): every newly stored exact state is reported with
+/// its discovery depth. The callback cannot influence traversal.
+pub fn solve_bank_greedy_observed(
+    start: &Presentation,
+    limits: &SearchLimits,
+    bank: &GoalBank,
+    ball: Option<&mut ReverseBall>,
+    on_discover: Option<atlas_search::DiscoverObserver<'_>>,
+) -> atlas_search::AtlasOutcome {
+    atlas_search::solve_bank_greedy_observed(start, limits, bank, ball, on_discover)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -197,7 +209,8 @@ pub struct ExperimentRecord {
 }
 
 #[cfg(test)]
-mod bfs_tests {use super::*;
+mod bfs_tests {
+    use super::*;
     use ac_core::replay_certificate;
 
     fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
@@ -389,7 +402,8 @@ mod bfs_tests {use super::*;
         // Orientation fixture back_2: depth 2, orientation reported 10
         // expansions counting the goal-parent's cut-short expansion; the
         // frozen metric counts only its 9 full expansions.
-        let result = solve_exact_state_bfs(&pres(&[-2, 1, 2], &[1, 2, -1]), &SearchLimits::default());
+        let result =
+            solve_exact_state_bfs(&pres(&[-2, 1, 2], &[1, 2, -1]), &SearchLimits::default());
         assert!(matches!(result.status, SearchStatus::Solved));
         assert_eq!(result.certificate, vec![8, 11]);
         assert_eq!(result.certificate_length, Some(2));
@@ -409,7 +423,8 @@ mod bfs_tests {use super::*;
     fn back_4_solves_with_orientation_certificate() {
         // Orientation fixture back_4: depth 4, orientation reported 142
         // expansions; the frozen metric counts 141 full expansions.
-        let result = solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &SearchLimits::default());
+        let result =
+            solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &SearchLimits::default());
         assert!(matches!(result.status, SearchStatus::Solved));
         assert_eq!(result.certificate, vec![0, 1, 3, 10]);
         assert_eq!(result.certificate_length, Some(4));
@@ -440,7 +455,11 @@ mod bfs_tests {use super::*;
             max_work: Some(2_000_000),
         };
         let result = solve_exact_state_bfs(&pres(&[-1, 2, 1, -2, -2], &[-1, 2]), &limits);
-        assert!(matches!(result.status, SearchStatus::Solved), "{:?}", result.status);
+        assert!(
+            matches!(result.status, SearchStatus::Solved),
+            "{:?}",
+            result.status
+        );
         assert_eq!(result.certificate, vec![9, 10, 2, 0, 8, 4]);
         assert_eq!(result.certificate_length, Some(6));
         assert!(result.metrics.replay_ok);
@@ -460,13 +479,13 @@ mod bfs_tests {use super::*;
 /// Scale regression (ex-oracle): the 4.0M-state fixed workload pins the full
 /// v1 row through the C2 implementation. Release-only.
 #[cfg(test)]
-mod scale_tests {use super::*;
+mod scale_tests {
+    use super::*;
 
     #[test]
     #[ignore = "large: 6.3M moves, ~4.0M states"]
     fn fixed_workload_matches_prototype_scale() {
-        let dir =
-            std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
+        let dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
         let item = ac_core::data::load_training(dir.join("examples/training_424.json"))
             .expect("training data")
             .into_iter()
@@ -562,8 +581,7 @@ mod greedy_tests {
     fn greedy_ms_train_0001_finds_valid_certificate() {
         // BFS optimum is 5 (official walk is 8); greedy finds length 6 with
         // 114 generated vs BFS's 7,402.
-        let dir =
-            std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
+        let dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
         let item = ac_core::data::load_training(dir.join("examples/training_424.json"))
             .expect("training data")
             .into_iter()
@@ -612,10 +630,7 @@ mod beam_tests {
         assert_eq!(w4.metrics.max_frontier, 41);
         assert_eq!(w4.metrics.max_depth_seen, 4);
         assert_eq!(w4.metrics.max_total_relator_length, 8);
-        assert_eq!(
-            w4.metrics.surviving_width_per_depth,
-            Some(vec![1, 4, 4, 4])
-        );
+        assert_eq!(w4.metrics.surviving_width_per_depth, Some(vec![1, 4, 4, 4]));
         let w16 = solve_beam(&start, &SearchLimits::default(), 16);
         assert!(matches!(w16.status, SearchStatus::Solved));
         assert_eq!(w16.certificate, vec![10, 3, 0, 1]);
@@ -775,10 +790,7 @@ mod atlas_tests {
             &crate::GoalBank::new(),
             Some(&mut ball),
         );
-        assert!(matches!(
-            outcome.result.status,
-            crate::SearchStatus::Solved
-        ));
+        assert!(matches!(outcome.result.status, crate::SearchStatus::Solved));
         assert!(!outcome.via_bank);
         assert!(outcome.via_ball);
         assert_eq!(outcome.ball_hit_depth, Some(3));
