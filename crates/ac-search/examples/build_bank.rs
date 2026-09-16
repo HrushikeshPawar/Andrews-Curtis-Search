@@ -7,26 +7,9 @@
 //! Needs SAIR_ACC_ROOT for the scored starts.
 use ac_core::data::{load_manifest, load_training};
 use ac_core::Presentation;
-use ac_search::GoalBank;
+use ac_search::{load_submission, GoalBank};
 use std::collections::HashMap;
 use std::path::PathBuf;
-
-fn load_submission(path: &PathBuf) -> Result<Vec<(String, Vec<u8>)>, String> {
-    let mut out = Vec::new();
-    for line in std::fs::read_to_string(path).map_err(|e| e.to_string())?.lines() {
-        let line = line.trim();
-        if line.is_empty() || line.starts_with('#') {
-            continue;
-        }
-        let (id, arr) = line
-            .split_once(':')
-            .ok_or_else(|| format!("bad line in {}", path.display()))?;
-        let moves: Vec<u8> =
-            serde_json::from_str(arr.trim()).map_err(|e| format!("{}: {e}", path.display()))?;
-        out.push((id.trim().to_string(), moves));
-    }
-    Ok(out)
-}
 
 fn main() -> Result<(), String> {
     let _out = std::env::args()

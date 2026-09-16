@@ -21,10 +21,10 @@ use std::collections::BinaryHeap;
 use std::time::Instant;
 
 #[derive(Eq, PartialEq)]
-struct HeapItem {
-    length: usize,
-    seq: u64,
-    id: StateId,
+pub(crate) struct HeapItem {
+    pub(crate) length: usize,
+    pub(crate) seq: u64,
+    pub(crate) id: StateId,
 }
 
 impl Ord for HeapItem {

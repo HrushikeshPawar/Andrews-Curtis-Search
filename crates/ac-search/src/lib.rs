@@ -3,6 +3,7 @@ use ac_core::{Certificate, DEFAULT_N_GEN, Presentation, reduce, replay_certifica
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
 
+mod atlas_search;
 mod beam;
 mod goalbank;
 mod greedy;
@@ -10,8 +11,9 @@ mod portfolio;
 mod search;
 mod store;
 
-pub use portfolio::{Budget, CaseReport};
+pub use portfolio::{Budget, CaseReport, load_submission};
 
+pub use atlas_search::AtlasOutcome;
 pub use goalbank::GoalBank;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -164,6 +166,15 @@ pub fn solve_beam(
     width: usize,
 ) -> SearchResult {
     beam::solve_beam(start, limits, width)
+}
+/// Bank-probing greedy with immediate-inverse pruning (see module
+/// `atlas_search`): S4.1 experiment only, not a frozen solver.
+pub fn solve_bank_greedy(
+    start: &Presentation,
+    limits: &SearchLimits,
+    bank: &GoalBank,
+) -> atlas_search::AtlasOutcome {
+    atlas_search::solve_bank_greedy(start, limits, bank)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -681,5 +692,88 @@ mod beam_tests {
             a.metrics.surviving_width_per_depth,
             b.metrics.surviving_width_per_depth
         );
+    }
+}
+
+/// S4.1 experiment tests: bank probing and inverse pruning.
+#[cfg(test)]
+mod atlas_tests {
+    use super::*;
+
+    fn pres(r0: &[i8], r1: &[i8]) -> Presentation {
+        Presentation {
+            relators: [r0.to_vec(), r1.to_vec()],
+        }
+    }
+
+    fn xy_bank() -> GoalBank {
+        let mut bank = GoalBank::new();
+        bank.insert_certificate(&pres(&[1, 2], &[2]), &[3])
+            .expect("fixture cert replays");
+        bank
+    }
+
+    #[test]
+    fn banked_start_returns_suffix_without_expansion() {
+        let outcome = solve_bank_greedy(
+            &pres(&[1, 2], &[2]),
+            &SearchLimits::default(),
+            &xy_bank(),
+        );
+        assert!(matches!(outcome.result.status, SearchStatus::Solved));
+        assert!(outcome.via_bank);
+        assert_eq!(outcome.result.certificate, vec![3]);
+        assert_eq!(outcome.result.certificate_length, Some(1));
+        assert!(outcome.result.metrics.replay_ok);
+        assert_eq!(outcome.result.metrics.expanded, 0);
+        assert_eq!(outcome.result.metrics.generated, 0);
+        assert_eq!(outcome.result.metrics.unique, 1);
+    }
+
+    #[test]
+    fn mid_path_bank_hit_completes_the_certificate() {
+        // P=[[1,2,2],[2]] reaches banked s0=[[1,2],[2]] via move 3 (4th
+        // generated successor of the root expansion): cert [3,3].
+        let outcome = solve_bank_greedy(
+            &pres(&[1, 2, 2], &[2]),
+            &SearchLimits::default(),
+            &xy_bank(),
+        );
+        assert!(matches!(outcome.result.status, SearchStatus::Solved));
+        assert!(outcome.via_bank);
+        assert_eq!(outcome.result.certificate, vec![3, 3]);
+        assert_eq!(outcome.result.certificate_length, Some(2));
+        assert!(outcome.result.metrics.replay_ok);
+        assert_eq!(outcome.result.metrics.expanded, 0);
+        assert_eq!(outcome.result.metrics.generated, 4);
+        assert_eq!(outcome.result.metrics.unique, 5);
+    }
+
+    #[test]
+    fn empty_bank_matches_greedy_modulo_pruned_edges() {
+        // With nothing banked, inverse pruning removes only certain
+        // duplicates: same traversal, fewer generated/dups, and the
+        // difference is exactly the pruned edges.
+        let start = pres(&[-1, -2], &[-1, -2, 1]);
+        let empty = GoalBank::new();
+        let a = solve_bank_greedy(&start, &SearchLimits::default(), &empty);
+        let b = solve_bank_greedy(&start, &SearchLimits::default(), &empty);
+        let g = solve_length_greedy(&start, &SearchLimits::default());
+        assert!(!a.via_bank);
+        for x in [&a.result, &b.result] {
+            assert_eq!(format!("{:?}", x.status), format!("{:?}", g.status));
+            assert_eq!(x.certificate, g.certificate);
+            assert_eq!(x.certificate_length, g.certificate_length);
+            assert_eq!(x.metrics.expanded, g.metrics.expanded);
+            assert_eq!(x.metrics.unique, g.metrics.unique);
+            assert_eq!(x.metrics.max_frontier, g.metrics.max_frontier);
+            assert_eq!(x.metrics.max_depth_seen, g.metrics.max_depth_seen);
+            assert!(x.metrics.generated <= g.metrics.generated);
+            assert_eq!(
+                g.metrics.generated - x.metrics.generated,
+                g.metrics.duplicates - x.metrics.duplicates,
+                "every pruned edge must have been a duplicate"
+            );
+        }
     }
 }
