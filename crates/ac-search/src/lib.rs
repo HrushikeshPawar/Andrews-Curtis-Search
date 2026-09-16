@@ -1,8 +1,10 @@
 //! Search infrastructure. Exact-state BFS over the ordinary AC graph.
 use ac_core::{
-    Certificate, DEFAULT_N_GEN, Presentation, is_ac_target, reduce, replay_certificate,
+    Certificate, DEFAULT_N_GEN, Move, Presentation, all_move_ids, apply_move, is_ac_target,
+    move_from_id, reduce, replay_certificate,
 };
 use serde::{Deserialize, Serialize};
+use std::collections::{HashMap, VecDeque};
 use std::time::{Duration, Instant};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -108,10 +110,42 @@ fn solved(
         failed("replay_failed_after_reconstruction".into(), metrics, elapsed)
     }
 }
+/// Walk the first-discovery parent chain from `end` back to the root and
+/// return the move ids in root-to-end order.
+fn reconstruct(parents: &[Option<Parent>], end: u32) -> Certificate {
+    let mut ids = Vec::new();
+    let mut cur = end;
+    while let Some(parent) = parents[cur as usize] {
+        ids.push(parent.move_id);
+        cur = parent.parent_index;
+    }
+    ids.reverse();
+    ids
+}
+fn limit_reached(mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
+    metrics.elapsed = elapsed;
+    SearchResult {
+        status: SearchStatus::LimitReached,
+        certificate: Vec::new(),
+        certificate_length: None,
+        metrics,
+    }
+}
+fn exhausted(mut metrics: SearchMetrics, elapsed: Duration) -> SearchResult {
+    metrics.elapsed = elapsed;
+    SearchResult {
+        status: SearchStatus::Exhausted,
+        certificate: Vec::new(),
+        certificate_length: None,
+        metrics,
+    }
+}
 /// Exact-state BFS. A node is the exact ordered presentation; each outgoing
 /// edge is one official move id 0..=13 applied through ac-core. No cyclic
 /// reduction, no canonicalization, no relator swapping, no heuristic.
-pub fn solve_exact_state_bfs(start: &Presentation, _limits: &SearchLimits) -> SearchResult {
+/// Successors are tried in id order and states are marked visited at
+/// discovery (first visit wins), so certificates are deterministic.
+pub fn solve_exact_state_bfs(start: &Presentation, limits: &SearchLimits) -> SearchResult {
     let t0 = Instant::now();
     let root = match reduce_presentation(start) {
         Ok(root) => root,
@@ -126,8 +160,91 @@ pub fn solve_exact_state_bfs(start: &Presentation, _limits: &SearchLimits) -> Se
         metrics.unique = 1;
         return solved(&root, Vec::new(), metrics, t0.elapsed());
     }
-    // The FIFO search loop is the next step of the walkthrough.
-    SearchResult::unimplemented()
+    // Seed the visited map and the FIFO frontier with the root (arena index 0).
+    let mut states: Vec<Presentation> = vec![root.clone()];
+    let mut parents: Vec<Option<Parent>> = vec![None];
+    let mut depths: Vec<u32> = vec![0];
+    let mut visited: HashMap<Presentation, u32> = HashMap::new();
+    visited.insert(root.clone(), 0);
+    let mut queue: VecDeque<u32> = VecDeque::new();
+    queue.push_back(0);
+    metrics.unique = 1;
+    metrics.max_frontier = 1;
+    let table: [Move; 14] =
+        core::array::from_fn(|i| move_from_id(i as u8).expect("ids 0..=13 are pinned"));
+    // True once any limit suppressed a state: an unsolved drain is then
+    // LimitReached, never Exhausted.
+    let mut pruned = false;
+    // Pop states FIFO.
+    while let Some(si) = queue.pop_front() {
+        if limits
+            .max_expanded
+            .is_some_and(|cap| metrics.expanded >= cap)
+        {
+            return limit_reached(metrics, t0.elapsed());
+        }
+        let depth = depths[si as usize];
+        // Each official move id in order.
+        for id in all_move_ids() {
+            if limits
+                .max_work
+                .is_some_and(|cap| metrics.generated >= cap)
+            {
+                return limit_reached(metrics, t0.elapsed());
+            }
+            let successor =
+                match apply_move(&states[si as usize], &table[id as usize], DEFAULT_N_GEN) {
+                    Ok(p) => p,
+                    Err(e) => return failed(e.0, metrics, t0.elapsed()),
+                };
+            metrics.generated += 1;
+            metrics.max_total_relator_length = metrics
+                .max_total_relator_length
+                .max(successor.total_relator_length());
+            // Duplicate suppression: first visit wins and is never overwritten.
+            if visited.contains_key(&successor) {
+                metrics.duplicates += 1;
+                continue;
+            }
+            let child_depth = depth + 1;
+            if limits
+                .max_total_relator_length
+                .is_some_and(|cap| successor.total_relator_length() > cap)
+                || limits.max_depth.is_some_and(|cap| child_depth > cap)
+            {
+                pruned = true;
+                continue;
+            }
+            // First discovery: record parent + move, then enqueue.
+            let child = states.len() as u32;
+            states.push(successor.clone());
+            parents.push(Some(Parent {
+                parent_index: si,
+                move_id: id,
+            }));
+            depths.push(child_depth);
+            visited.insert(successor, child);
+            metrics.unique += 1;
+            metrics.max_depth_seen = metrics.max_depth_seen.max(child_depth);
+            // Return at first discovery of the exact target: BFS discovers
+            // in nondecreasing depth, so this is a shortest certificate.
+            if is_ac_target(&states[child as usize]) {
+                let certificate = reconstruct(&parents, child);
+                return solved(&root, certificate, metrics, t0.elapsed());
+            }
+            queue.push_back(child);
+            metrics.max_frontier = metrics.max_frontier.max(queue.len() as u64);
+        }
+        // Frozen metric: a state counts as expanded only once all 14 of its
+        // outgoing moves were generated.
+        metrics.expanded += 1;
+    }
+    // The frontier drained. Exhausted only if no limit ever cut the graph.
+    if pruned {
+        limit_reached(metrics, t0.elapsed())
+    } else {
+        exhausted(metrics, t0.elapsed())
+    }
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
@@ -191,5 +308,59 @@ mod bfs_tests {
         assert_eq!(result.metrics.expanded, 0);
         assert_eq!(result.metrics.unique, 0);
         assert!(!result.metrics.replay_ok);
+    }
+
+    #[test]
+    fn depth1_xy_y_solves_with_move_3() {
+        // <x,y | xy, y>: move 3 (r0 <- r0 * r1^-1) is the first official move
+        // that reaches [[1],[2]], so the shortest certificate is [3].
+        let result = solve_exact_state_bfs(&pres(&[1, 2], &[2]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![3]);
+        assert_eq!(result.certificate_length, Some(1));
+        assert!(result.metrics.replay_ok);
+        // Frozen definitions: the root's expansion stopped at move 3 when the
+        // goal was discovered, so no state completed all 14 moves.
+        assert_eq!(result.metrics.expanded, 0);
+        assert_eq!(result.metrics.generated, 4);
+        assert_eq!(result.metrics.unique, 5);
+        assert_eq!(result.metrics.duplicates, 0);
+        // Max queue size: the root is popped before its children are pushed,
+        // so the peak is the 3 new states queued at ids 0..=2.
+        assert_eq!(result.metrics.max_frontier, 3);
+        assert_eq!(result.metrics.max_depth_seen, 1);
+        assert_eq!(result.metrics.max_total_relator_length, 4);
+    }
+
+    #[test]
+    fn back_1_solves_with_move_5() {
+        // Orientation fixture back_1.
+        let result = solve_exact_state_bfs(&pres(&[1], &[2, 1]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![5]);
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 0);
+        assert_eq!(result.metrics.generated, 6);
+        assert_eq!(result.metrics.unique, 7);
+        assert_eq!(result.metrics.duplicates, 0);
+        assert_eq!(result.metrics.max_frontier, 5);
+        assert_eq!(result.metrics.max_depth_seen, 1);
+        assert_eq!(result.metrics.max_total_relator_length, 5);
+    }
+
+    #[test]
+    fn back_3_solves_with_move_4() {
+        // Orientation fixture back_3.
+        let result = solve_exact_state_bfs(&pres(&[1], &[2, -1]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![4]);
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 0);
+        assert_eq!(result.metrics.generated, 5);
+        assert_eq!(result.metrics.unique, 6);
+        assert_eq!(result.metrics.duplicates, 0);
+        assert_eq!(result.metrics.max_frontier, 4);
+        assert_eq!(result.metrics.max_depth_seen, 1);
+        assert_eq!(result.metrics.max_total_relator_length, 5);
     }
 }
