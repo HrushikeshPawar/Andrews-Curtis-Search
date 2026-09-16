@@ -2,7 +2,7 @@
 //! training instances or the scored competition corpus. Benchmark plumbing.
 //!
 //! Usage: `s3_sweep [shard shards solver budget source tag idfile]`
-//!   solver: bfs | greedy | beam4 | beam16 | beam64   (default: greedy)
+//!   solver: bfs | greedy | beam4 | beam16 | beam64 | atlas | atlas2 | subst
 //!   budget: small | medium | large                   (default: large)
 //!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
 //!   idfile: optional JSON array of challenge ids to restrict the run
@@ -11,7 +11,8 @@ use ac_core::Presentation;
 use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_search::{
     Budget, CaseReport, GoalBank, ReverseBall, SearchLimits, SearchResult, SearchStatus,
-    load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs, solve_length_greedy,
+    SupermovePolicy, load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs,
+    solve_length_greedy, solve_supermove_greedy,
 };
 use serde::Serialize;
 use std::path::PathBuf;
@@ -114,7 +115,10 @@ fn main() -> Result<(), String> {
     // S4.1: the atlas solver needs the goal bank (1238 verified
     // trajectories) built once up front; per-case starts come from the
     // same loaders as `selected` above.
-    let bank: Option<GoalBank> = if solver.as_str() == "atlas" || solver.as_str() == "atlas2" {
+    let bank: Option<GoalBank> = if solver.as_str() == "atlas"
+        || solver.as_str() == "atlas2"
+        || solver.as_str() == "subst"
+    {
         use std::collections::HashMap;
         let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
         let mut starts: HashMap<String, Presentation> = HashMap::new();
@@ -161,6 +165,24 @@ fn main() -> Result<(), String> {
     } else {
         None
     };
+    // S4.2b: supermove policy, overridable per run for the experiment matrix.
+    let policy = SupermovePolicy {
+        max_conjugator: std::env::var("SUBST_MAX_CONJ")
+            .ok()
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(1),
+        top_k: std::env::var("SUBST_TOP_K")
+            .ok()
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(8),
+        keep_increasing: std::env::var("SUBST_KEEP_INC")
+            .ok()
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(2),
+    };
+    if solver.as_str() == "subst" {
+        eprintln!("supermove policy: {policy:?}");
+    }
     let mut solve = |start: &Presentation| -> (SearchResult, bool, bool, Option<u32>) {
         // Fresh solvers report no bank/ball provenance.
         let no_probe = |result: SearchResult| (result, false, false, None);
@@ -179,6 +201,15 @@ fn main() -> Result<(), String> {
             let (via_bank, via_ball, depth) =
                 (outcome.via_bank, outcome.via_ball, outcome.ball_hit_depth);
             (outcome.result, via_bank, via_ball, depth)
+        } else if solver.as_str() == "subst" {
+            let outcome = solve_supermove_greedy(
+                start,
+                &limits,
+                &policy,
+                bank.as_ref().expect("bank built"),
+                None,
+            );
+            (outcome.result, outcome.via_bank, false, None)
         } else {
             let result = match solver.as_str() {
                 "bfs" => solve_exact_state_bfs(start, &limits),

@@ -76,6 +76,15 @@ pub struct CaseReport {
     pub unique: u64,
     pub peak_frontier: u64,
     pub surviving_width_per_depth: Option<Vec<u32>>,
+    /// Supermove experiment only: emitted composite proposals.
+    #[serde(default)]
+    pub macros: u64,
+    /// Supermove experiment only: primitive moves charged by emitted macros.
+    #[serde(default)]
+    pub macro_witness_moves: u64,
+    /// Supermove experiment only: letters cancelled by emitted supermoves.
+    #[serde(default)]
+    pub macro_cancelled: u64,
     pub elapsed_ms: u128,
     pub replay_ok: bool,
 }
@@ -108,6 +117,9 @@ impl CaseReport {
             unique: result.metrics.unique,
             peak_frontier: result.metrics.max_frontier,
             surviving_width_per_depth: result.metrics.surviving_width_per_depth.clone(),
+            macros: result.metrics.macros,
+            macro_witness_moves: result.metrics.macro_witness_moves,
+            macro_cancelled: result.metrics.macro_cancelled,
             elapsed_ms: result.metrics.elapsed.as_millis(),
             replay_ok: result.metrics.replay_ok,
         }

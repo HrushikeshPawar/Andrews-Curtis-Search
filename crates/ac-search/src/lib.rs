@@ -12,6 +12,7 @@ mod portfolio;
 mod quotient;
 mod search;
 mod store;
+mod supermove;
 
 pub use portfolio::{Budget, CaseReport, load_submission};
 
@@ -21,6 +22,7 @@ pub use goalbank::GoalBank;
 pub use quotient::{
     AbelianQuotient, AbelianSignature, Class2Quotient, Class2Signature, DistanceTable, UNREACHABLE,
 };
+pub use supermove::{Supermove, SupermovePolicy, propose, propose_all};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
@@ -55,6 +57,15 @@ pub struct SearchMetrics {
     /// `None` for BFS/greedy. Defaulted so older records still decode.
     #[serde(default)]
     pub surviving_width_per_depth: Option<Vec<u32>>,
+    /// Supermove experiment only: emitted composite proposals.
+    #[serde(default)]
+    pub macros: u64,
+    /// Supermove experiment only: primitive moves charged by emitted macros.
+    #[serde(default)]
+    pub macro_witness_moves: u64,
+    /// Supermove experiment only: letters cancelled by emitted supermoves.
+    #[serde(default)]
+    pub macro_cancelled: u64,
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum SearchStatus {
@@ -191,6 +202,18 @@ pub fn solve_bank_greedy_observed(
     on_discover: Option<atlas_search::DiscoverObserver<'_>>,
 ) -> atlas_search::AtlasOutcome {
     atlas_search::solve_bank_greedy_observed(start, limits, bank, ball, on_discover)
+}
+/// Witnessed-substitution supermove search (see module `supermove`): S4.2b
+/// experiment only, not a frozen solver. Supermoves are charged by primitive
+/// witness length and every certificate still replays through the normal gate.
+pub fn solve_supermove_greedy(
+    start: &Presentation,
+    limits: &SearchLimits,
+    policy: &SupermovePolicy,
+    bank: &GoalBank,
+    ball: Option<&mut ReverseBall>,
+) -> atlas_search::AtlasOutcome {
+    supermove::solve_supermove_greedy(start, limits, policy, bank, ball)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
