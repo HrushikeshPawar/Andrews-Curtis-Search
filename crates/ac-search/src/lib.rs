@@ -536,4 +536,39 @@ mod diff_tests {
             },
         );
     }
+
+    /// Gate 4: the prototype's fixed 4.0M-state workload (ms-train-0004 at
+    /// 6.3M work) must reproduce the v1 row exactly and agree with the
+    /// oracle — including across hash-table growth at this scale.
+    /// Run with: cargo test --release -p ac-search -- --ignored
+    #[test]
+    #[ignore = "large: 6.3M moves, ~4.0M states, ~1.5 GB (C2)"]
+    fn fixed_workload_matches_prototype_scale() {
+        let dir =
+            std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../vendor/sair");
+        let item = ac_core::data::load_training(dir.join("examples/training_424.json"))
+            .expect("training data")
+            .into_iter()
+            .find(|x| x.training_id == "ms-train-0004")
+            .expect("ms-train-0004");
+        let limits = SearchLimits {
+            max_expanded: None,
+            max_depth: None,
+            max_total_relator_length: Some(10_000),
+            max_work: Some(6_300_000),
+        };
+        let result = solve_exact_state_bfs(&item.presentation(), &limits);
+        assert!(matches!(result.status, SearchStatus::LimitReached));
+        assert_eq!(result.certificate_length, None);
+        assert!(!result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 450_000);
+        assert_eq!(result.metrics.generated, 6_300_000);
+        assert_eq!(result.metrics.unique, 4_001_727);
+        assert_eq!(result.metrics.duplicates, 2_298_274);
+        assert_eq!(result.metrics.max_frontier, 3_551_727);
+        assert_eq!(result.metrics.max_depth_seen, 7);
+        assert_eq!(result.metrics.max_total_relator_length, 416);
+        let oracle = legacy::solve_exact_state_bfs(&item.presentation(), &limits);
+        assert_identical(&result, &oracle);
+    }
 }
