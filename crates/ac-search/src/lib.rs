@@ -363,4 +363,90 @@ mod bfs_tests {
         assert_eq!(result.metrics.max_depth_seen, 1);
         assert_eq!(result.metrics.max_total_relator_length, 5);
     }
+
+    #[test]
+    fn back_4_hits_max_expanded_limit() {
+        // Expansion budget binds at pop 51: exactly 50 states completed all
+        // 14 moves, so generated is exactly 50 * 14.
+        let limits = SearchLimits {
+            max_expanded: Some(50),
+            max_depth: None,
+            max_total_relator_length: None,
+            max_work: None,
+        };
+        let result = solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &limits);
+        assert!(matches!(result.status, SearchStatus::LimitReached));
+        assert_eq!(result.certificate, Vec::<u8>::new());
+        assert_eq!(result.certificate_length, None);
+        assert!(!result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 50);
+        assert_eq!(result.metrics.generated, 700);
+        // Pinned from the deterministic run; identity generated == unique - 1
+        // + duplicates holds exactly (nothing was pruned here).
+        assert_eq!(result.metrics.unique, 474);
+        assert_eq!(result.metrics.duplicates, 227);
+        assert_eq!(result.metrics.max_frontier, 424);
+        assert_eq!(result.metrics.max_depth_seen, 3);
+        assert_eq!(result.metrics.max_total_relator_length, 17);
+    }
+
+    #[test]
+    fn back_4_hits_max_work_mid_expansion() {
+        // Work budget binds inside expansion 51: 50 full expansions (700
+        // generated) plus 5 more moves before the pre-application check stops.
+        let limits = SearchLimits {
+            max_expanded: None,
+            max_depth: None,
+            max_total_relator_length: None,
+            max_work: Some(705),
+        };
+        let result = solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &limits);
+        assert!(matches!(result.status, SearchStatus::LimitReached));
+        assert_eq!(result.metrics.expanded, 50);
+        assert_eq!(result.metrics.generated, 705);
+        assert_eq!(result.certificate, Vec::<u8>::new());
+    }
+
+    #[test]
+    fn back_4_max_depth_prunes_and_reports_limit_reached() {
+        // Depth cap suppresses every depth-3 child at generation; the run
+        // drains but must NOT claim the graph was exhausted.
+        let limits = SearchLimits {
+            max_expanded: None,
+            max_depth: Some(2),
+            max_total_relator_length: None,
+            max_work: None,
+        };
+        let result = solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &limits);
+        assert!(matches!(result.status, SearchStatus::LimitReached));
+        assert_eq!(result.metrics.max_depth_seen, 2);
+        assert_eq!(result.certificate, Vec::<u8>::new());
+        // Pinned from the deterministic run: every depth<=2 state was fully
+        // expanded (generated == 14 * expanded) and the depth-3 children were
+        // pruned at generation, so the drain reports LimitReached.
+        assert_eq!(result.metrics.expanded, 140);
+        assert_eq!(result.metrics.generated, 1960);
+        assert_eq!(result.metrics.unique, 140);
+        assert_eq!(result.metrics.duplicates, 273);
+        assert_eq!(result.metrics.max_frontier, 126);
+        assert_eq!(result.metrics.max_total_relator_length, 19);
+    }
+
+    #[test]
+    fn empty_relators_component_is_exhausted() {
+        // [[],[]] is the canonical finite component: every official move is a
+        // self-loop, so the frontier drains with no pruning: honest Exhausted.
+        let result = solve_exact_state_bfs(&pres(&[], &[]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Exhausted));
+        assert_eq!(result.certificate, Vec::<u8>::new());
+        assert_eq!(result.certificate_length, None);
+        assert_eq!(result.metrics.expanded, 1);
+        assert_eq!(result.metrics.generated, 14);
+        assert_eq!(result.metrics.unique, 1);
+        assert_eq!(result.metrics.duplicates, 14);
+        assert_eq!(result.metrics.max_frontier, 1);
+        assert_eq!(result.metrics.max_depth_seen, 0);
+        assert_eq!(result.metrics.max_total_relator_length, 0);
+        assert!(!result.metrics.replay_ok);
+    }
 }
