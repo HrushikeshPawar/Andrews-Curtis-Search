@@ -449,4 +449,44 @@ mod bfs_tests {
         assert_eq!(result.metrics.max_total_relator_length, 0);
         assert!(!result.metrics.replay_ok);
     }
+
+    #[test]
+    fn back_2_solves_with_orientation_certificate() {
+        // Orientation fixture back_2: depth 2, orientation reported 10
+        // expansions counting the goal-parent's cut-short expansion; the
+        // frozen metric counts only its 9 full expansions.
+        let result = solve_exact_state_bfs(&pres(&[-2, 1, 2], &[1, 2, -1]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![8, 11]);
+        assert_eq!(result.certificate_length, Some(2));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 9);
+        assert_eq!(result.metrics.generated, 138);
+        assert_eq!(result.metrics.unique, 117);
+        assert_eq!(result.metrics.duplicates, 22);
+        assert_eq!(result.metrics.max_depth_seen, 2);
+        // Pinned from the deterministic run (orientation recorded no
+        // max_frontier or max_total_relator_length for the small cases).
+        assert_eq!(result.metrics.max_frontier, 106);
+        assert_eq!(result.metrics.max_total_relator_length, 15);
+    }
+
+    #[test]
+    fn back_4_solves_with_orientation_certificate() {
+        // Orientation fixture back_4: depth 4, orientation reported 142
+        // expansions; the frozen metric counts 141 full expansions.
+        let result = solve_exact_state_bfs(&pres(&[-1, -2], &[-1, -2, 1]), &SearchLimits::default());
+        assert!(matches!(result.status, SearchStatus::Solved));
+        assert_eq!(result.certificate, vec![0, 1, 3, 10]);
+        assert_eq!(result.certificate_length, Some(4));
+        assert!(result.metrics.replay_ok);
+        assert_eq!(result.metrics.expanded, 141);
+        assert_eq!(result.metrics.generated, 1985);
+        assert_eq!(result.metrics.unique, 1263);
+        assert_eq!(result.metrics.duplicates, 723);
+        assert_eq!(result.metrics.max_depth_seen, 4);
+        // Pinned from the deterministic run.
+        assert_eq!(result.metrics.max_frontier, 1120);
+        assert_eq!(result.metrics.max_total_relator_length, 19);
+    }
 }
