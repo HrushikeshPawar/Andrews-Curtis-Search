@@ -43,6 +43,7 @@ pub struct CaseReport {
     pub solver: String,
     pub budget: Budget,
     pub training_id: String,
+    pub status: String,
     pub solved: bool,
     pub certificate_length: Option<usize>,
     pub best_known_length: Option<usize>,
@@ -53,6 +54,7 @@ pub struct CaseReport {
     pub peak_frontier: u64,
     pub surviving_width_per_depth: Option<Vec<u32>>,
     pub elapsed_ms: u128,
+    pub replay_ok: bool,
 }
 
 impl CaseReport {
@@ -62,10 +64,18 @@ impl CaseReport {
         training_id: impl Into<String>,
         result: &SearchResult,
     ) -> Self {
+        let status = match &result.status {
+            SearchStatus::Solved => "solved",
+            SearchStatus::Exhausted => "exhausted",
+            SearchStatus::LimitReached => "limit",
+            SearchStatus::Unimplemented => "unimplemented",
+            SearchStatus::Failed(_) => "failed",
+        };
         Self {
             solver: solver.into(),
             budget,
             training_id: training_id.into(),
+            status: status.to_string(),
             solved: matches!(result.status, SearchStatus::Solved),
             certificate_length: result.certificate_length,
             best_known_length: None,
@@ -76,6 +86,7 @@ impl CaseReport {
             peak_frontier: result.metrics.max_frontier,
             surviving_width_per_depth: result.metrics.surviving_width_per_depth.clone(),
             elapsed_ms: result.metrics.elapsed.as_millis(),
+            replay_ok: result.metrics.replay_ok,
         }
     }
 
@@ -105,6 +116,7 @@ mod portfolio_tests {
                 expanded: 7,
                 unique: 42,
                 max_frontier: 9,
+                replay_ok: true,
                 ..SearchMetrics::default()
             },
         }
@@ -127,6 +139,7 @@ mod portfolio_tests {
         )
         .with_ground_truth(5);
         assert!(report.solved);
+        assert_eq!(report.status, "solved");
         assert_eq!(report.certificate_length, Some(9));
         assert_eq!(report.best_known_length, Some(5));
         assert_eq!(report.slack_vs_bfs_optimum, Some(4));
@@ -135,6 +148,7 @@ mod portfolio_tests {
         let json = serde_json::to_string(&report).unwrap();
         let back: CaseReport = serde_json::from_str(&json).unwrap();
         assert_eq!(back.slack_vs_bfs_optimum, Some(4));
+        assert!(back.replay_ok);
     }
 
     #[test]
