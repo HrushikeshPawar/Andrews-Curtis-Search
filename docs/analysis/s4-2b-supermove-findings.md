@@ -66,9 +66,33 @@ no new coverage: single-round cancellation is too rare per primitive charged.
 
 The criterion is technically met (+1 coverage at equal primitive accounting),
 but the effect is marginal and the mechanism unclear: the cancellation count
-is far too small to explain the solve. An ablation with
-`SUBST_KEEP_INC=0` (macros fire only when they cancel, no filler
-diversification) separates substitution from perturbation.
+is far too small to explain the solve.
+
+**Ablation: cancelling macros only (`SUBST_KEEP_INC=0`).** Same 500 cases,
+same budget, fillers removed so a macro is emitted only when it cancels:
+
+| arm | solved | macros | witness share of budget | cancelled / macro | novel cases |
+|---|---|---|---|---|---|
+| atlas-greedy (frozen) | 19/500 | — | — | — | — |
+| supermove v3, fillers kept | 20/500 | 55.2M | 31.2% | 0.121 | ac-00380 |
+| **supermove v3, cancelling only** | **22/500** | 5.4M | **2.81%** | **1.674** | ac-00364, ac-00380, ac-00557 |
+
+No losses in either direction: the solve sets are nested
+19 ⊂ 20 ⊂ 22. With fillers removed the macro overhead drops to 2.8% of the
+budget, `unique/generated` returns to baseline (0.622 vs 0.640), and every
+cancellation event is real (5.4M macros, 9.1M letters).
+
+The three new cases all show macro activity before the bank hit:
+
+- `ac-00380`: solved at 9,957 generated / 764 expansions after 4 macros and 9
+  cancelled letters — a corridor opened early;
+- `ac-00364`: solved at 961,419 / 1M after 5,342 macros;
+- `ac-00557`: solved at 909,487 / 1M after 15,380 macros.
+
+Two of the three are saved near the budget cap; all are bank hits (no new
+certificate length). So cancelling supermoves are the effective component and
+filler macros were actively harmful — they burned 28% of the budget for a
+worse result.
 
 ## Why single-round macros are inert (structural)
 
@@ -83,25 +107,21 @@ same cases.
 
 ## Implication
 
-The single-round family is not dead but marginal: +1/500 with an unclear
-mechanism. Two explanations remain, and the running `SUBST_KEEP_INC=0`
-ablation separates them:
+The ablation resolves the picture: cancellation-producing supermoves are the
+effective component. Removing filler proposals *improves* coverage
+(19 baseline → 20 all macros → 22 cancelling-only) while cutting macro
+overhead from 31% to 2.8% of the budget. The gain is still modest (+3/500,
+all bank hits) and deterministic single runs can be chaotic, so a
+dose-response check (`max_conjugator = 2`, cancelling only) is the next step
+before promotion.
 
-- **filler perturbation** — rotated presentations inject structure-different
-  exact states into the frontier and change the traversal basin (the new solve
-  cancelled only 9 letters, so this is the better-supported explanation);
-- **cancellation** — the rare net-negative macros genuinely shorten the path.
-
-Either way the reachability argument stands: rotations are length-neutral, so
-single-round macros cannot reach states that a length-greedy walk could not
-reach given enough work; they only change which states are visited first.
-
-The larger opportunity remains a two-round generator: compose the best
-length-increasing setup proposals with the cancelling proposals available at
-their successors, keep only net-negative compositions, and charge the summed
-witness. That is the only shape that adds reachability that length-greedy
-deprioritizes. The single-round family should not be promoted beyond this
-record without a dose-response check.
+The reachability argument still bounds what this family can do: rotations are
+length-neutral, so single-round macros only reroute the traversal at equal
+total length. The larger opportunity remains a two-round generator — compose
+the best length-increasing setup proposals with the cancelling proposals
+available at their successors, keep only net-negative compositions, and charge
+the summed witness. That is the only shape that adds reachability that
+length-greedy deprioritizes.
 
 ## Reproduction
 
