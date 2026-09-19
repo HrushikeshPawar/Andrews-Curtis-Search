@@ -218,6 +218,8 @@ def run_greedy(acsolverx_root: Path, ckpt_name: str, ckpt_step: int, cases: list
     dummy = network.init(rng, jnp.zeros((1, 2 * L), dtype=jnp.int8))
 
     ckpt_abs = acsolverx_root / "ppo_checkpoints" / ckpt_name
+    # Keep process cwd at ACSolverX so relative dataset/checkpoint paths
+    # inside upstream imports resolve; caller must pass an absolute --out.
     mngr = ocp.CheckpointManager(str(ckpt_abs), item_names=("params", "solve_data", "config"))
     step = mngr.latest_step() if ckpt_step < 0 else ckpt_step
     if step is None:
@@ -296,6 +298,7 @@ def run_greedy(acsolverx_root: Path, ckpt_name: str, ckpt_step: int, cases: list
 def main() -> int:
     args = parse_args()
     repo = Path(__file__).resolve().parents[1]
+    out_path = Path(args.out).resolve()
     if not args.sair_root:
         raise SystemExit("set --sair-root or SAIR_ACC_ROOT")
     sair_root = Path(args.sair_root)
@@ -332,9 +335,9 @@ def main() -> int:
         flush=True,
     )
     if args.compatible_only:
-        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.out).write_text(json.dumps(summary, indent=2) + "\n")
-        print(f"wrote {args.out}")
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(json.dumps(summary, indent=2) + "\n")
+        print(f"wrote {out_path}")
         return 0
 
     acx = Path(args.acsolverx_root) if args.acsolverx_root else None
@@ -358,13 +361,13 @@ def main() -> int:
         "overlap_ids": [r["id"] for r in overlap],
     }
     summary["rows"] = rows
-    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.out).write_text(json.dumps(summary, indent=2) + "\n")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(summary, indent=2) + "\n")
     print(
         f"ACSolverX trivial {len(solved)}/{len(compatible)}; "
         f"overlap {len(overlap)}; new {len(new)} {summary['inference']['new_ids'][:20]}"
     )
-    print(f"wrote {args.out}")
+    print(f"wrote {out_path}")
     return 0
 
 
