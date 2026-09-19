@@ -49,6 +49,27 @@ primitive unit:
 v3 (the corrected family) cancels ~7x more per macro than v1, but still finds
 no new coverage: single-round cancellation is too rare per primitive charged.
 
+**Full 500-case run (the promotion criterion).** At the same medium budget:
+
+- supermove v3: **20/500** solved; frozen atlas-greedy: **19/500**. One new
+  case (`ac-00380`), no losses.
+- Every solve in both arms is a bank hit: the search reaches a banked state and
+  completes with the stored suffix.
+- `ac-00380` was reached after 9,210 generated primitives (4,947 unique states,
+  504 expansions), while the baseline explored 633,440 unique states without
+  hitting it. But the run's 1,011 emitted macros cancelled only **9 letters**
+  in total: the gain is traversal perturbation by the macro arm (31.2% of the
+  500-case budget went to witness moves), not cancellation power.
+- Across the run: 55.2M macros, 0.121 cancelled letters per macro,
+  `unique/generated` 0.443 vs 0.640 for the baseline (fewer distinct states
+  per primitive).
+
+The criterion is technically met (+1 coverage at equal primitive accounting),
+but the effect is marginal and the mechanism unclear: the cancellation count
+is far too small to explain the solve. An ablation with
+`SUBST_KEEP_INC=0` (macros fire only when they cancel, no filler
+diversification) separates substitution from perturbation.
+
 ## Why single-round macros are inert (structural)
 
 Conjugation by a suffix or inverse prefix of a relator is a *length-neutral*
@@ -62,14 +83,25 @@ same cases.
 
 ## Implication
 
-The value AC-SolverX attributes to cancellation-seeking supermoves must come
-from composite steps whose intermediate states are *longer* and therefore
-deprioritized (possibly never expanded) by length-greedy: i.e. grow-then-cancel
-chains packaged into a single witnessed macro with net-negative length. The
-next experiment is a two-round generator: compose the best length-increasing
-proposals with the cancelling proposals available at their successors, keep
-compositions with net cancellation, charge the summed witness. The single-round
-family tested here should not be promoted.
+The single-round family is not dead but marginal: +1/500 with an unclear
+mechanism. Two explanations remain, and the running `SUBST_KEEP_INC=0`
+ablation separates them:
+
+- **filler perturbation** — rotated presentations inject structure-different
+  exact states into the frontier and change the traversal basin (the new solve
+  cancelled only 9 letters, so this is the better-supported explanation);
+- **cancellation** — the rare net-negative macros genuinely shorten the path.
+
+Either way the reachability argument stands: rotations are length-neutral, so
+single-round macros cannot reach states that a length-greedy walk could not
+reach given enough work; they only change which states are visited first.
+
+The larger opportunity remains a two-round generator: compose the best
+length-increasing setup proposals with the cancelling proposals available at
+their successors, keep only net-negative compositions, and charge the summed
+witness. That is the only shape that adds reachability that length-greedy
+deprioritizes. The single-round family should not be promoted beyond this
+record without a dose-response check.
 
 ## Reproduction
 
