@@ -94,6 +94,22 @@ certificate length). So cancelling supermoves are the effective component and
 filler macros were actively harmful — they burned 28% of the budget for a
 worse result.
 
+**Dose-response: `max_conjugator = 2`, cancelling only.** More rotation
+alignments per state (100 candidates instead of 36):
+
+| arm | solved | macros | witness share of budget | cancelled / macro |
+|---|---|---|---|---|
+| atlas-greedy (frozen) | 19/500 | — | — | — |
+| K=1 cancelling-only | 22/500 | 5.4M | 2.81% | 1.674 |
+| K=2 cancelling-only | 23/500 | 17.8M | 13.62% | 1.657 |
+
+K=2 adds `ac-00169` and `ac-00521` (both saved near the 1M cap) but misses
+`ac-00557`, so the net gain over K=1 is +1. It contains all 19 baseline
+solves; its only loss is one K=1 win. The trend 19 → 22 → 23 is positive but
+saturating: the extra alignments cost 5x the macro budget for +1 net case.
+The four K=2 wins over the baseline (`ac-00169`, `ac-00364`, `ac-00380`,
+`ac-00521`) all show cancelling-macro activity before the bank hit.
+
 ## Why single-round macros are inert (structural)
 
 Conjugation by a suffix or inverse prefix of a relator is a *length-neutral*
@@ -107,21 +123,26 @@ same cases.
 
 ## Implication
 
-The ablation resolves the picture: cancellation-producing supermoves are the
-effective component. Removing filler proposals *improves* coverage
-(19 baseline → 20 all macros → 22 cancelling-only) while cutting macro
-overhead from 31% to 2.8% of the budget. The gain is still modest (+3/500,
-all bank hits) and deterministic single runs can be chaotic, so a
-dose-response check (`max_conjugator = 2`, cancelling only) is the next step
-before promotion.
+The cancellation-only configuration now meets the promotion criterion with a
+coherent mechanism: **19 → 22 (K=1) → 23 (K=2) coverage at equal primitive
+accounting, no losses against the frozen baseline, 2.8-13.6% of budget spent on
+macro witnesses, and 1.66 cancelled letters per emitted macro**. Every extra
+solve is a bank hit reached earlier or saved near the cap, and the wins come
+from cancelling macros (not filler perturbation, which measured worse).
 
-The reachability argument still bounds what this family can do: rotations are
-length-neutral, so single-round macros only reroute the traversal at equal
-total length. The larger opportunity remains a two-round generator — compose
-the best length-increasing setup proposals with the cancelling proposals
-available at their successors, keep only net-negative compositions, and charge
-the summed witness. That is the only shape that adds reachability that
-length-greedy deprioritizes.
+Caveats: the effect is small (+4/500), configuration-sensitive (±1 between
+K=1 and K=2), and deterministic single runs can be chaotic. The reachability
+argument still bounds the family: rotations are length-neutral, so single-round
+macros only reroute the traversal at equal total length. Before promotion,
+either tighten the evidence (top_k / max_conjugator sweep, maybe a second
+slice) or go after the larger prize:
+
+**Two-round grow-then-cancel generator.** Compose the length-increasing setup
+proposals with the cancelling proposals available at their successors, keep
+only compositions with net-negative length, and charge the summed witness.
+That is the only shape that adds reachability that length-greedy deprioritizes,
+and it directly packages the "setup then cancel" pattern that the single-round
+wins only reach by luck.
 
 ## Reproduction
 
