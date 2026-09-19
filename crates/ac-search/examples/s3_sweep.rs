@@ -2,7 +2,7 @@
 //! training instances or the scored competition corpus. Benchmark plumbing.
 //!
 //! Usage: `s3_sweep [shard shards solver budget source tag idfile]`
-//!   solver: bfs | greedy | beam4 | beam16 | beam64 | atlas | atlas2 | subst
+//!   solver: bfs | greedy | beam4 | beam16 | beam64 | atlas | atlas2 | subst | gssub
 //!   budget: small | medium | large                   (default: large)
 //!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
 //!   idfile: optional JSON array of challenge ids to restrict the run
@@ -11,8 +11,8 @@ use ac_core::Presentation;
 use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_search::{
     Budget, CaseReport, GoalBank, ReverseBall, SearchLimits, SearchResult, SearchStatus,
-    SupermovePolicy, load_submission, solve_bank_greedy, solve_beam, solve_exact_state_bfs,
-    solve_length_greedy, solve_supermove_greedy,
+    SubstitutionPolicy, SupermovePolicy, load_submission, solve_bank_greedy, solve_beam,
+    solve_exact_state_bfs, solve_length_greedy, solve_substitution_greedy, solve_supermove_greedy,
 };
 use serde::Serialize;
 use std::path::PathBuf;
@@ -118,6 +118,7 @@ fn main() -> Result<(), String> {
     let bank: Option<GoalBank> = if solver.as_str() == "atlas"
         || solver.as_str() == "atlas2"
         || solver.as_str() == "subst"
+        || solver.as_str() == "gssub"
     {
         use std::collections::HashMap;
         let repo = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
@@ -183,6 +184,15 @@ fn main() -> Result<(), String> {
     if solver.as_str() == "subst" {
         eprintln!("supermove policy: {policy:?}");
     }
+    let gssub_policy = SubstitutionPolicy {
+        top_k: std::env::var("GSSUB_TOP_K")
+            .ok()
+            .and_then(|v| v.parse().ok())
+            .unwrap_or(16),
+    };
+    if solver.as_str() == "gssub" {
+        eprintln!("gssub policy: {gssub_policy:?}");
+    }
     let mut solve = |start: &Presentation| -> (SearchResult, bool, bool, Option<u32>) {
         // Fresh solvers report no bank/ball provenance.
         let no_probe = |result: SearchResult| (result, false, false, None);
@@ -208,6 +218,14 @@ fn main() -> Result<(), String> {
                 &policy,
                 bank.as_ref().expect("bank built"),
                 None,
+            );
+            (outcome.result, outcome.via_bank, false, None)
+        } else if solver.as_str() == "gssub" {
+            let outcome = solve_substitution_greedy(
+                start,
+                &limits,
+                &gssub_policy,
+                bank.as_ref().expect("bank built"),
             );
             (outcome.result, outcome.via_bank, false, None)
         } else {

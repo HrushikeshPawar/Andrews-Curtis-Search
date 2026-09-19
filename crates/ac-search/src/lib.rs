@@ -12,6 +12,7 @@ mod portfolio;
 mod quotient;
 mod search;
 mod store;
+mod substitution;
 mod supermove;
 
 pub use portfolio::{Budget, CaseReport, load_submission};
@@ -21,6 +22,10 @@ pub use ball::ReverseBall;
 pub use goalbank::GoalBank;
 pub use quotient::{
     AbelianQuotient, AbelianSignature, Class2Quotient, Class2Signature, DistanceTable, UNREACHABLE,
+};
+pub use substitution::{
+    SubstitutionPolicy, SubstitutionProposal, propose as propose_substitution,
+    propose_all as propose_all_substitution,
 };
 pub use supermove::{Supermove, SupermovePolicy, propose, propose_all};
 
@@ -214,6 +219,18 @@ pub fn solve_supermove_greedy(
     ball: Option<&mut ReverseBall>,
 ) -> atlas_search::AtlasOutcome {
     supermove::solve_supermove_greedy(start, limits, policy, bank, ball)
+}
+/// Witnessed ACSolverX-style substitution search (see module `substitution`):
+/// S4.3 experiment only. Search edges are cancelling substitution macros
+/// with official primitive witnesses; certificates still replay through the
+/// normal gate. Frozen primitive solvers and S4.2b supermove are untouched.
+pub fn solve_substitution_greedy(
+    start: &Presentation,
+    limits: &SearchLimits,
+    policy: &SubstitutionPolicy,
+    bank: &GoalBank,
+) -> atlas_search::AtlasOutcome {
+    substitution::solve_substitution_greedy(start, limits, policy, bank)
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExperimentRecord {
