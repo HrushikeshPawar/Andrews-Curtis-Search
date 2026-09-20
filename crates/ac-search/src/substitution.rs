@@ -18,7 +18,7 @@ use super::{SearchLimits, SearchMetrics};
 use super::{exhausted, failed, limit_reached, reduce_presentation, solved};
 use ac_core::{
     DEFAULT_N_GEN, Move, MoveId, Presentation, apply_move, concat, inverse, is_ac_target,
-    move_from_id,
+    move_from_id, replay_certificate,
 };
 use std::collections::{BinaryHeap, HashMap};
 use std::time::Instant;
@@ -458,6 +458,159 @@ pub(crate) fn solve_substitution_greedy(
     }
 }
 
+/// Quality-mode substitution search. Unlike the frozen coverage solver above,
+/// this continues after bank hits and keeps the shortest replay-verified
+/// candidate below `incumbent_len`.
+pub fn solve_substitution_quality(
+    start: &Presentation,
+    limits: &SearchLimits,
+    policy: &SubstitutionPolicy,
+    bank: &GoalBank,
+    incumbent_len: usize,
+) -> AtlasOutcome {
+    let done = |result, via_bank: bool| AtlasOutcome {
+        result,
+        via_bank,
+        via_ball: false,
+        ball_hit_depth: None,
+    };
+    let t0 = Instant::now();
+    let root = match reduce_presentation(start) {
+        Ok(root) => root,
+        Err(msg) => return done(failed(msg, SearchMetrics::default(), t0.elapsed()), false),
+    };
+    let mut metrics = SearchMetrics {
+        max_total_relator_length: root.total_relator_length(),
+        ..SearchMetrics::default()
+    };
+    let mut best: Option<Vec<MoveId>> = None;
+    let mut best_via_bank = false;
+    let mut consider = |candidate: Vec<MoveId>, via_bank: bool| {
+        let bound = best.as_ref().map_or(incumbent_len, Vec::len);
+        if candidate.len() < bound && replay_certificate(&root, &candidate).is_ok() {
+            best = Some(candidate);
+            best_via_bank = via_bank;
+        }
+    };
+    if is_ac_target(&root) {
+        consider(Vec::new(), false);
+    }
+    if let Some(suffix) = bank.suffix(&root) {
+        consider(suffix.to_vec(), true);
+    }
+
+    let mut store = StateStore::new();
+    store
+        .insert_new(&root.relators[0], &root.relators[1], None, 0)
+        .expect("fresh store accepts the root");
+    let mut parents: Vec<Option<(StateId, u32)>> = vec![None];
+    let mut witnesses: Vec<Vec<MoveId>> = Vec::new();
+    let mut heap: BinaryHeap<HeapItem> = BinaryHeap::new();
+    heap.push(HeapItem {
+        length: root.total_relator_length(),
+        seq: 0,
+        id: 0,
+    });
+    let mut seq = 1;
+    let mut pruned = false;
+    let (mut w0, mut w1) = (Vec::new(), Vec::new());
+    metrics.unique = 1;
+    metrics.max_frontier = 1;
+    while let Some(item) = heap.pop() {
+        if limits
+            .max_expanded
+            .is_some_and(|cap| metrics.expanded >= cap)
+        {
+            break;
+        }
+        let depth = store.depth(item.id);
+        let producer_inverse = parents[item.id as usize]
+            .map(|(_, witness)| inverse_witness(&witnesses[witness as usize]));
+        store.copy_state(item.id, &mut w0, &mut w1);
+        let current = Presentation {
+            relators: [std::mem::take(&mut w0), std::mem::take(&mut w1)],
+        };
+        for proposal in propose(&current, policy) {
+            if producer_inverse
+                .as_deref()
+                .is_some_and(|inverse| inverse == proposal.witness)
+            {
+                continue;
+            }
+            let cost = proposal.witness.len() as u64;
+            if limits
+                .max_work
+                .is_some_and(|cap| metrics.generated + cost > cap)
+            {
+                pruned = true;
+                break;
+            }
+            metrics.generated += cost;
+            metrics.macros += 1;
+            metrics.macro_witness_moves += cost;
+            metrics.macro_cancelled += proposal.cancelled.max(0) as u64;
+            let SubstitutionProposal {
+                successor, witness, ..
+            } = proposal;
+            let length = successor.total_relator_length();
+            metrics.max_total_relator_length = metrics.max_total_relator_length.max(length);
+            if store.contains(&successor.relators[0], &successor.relators[1]) {
+                metrics.duplicates += 1;
+                continue;
+            }
+            let child_depth = depth + 1;
+            if limits
+                .max_total_relator_length
+                .is_some_and(|cap| length > cap)
+                || limits.max_depth.is_some_and(|cap| child_depth > cap)
+            {
+                pruned = true;
+                continue;
+            }
+            let child = store
+                .insert_new(
+                    &successor.relators[0],
+                    &successor.relators[1],
+                    None,
+                    child_depth,
+                )
+                .expect("probed-absent state must insert");
+            parents.push(Some((item.id, witnesses.len() as u32)));
+            witnesses.push(witness);
+            metrics.unique += 1;
+            metrics.max_depth_seen = metrics.max_depth_seen.max(child_depth);
+            let prefix = reconstruct_macros(&parents, &witnesses, child);
+            if is_ac_target(&successor) {
+                consider(prefix.clone(), false);
+            }
+            if let Some(suffix) = bank.suffix(&successor) {
+                let mut candidate = prefix;
+                candidate.extend_from_slice(suffix);
+                consider(candidate, true);
+            }
+            heap.push(HeapItem {
+                length,
+                seq,
+                id: child,
+            });
+            seq += 1;
+            metrics.max_frontier = metrics.max_frontier.max(heap.len() as u64);
+        }
+        metrics.expanded += 1;
+        let Presentation { relators: [b0, b1] } = current;
+        w0 = b0;
+        w1 = b1;
+    }
+    match best {
+        Some(candidate) => done(
+            solved(&root, candidate, metrics, t0.elapsed()),
+            best_via_bank,
+        ),
+        None if pruned || !heap.is_empty() => done(limit_reached(metrics, t0.elapsed()), false),
+        None => done(exhausted(metrics, t0.elapsed()), false),
+    }
+}
+
 #[cfg(test)]
 mod substitution_tests {
     use super::*;
@@ -471,6 +624,28 @@ mod substitution_tests {
 
     fn apply(start: &Presentation, witness: &[MoveId]) -> Presentation {
         apply_witness(start, witness).expect("official moves apply to reduced states")
+    }
+
+    #[test]
+    fn quality_mode_improves_an_incumbent_after_a_bank_hit() {
+        let start = pres(&[1, 2], &[2]);
+        let mut bank = GoalBank::new();
+        bank.insert_certificate(&start, &[3]).unwrap();
+        let result = solve_substitution_quality(
+            &start,
+            &SearchLimits {
+                max_expanded: Some(10),
+                max_depth: Some(2),
+                max_total_relator_length: Some(100),
+                max_work: Some(1_000),
+            },
+            &SubstitutionPolicy::default(),
+            &bank,
+            3,
+        );
+        assert_eq!(result.result.certificate, vec![3]);
+        assert!(result.result.metrics.replay_ok);
+        assert_eq!(result.result.certificate_length, Some(1));
     }
 
     #[test]

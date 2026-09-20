@@ -6,16 +6,19 @@ use std::time::Duration;
 mod atlas_search;
 mod ball;
 mod beam;
+mod corpus;
 mod goalbank;
 mod greedy;
 mod portfolio;
 mod quotient;
 mod search;
+mod shortening;
 mod store;
 mod substitution;
 mod supermove;
 mod trajectory_graph;
 
+pub use corpus::{ScoredCertificate, StartCatalog, load_result_jsonl, load_submission_with_starts};
 pub use portfolio::{Budget, CaseReport, load_submission};
 
 pub use atlas_search::AtlasOutcome;
@@ -24,9 +27,10 @@ pub use goalbank::GoalBank;
 pub use quotient::{
     AbelianQuotient, AbelianSignature, Class2Quotient, Class2Signature, DistanceTable, UNREACHABLE,
 };
+pub use shortening::{PriorityBucket, PriorityRecord, rank_priorities};
 pub use substitution::{
     SubstitutionPolicy, SubstitutionProposal, propose as propose_substitution,
-    propose_all as propose_all_substitution,
+    propose_all as propose_all_substitution, solve_substitution_quality,
 };
 pub use supermove::{Supermove, SupermovePolicy, propose, propose_all};
 pub use trajectory_graph::{GraphStats, TrajectoryGraph};
