@@ -151,6 +151,19 @@ passed the official verifier. The strongest reductions were `ac-01350`, 85 to
 from their existing `candidates.jsonl` files.
 
 These are internal quality improvements, not leaderboard claims until joined
-with a public-best snapshot. The next original-plan arm is targeted beam
-shortening on P0/P1; the ≤100 quality run can also be resumed when compute is
-available.
+with a public-best snapshot. The ≤100 quality run can be resumed when compute
+is available; after the beam slice, the next original-plan arm is exact
+bounded search for short P0/P1 targets.
+
+## Q1.6 targeted beam result
+
+Beam-64 was run against the same 130-case ≤50 incumbent slice with a one-
+million-work budget per case. It produced 19 strict improvements removing 93
+moves in aggregate. Every strict improvement replayed through `ac-core` and
+passed the official SAIR verifier. The strongest reductions were `ac-05091`
+(42 to 27), `ac-06645` (32 to 18), and `ac-05668` (37 to 25).
+
+Beam output is intentionally compared against the incumbent before promotion:
+many beam solutions were longer, so they were retained only as negative
+portfolio observations and were not included in the verifier batch. Results
+are under `results/q1_beam_short50/` and are resumable by challenge ID.

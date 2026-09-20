@@ -1,0 +1,138 @@
+{
+  "accepted": true,
+  "results": [
+    {
+      "certificate_hash": "sha256:2c4947c3de916c3fb29d1366a4637f3d50e848be8c016f0a7b6daff607bfb754",
+      "challenge_id": "ac-00337",
+      "length": 22,
+      "ok": true,
+      "work": 353
+    },
+    {
+      "certificate_hash": "sha256:e821e1fdc96b2b3a39e4fac9f411858cc2ac8186604302f882db23726961d48e",
+      "challenge_id": "ac-00894",
+      "length": 14,
+      "ok": true,
+      "work": 188
+    },
+    {
+      "certificate_hash": "sha256:e662c5d444ee5ce8cf1d4377b492eb155fb2f37417095564823ce3fcec8ed2a3",
+      "challenge_id": "ac-01561",
+      "length": 41,
+      "ok": true,
+      "work": 715
+    },
+    {
+      "certificate_hash": "sha256:58e786b4656529a8aaad2145274dc97db925e0ac75659e9b671a965fb34a127d",
+      "challenge_id": "ac-03493",
+      "length": 13,
+      "ok": true,
+      "work": 175
+    },
+    {
+      "certificate_hash": "sha256:58f7d4dbb600ca4c60a9353b5856354d892bf6f90cccc0da9501649d58e474d3",
+      "challenge_id": "ac-03576",
+      "length": 24,
+      "ok": true,
+      "work": 321
+    },
+    {
+      "certificate_hash": "sha256:54fee7703d0556c1cde37da05fd480e0bd739b069c28a206a2b2afd7ce614358",
+      "challenge_id": "ac-03855",
+      "length": 25,
+      "ok": true,
+      "work": 340
+    },
+    {
+      "certificate_hash": "sha256:47cc1b4ea7f7bbfaf47e27357d8fe6c5c9995ba795180d5c796b11aced7a7133",
+      "challenge_id": "ac-03945",
+      "length": 31,
+      "ok": true,
+      "work": 442
+    },
+    {
+      "certificate_hash": "sha256:c4be887a7b2b8a261019d8bc6f3f4781a2eb6b5a6112316d3e324a973225229b",
+      "challenge_id": "ac-03953",
+      "length": 15,
+      "ok": true,
+      "work": 234
+    },
+    {
+      "certificate_hash": "sha256:6c0fdca9f397dc1c9cc2f409d24333639676edb021959827ba5ae9785022ce2d",
+      "challenge_id": "ac-05091",
+      "length": 27,
+      "ok": true,
+      "work": 483
+    },
+    {
+      "certificate_hash": "sha256:a498fae9dbba0d0a8d4fcf74b5616688a01e0b1f7982aea902d567ff346f5b34",
+      "challenge_id": "ac-05668",
+      "length": 25,
+      "ok": true,
+      "work": 363
+    },
+    {
+      "certificate_hash": "sha256:fe47f01a6487c131567e17f95d5040b9e364cbc747fe4e1fd745eaef9fd54bb2",
+      "challenge_id": "ac-05765",
+      "length": 14,
+      "ok": true,
+      "work": 212
+    },
+    {
+      "certificate_hash": "sha256:0712bdc7eaaf699b2bd9d0ce3e5ee030a331781b6d84d76c106c3403f73c5bfc",
+      "challenge_id": "ac-05896",
+      "length": 18,
+      "ok": true,
+      "work": 264
+    },
+    {
+      "certificate_hash": "sha256:9641f659bff2bb80f3e1eb21109da4dccca97707dd0e57e9387d85106efb87b5",
+      "challenge_id": "ac-06645",
+      "length": 18,
+      "ok": true,
+      "work": 310
+    },
+    {
+      "certificate_hash": "sha256:716a92b21c50a77b05fdeb3d0378d38a00287d8eb4788f2c620a9e1d9919f163",
+      "challenge_id": "ac-07084",
+      "length": 35,
+      "ok": true,
+      "work": 536
+    },
+    {
+      "certificate_hash": "sha256:29f947dbf45706ed9f3058d2cca33baeac671388fb4a87e51bdc62e1752d24d9",
+      "challenge_id": "ac-07445",
+      "length": 13,
+      "ok": true,
+      "work": 112
+    },
+    {
+      "certificate_hash": "sha256:9067afe80a50e141644f186638b6f5ea05b5ffc24aa8fd3118195f11cc0108b6",
+      "challenge_id": "ac-08408",
+      "length": 14,
+      "ok": true,
+      "work": 205
+    },
+    {
+      "certificate_hash": "sha256:c0e6105945589eda3b9e557c6784aae206d37b7d29c26ead484d680d203a3107",
+      "challenge_id": "ac-08449",
+      "length": 32,
+      "ok": true,
+      "work": 491
+    },
+    {
+      "certificate_hash": "sha256:3a2fa76ec24705e11e1158e1c83bee6c20f8a3f63e970c9b590357e9be7a7894",
+      "challenge_id": "ac-08587",
+      "length": 27,
+      "ok": true,
+      "work": 368
+    },
+    {
+      "certificate_hash": "sha256:6b5834bbde4059d1e290d618e789486a52bc7a67da0c8693f834bcb61bdaa891",
+      "challenge_id": "ac-09058",
+      "length": 28,
+      "ok": true,
+      "work": 405
+    }
+  ]
+}

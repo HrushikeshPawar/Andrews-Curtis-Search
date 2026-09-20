@@ -1,0 +1,23 @@
+{
+  "method": "beam-shortening",
+  "beam_width": 64,
+  "max_old_length": 50,
+  "work_budget": 1000000,
+  "cases_completed": 130,
+  "replay_ok": 130,
+  "shortened": 19,
+  "total_moves_removed": 93,
+  "official_verified": 19,
+  "official_failed": 0,
+  "improvements": [
+    {"challenge_id": "ac-00337", "old_length": 25, "new_length": 22, "moves_removed": 3},
+    {"challenge_id": "ac-01561", "old_length": 46, "new_length": 41, "moves_removed": 5},
+    {"challenge_id": "ac-03576", "old_length": 33, "new_length": 24, "moves_removed": 9},
+    {"challenge_id": "ac-05091", "old_length": 42, "new_length": 27, "moves_removed": 15},
+    {"challenge_id": "ac-05668", "old_length": 37, "new_length": 25, "moves_removed": 12},
+    {"challenge_id": "ac-06645", "old_length": 32, "new_length": 18, "moves_removed": 14},
+    {"challenge_id": "ac-08449", "old_length": 38, "new_length": 32, "moves_removed": 6},
+    {"challenge_id": "ac-08587", "old_length": 34, "new_length": 27, "moves_removed": 7}
+  ],
+  "resumable": true
+}
