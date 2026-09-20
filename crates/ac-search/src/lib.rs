@@ -14,6 +14,7 @@ mod search;
 mod store;
 mod substitution;
 mod supermove;
+mod trajectory_graph;
 
 pub use portfolio::{Budget, CaseReport, load_submission};
 
@@ -28,6 +29,7 @@ pub use substitution::{
     propose_all as propose_all_substitution,
 };
 pub use supermove::{Supermove, SupermovePolicy, propose, propose_all};
+pub use trajectory_graph::{GraphStats, TrajectoryGraph};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {
