@@ -33,7 +33,9 @@ pub use substitution::{
     propose_all as propose_all_substitution, solve_substitution_quality,
 };
 pub use supermove::{Supermove, SupermovePolicy, propose, propose_all};
-pub use trajectory_graph::{GraphStats, TrajectoryGraph};
+pub use trajectory_graph::{
+    ClosureStats, GraphStats, PathStats, RadiusClosureStats, TrajectoryGraph,
+};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SearchLimits {

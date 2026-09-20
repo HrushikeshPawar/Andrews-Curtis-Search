@@ -10,6 +10,7 @@ use ac_search::{
 };
 use serde::Serialize;
 use std::collections::HashMap;
+use std::ffi::OsStr;
 use std::fs::{self, File, OpenOptions};
 use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
@@ -50,7 +51,21 @@ fn main() -> Result<(), String> {
         args.next()
             .ok_or("usage: q1_graph STARTS_JSON OUT_DIR INPUT...")?,
     );
-    let inputs: Vec<_> = args.map(PathBuf::from).collect();
+    let mut inputs: Vec<_> = args.map(PathBuf::from).collect();
+    let radius2 = inputs
+        .iter()
+        .any(|path| path.as_os_str() == OsStr::new("--radius2"));
+    let radius2_max_old_length = inputs.iter().find_map(|path| {
+        path.to_str()
+            .and_then(|arg| arg.strip_prefix("--radius2-max-old-length="))
+            .and_then(|value| value.parse::<usize>().ok())
+    });
+    inputs.retain(|path| path.as_os_str() != OsStr::new("--radius2"));
+    inputs.retain(|path| {
+        !path
+            .to_str()
+            .is_some_and(|arg| arg.starts_with("--radius2-max-old-length="))
+    });
     if inputs.is_empty() {
         return Err("q1_graph requires at least one input file".into());
     }
@@ -80,6 +95,18 @@ fn main() -> Result<(), String> {
     let graph_stats = graph.stats();
     let closure_stats = graph.induce_primitive_edges();
     let path_stats = graph.reverse_shortest_paths();
+    let radius2_sources: Vec<_> = roots
+        .iter()
+        .zip(&records)
+        .filter(|(_, record)| radius2_max_old_length.is_none_or(|limit| record.old_length <= limit))
+        .map(|(&root, _)| root)
+        .collect();
+    let radius2_stats = radius2.then(|| graph.induce_radius2_bridges_for(&radius2_sources));
+    let method = if radius2 {
+        "induced-primitive-graph+radius2"
+    } else {
+        "induced-primitive-graph"
+    };
 
     let candidates_path = out_dir.join("candidates.jsonl");
     let candidates_tmp = out_dir.join("candidates.jsonl.tmp");
@@ -108,7 +135,7 @@ fn main() -> Result<(), String> {
                 new_length,
                 shortened,
                 replay_ok,
-                method: "induced-primitive-graph",
+                method,
                 certificate,
             },
         )
@@ -125,6 +152,8 @@ fn main() -> Result<(), String> {
             "graph": graph_stats,
             "closure": closure_stats,
             "paths": path_stats,
+            "radius2": radius2_stats,
+            "radius2_max_old_length": radius2_max_old_length,
         }),
     )?;
     Ok(())

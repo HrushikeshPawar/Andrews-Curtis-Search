@@ -100,3 +100,25 @@ only where a score change is possible: radius-2 bridges, quality GSSUB, beam
 shortening, and exact bounded search for short targets. The induced graph is
 already valuable as a shared suffix atlas; it should be retained and refreshed
 after every verified shortening batch.
+
+## Targeted radius-2 result
+
+An all-state radius-2 scan was rejected as a production strategy: a 500-case
+probe reached approximately 18 GB resident memory before the execution window
+terminated. The implementation was therefore restricted to scoring roots and
+bounded by old certificate length.
+
+The first short-case run scanned the 112 roots with old length at most 50:
+
+| metric | value |
+| --- | ---: |
+| roots scanned | 112 |
+| two-move paths tested | 21,952 |
+| destinations already in atlas | 1,809 |
+| internal root improvements | 2 |
+| verifier-clean new improvements | 2 |
+
+The new verifier-clean candidates are `ac-04359` (21 to 20) and `ac-09594`
+(19 to 18). Both passed the official verifier and are saved under
+`results/q1_scored_shortening_radius2_short50/`. Public-best status is still
+unknown, so these are prepared improvements rather than claimed score gains.

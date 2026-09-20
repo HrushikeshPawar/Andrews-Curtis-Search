@@ -22,10 +22,25 @@ struct Edge {
     move_id: MoveId,
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+struct Bridge {
+    destination: StateId,
+    moves: [MoveId; 2],
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 pub struct ClosureStats {
     pub tested_moves: u64,
     pub known_destinations: u64,
+    pub elapsed: Duration,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+pub struct RadiusClosureStats {
+    pub scanned_states: u64,
+    pub tested_two_move_paths: u64,
+    pub known_destinations: u64,
+    pub improved_states: u64,
     pub elapsed: Duration,
 }
 
@@ -44,6 +59,7 @@ pub struct TrajectoryGraph {
     induced_edges: Vec<Vec<Edge>>,
     target_id: StateId,
     next_steps: Vec<Option<Edge>>,
+    radius2_steps: Vec<Option<Bridge>>,
     distances: Vec<Option<u32>>,
 }
 
@@ -68,6 +84,7 @@ impl TrajectoryGraph {
             induced_edges: Vec::new(),
             target_id,
             next_steps: Vec::new(),
+            radius2_steps: Vec::new(),
             distances: Vec::new(),
         }
     }
@@ -194,6 +211,7 @@ impl TrajectoryGraph {
         }
         self.distances = vec![None; state_count];
         self.next_steps = vec![None; state_count];
+        self.radius2_steps = vec![None; state_count];
         self.distances[self.target_id as usize] = Some(0);
         let mut queue = VecDeque::from([self.target_id]);
         while let Some(destination) = queue.pop_front() {
@@ -216,11 +234,110 @@ impl TrajectoryGraph {
         }
     }
 
+    /// Search every known state for a two-primitive-move bridge to another
+    /// known state. Only improving bridges are retained, so memory stays
+    /// proportional to the number of states rather than candidate paths.
+    /// Call after `reverse_shortest_paths`.
+    pub fn induce_radius2_bridges(&mut self) -> RadiusClosureStats {
+        let started = Instant::now();
+        let state_count = self.store.len();
+        if self.distances.len() != state_count as usize {
+            return RadiusClosureStats {
+                scanned_states: 0,
+                tested_two_move_paths: 0,
+                known_destinations: 0,
+                improved_states: 0,
+                elapsed: started.elapsed(),
+            };
+        }
+
+        let sources: Vec<_> = (0..state_count).collect();
+        self.induce_radius2_bridges_for(&sources)
+    }
+
+    /// Root-restricted radius-2 closure for scoring-priority runs.
+    pub fn induce_radius2_bridges_for(&mut self, sources: &[StateId]) -> RadiusClosureStats {
+        let started = Instant::now();
+        if self.distances.len() != self.store.len() as usize {
+            return RadiusClosureStats {
+                scanned_states: 0,
+                tested_two_move_paths: 0,
+                known_destinations: 0,
+                improved_states: 0,
+                elapsed: started.elapsed(),
+            };
+        }
+
+        let mut tested_two_move_paths = 0;
+        let mut known_destinations = 0;
+        let mut improved_states = 0;
+        let (mut r0, mut r1) = (Vec::new(), Vec::new());
+        let mut scanned_states = 0;
+        for &source in sources {
+            if source as usize >= self.distances.len() {
+                continue;
+            }
+            let source_distance = self.distances[source as usize];
+            if source == self.target_id || source_distance == Some(0) {
+                continue;
+            }
+            scanned_states += 1;
+            self.store.copy_state(source, &mut r0, &mut r1);
+            let state = Presentation {
+                relators: [r0.clone(), r1.clone()],
+            };
+            for first_move_id in all_move_ids() {
+                let first_move =
+                    move_from_id(first_move_id).expect("official move table is complete");
+                let middle = apply_move(&state, &first_move, DEFAULT_N_GEN)
+                    .expect("official move applies to reduced state");
+                for second_move_id in all_move_ids() {
+                    tested_two_move_paths += 1;
+                    let second_move =
+                        move_from_id(second_move_id).expect("official move table is complete");
+                    let destination = apply_move(&middle, &second_move, DEFAULT_N_GEN)
+                        .expect("official move applies to reduced state");
+                    let Some(destination_id) = self
+                        .store
+                        .find(&destination.relators[0], &destination.relators[1])
+                    else {
+                        continue;
+                    };
+                    known_destinations += 1;
+                    let Some(destination_distance) = self.distances[destination_id as usize] else {
+                        continue;
+                    };
+                    let candidate_distance = destination_distance + 2;
+                    if source_distance.is_none_or(|current| candidate_distance < current) {
+                        self.distances[source as usize] = Some(candidate_distance);
+                        self.radius2_steps[source as usize] = Some(Bridge {
+                            destination: destination_id,
+                            moves: [first_move_id, second_move_id],
+                        });
+                        improved_states += 1;
+                    }
+                }
+            }
+        }
+        RadiusClosureStats {
+            scanned_states,
+            tested_two_move_paths,
+            known_destinations,
+            improved_states,
+            elapsed: started.elapsed(),
+        }
+    }
+
     pub fn shortest_certificate(&self, root: StateId) -> Option<Certificate> {
         self.distances.get(root as usize)?.as_ref()?;
         let mut current = root;
         let mut certificate = Vec::new();
         while current != self.target_id {
+            if let Some(bridge) = self.radius2_steps[current as usize] {
+                certificate.extend(bridge.moves);
+                current = bridge.destination;
+                continue;
+            }
             let edge = self.next_steps[current as usize]?;
             certificate.push(edge.move_id);
             current = edge.destination;
@@ -281,6 +398,22 @@ mod tests {
         assert_eq!(paths.reachable_states, graph.stats().unique_states as u64);
         let cert = graph.shortest_certificate(root).unwrap();
         assert_eq!(cert, vec![3]);
+        assert!(is_ac_target(
+            &replay_certificate(&pres(&[1, 2], &[2]), &cert).unwrap()
+        ));
+    }
+
+    #[test]
+    fn radius_two_closure_preserves_replay_gate() {
+        let mut graph = TrajectoryGraph::new();
+        let root = graph
+            .ingest_certificate("one", &pres(&[1, 2], &[2]), &[3])
+            .unwrap();
+        graph.induce_primitive_edges();
+        graph.reverse_shortest_paths();
+        let stats = graph.induce_radius2_bridges();
+        assert_eq!(stats.tested_two_move_paths, 14 * 14);
+        let cert = graph.shortest_certificate(root).unwrap();
         assert!(is_ac_target(
             &replay_certificate(&pres(&[1, 2], &[2]), &cert).unwrap()
         ));

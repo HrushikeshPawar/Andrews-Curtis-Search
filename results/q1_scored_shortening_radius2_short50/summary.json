@@ -1,0 +1,30 @@
+{
+  "method": "root-radius-2",
+  "max_old_length": 50,
+  "roots_scanned": 112,
+  "tested_two_move_paths": 21952,
+  "known_destinations": 1809,
+  "internal_root_improvements": 2,
+  "official_verified_new_improvements": 2,
+  "improvements": [
+    {
+      "challenge_id": "ac-04359",
+      "baseline_length": 21,
+      "new_length": 20,
+      "moves_removed": 1
+    },
+    {
+      "challenge_id": "ac-09594",
+      "baseline_length": 19,
+      "new_length": 18,
+      "moves_removed": 1
+    }
+  ],
+  "all_state_scan": {
+    "status": "rejected",
+    "reason": "500-case probe reached approximately 18 GB resident memory before execution-window termination"
+  },
+  "public_best": {
+    "status": "unavailable"
+  }
+}

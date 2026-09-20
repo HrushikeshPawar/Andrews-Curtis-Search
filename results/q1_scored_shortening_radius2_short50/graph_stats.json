@@ -1,0 +1,36 @@
+{
+  "closure": {
+    "elapsed": {
+      "nanos": 59373414,
+      "secs": 5
+    },
+    "known_destinations": 1333290,
+    "tested_moves": 8606024
+  },
+  "graph": {
+    "original_edges": 2125433,
+    "source_certificates": 1591,
+    "target_id": 0,
+    "trajectory_states": 2127024,
+    "unique_states": 614716
+  },
+  "paths": {
+    "elapsed": {
+      "nanos": 101605465,
+      "secs": 0
+    },
+    "reachable_states": 614716
+  },
+  "radius2": {
+    "elapsed": {
+      "nanos": 15346552,
+      "secs": 0
+    },
+    "improved_states": 7,
+    "known_destinations": 1809,
+    "scanned_states": 112,
+    "tested_two_move_paths": 21952
+  },
+  "radius2_max_old_length": 50,
+  "sources": 1591
+}
