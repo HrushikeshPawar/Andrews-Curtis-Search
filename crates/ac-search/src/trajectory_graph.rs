@@ -3,10 +3,11 @@ use ac_core::{
     Certificate, DEFAULT_N_GEN, MoveId, Presentation, all_move_ids, apply_move, is_ac_target,
     move_from_id, reduce, replay_certificate,
 };
+use serde::Serialize;
 use std::collections::{HashMap, VecDeque};
 use std::time::{Duration, Instant};
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct GraphStats {
     pub source_certificates: usize,
     pub trajectory_states: usize,
@@ -21,14 +22,14 @@ struct Edge {
     move_id: MoveId,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 pub struct ClosureStats {
     pub tested_moves: u64,
     pub known_destinations: u64,
     pub elapsed: Duration,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 pub struct PathStats {
     pub reachable_states: u64,
     pub elapsed: Duration,
