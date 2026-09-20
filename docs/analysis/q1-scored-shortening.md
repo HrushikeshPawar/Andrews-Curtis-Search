@@ -131,3 +131,26 @@ passed the official verifier. The run is recorded in
 and public-best lengths are still unavailable, the next compute spend should
 move to public-frontier acquisition and exact P0/P1 targeting rather than
 blindly widening radius-2.
+
+## Q1.5 quality GSSUB result
+
+Quality mode was wired to continue after bank hits and compare every verified
+completion against the current incumbent. Its bank was built from the global
+shortened-certificate corpus (217,446 exact states), while the frozen
+first-hit GSSUB path was left unchanged. The runner appends and flushes one
+JSONL row per case and skips completed IDs on restart.
+
+The ≤50 pilot completed 130 cases at 100,000 generated-witness work per case:
+6 candidates shortened, removing 35 moves total, and all 6 passed the
+official verifier. The strongest reduction was `ac-05703`, 50 to 34.
+
+The ≤100 run completed a 73-case prefix of 298 eligible cases before being
+stopped for handoff. It found 7 improvements removing 78 moves total; all 7
+passed the official verifier. The strongest reductions were `ac-01350`, 85 to
+67, `ac-00946`, 71 to 54, and `ac-00487`, 89 to 73. Both runs are resumable
+from their existing `candidates.jsonl` files.
+
+These are internal quality improvements, not leaderboard claims until joined
+with a public-best snapshot. The next original-plan arm is targeted beam
+shortening on P0/P1; the ≤100 quality run can also be resumed when compute is
+available.

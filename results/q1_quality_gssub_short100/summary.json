@@ -1,0 +1,23 @@
+{
+  "method": "quality-gssub",
+  "max_old_length": 100,
+  "work_budget": 100000,
+  "cases_completed": 73,
+  "eligible_cases": 298,
+  "replay_ok": 73,
+  "shortened": 7,
+  "total_moves_removed": 78,
+  "official_verified": 7,
+  "official_failed": 0,
+  "improvements": [
+    {"challenge_id": "ac-00233", "old_length": 90, "new_length": 85, "moves_removed": 5},
+    {"challenge_id": "ac-00276", "old_length": 66, "new_length": 57, "moves_removed": 9},
+    {"challenge_id": "ac-00487", "old_length": 89, "new_length": 73, "moves_removed": 16},
+    {"challenge_id": "ac-00946", "old_length": 71, "new_length": 54, "moves_removed": 17},
+    {"challenge_id": "ac-01350", "old_length": 85, "new_length": 67, "moves_removed": 18},
+    {"challenge_id": "ac-01404", "old_length": 76, "new_length": 66, "moves_removed": 10},
+    {"challenge_id": "ac-01443", "old_length": 50, "new_length": 47, "moves_removed": 3}
+  ],
+  "resumable": true,
+  "interrupted_after_completed_prefix": true
+}
