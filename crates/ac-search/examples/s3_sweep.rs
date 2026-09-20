@@ -7,6 +7,8 @@
 //!   source: train (vendored 424) | scored (SAIR_ACC_ROOT manifest, 10,115)
 //!   idfile: optional JSON array of challenge ids to restrict the run
 //! Each shard writes CaseReport records (+ certificates) into `results/`.
+//! Per-case JSONL and solved-certificate sidecars are flushed as they
+//! complete so a killed shard still keeps finished work.
 use ac_core::Presentation;
 use ac_core::data::{TrainingInstance, load_manifest, load_training};
 use ac_search::{
@@ -15,6 +17,7 @@ use ac_search::{
     solve_exact_state_bfs, solve_length_greedy, solve_substitution_greedy, solve_supermove_greedy,
 };
 use serde::Serialize;
+use std::io::Write;
 use std::path::PathBuf;
 
 #[derive(Serialize)]
@@ -250,6 +253,31 @@ fn main() -> Result<(), String> {
     }
     let mut rows = Vec::with_capacity(selected.len());
     let t0 = std::time::Instant::now();
+    let out = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../results");
+    std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
+    let stem = if shards > 1 {
+        format!(
+            "s3_{tag}_{source}_{}_{}_shard_{shard}",
+            solver_name(&solver),
+            budget.name()
+        )
+    } else {
+        format!(
+            "s3_{tag}_{source}_{}_{}",
+            solver_name(&solver),
+            budget.name()
+        )
+    };
+    let mut jsonl = std::fs::OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(out.join(format!("{stem}.jsonl")))
+        .map_err(|e| e.to_string())?;
+    let mut live_certs = std::fs::OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(out.join(format!("{stem}.certs.txt")))
+        .map_err(|e| e.to_string())?;
     for item in &selected {
         let (result, via_bank, via_ball, ball_hit_depth) = solve(&item.start);
         let status = match &result.status {
@@ -281,6 +309,24 @@ fn main() -> Result<(), String> {
             report: CaseReport::from_result(solver_name(&solver), budget, item.id.clone(), &result),
             certificate: result.certificate.clone(),
         });
+        let row = rows.last().expect("just pushed");
+        writeln!(
+            jsonl,
+            "{}",
+            serde_json::to_string(row).map_err(|e| e.to_string())?
+        )
+        .map_err(|e| e.to_string())?;
+        jsonl.flush().map_err(|e| e.to_string())?;
+        if row.report.solved {
+            writeln!(
+                live_certs,
+                "{}: {}",
+                row.training_id,
+                serde_json::to_string(&row.certificate).map_err(|e| e.to_string())?
+            )
+            .map_err(|e| e.to_string())?;
+            live_certs.flush().map_err(|e| e.to_string())?;
+        }
     }
     let solved = rows.iter().filter(|r| r.report.solved).count();
     let report = Report {
@@ -292,21 +338,7 @@ fn main() -> Result<(), String> {
         shards,
         rows,
     };
-    let out = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../results");
-    std::fs::create_dir_all(&out).map_err(|e| e.to_string())?;
-    let name = if shards > 1 {
-        format!(
-            "s3_{tag}_{source}_{}_{}_shard_{shard}.json",
-            solver_name(&solver),
-            budget.name()
-        )
-    } else {
-        format!(
-            "s3_{tag}_{source}_{}_{}.json",
-            solver_name(&solver),
-            budget.name()
-        )
-    };
+    let name = format!("{stem}.json");
     std::fs::write(
         out.join(name),
         serde_json::to_string_pretty(&report).map_err(|e| e.to_string())?,
