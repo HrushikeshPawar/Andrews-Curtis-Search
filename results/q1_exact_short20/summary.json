@@ -1,0 +1,12 @@
+{
+  "method": "exact-forward-bounded",
+  "max_old_length": 20,
+  "target": "incumbent_length - 1",
+  "work_budget": 1000000,
+  "cases_completed": 69,
+  "found": 0,
+  "exhausted": 0,
+  "budget_limited": 69,
+  "replay_verified_found": 0,
+  "conclusion": "Naive forward exact search did not reach the requested bounds at this budget"
+}

@@ -167,3 +167,16 @@ Beam output is intentionally compared against the incumbent before promotion:
 many beam solutions were longer, so they were retained only as negative
 portfolio observations and were not included in the verifier batch. Results
 are under `results/q1_beam_short50/` and are resumable by challenge ID.
+
+## Q1.7 exact bounded result
+
+The exact runner tested all 69 current certificates of length at most 20 at
+the bound `incumbent_length - 1`, with a one-million-generated-successor cap
+per case. All 69 runs were budget-limited; none found a shorter certificate
+and none exhausted the bounded search space. This is a negative result for
+blanket forward BFS at this budget, not a proof of optimality. The runner and
+machine-readable outcome are under `results/q1_exact_short20/`.
+
+The next exact-search spend should therefore be restricted to cases with a
+known public target bound and use meet-in-the-middle or a precomputed reverse
+ball, rather than widening this forward sweep across the corpus.
