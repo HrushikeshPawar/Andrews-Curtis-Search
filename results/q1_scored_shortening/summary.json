@@ -1,0 +1,31 @@
+{
+  "method": "induced-primitive-graph",
+  "source_certificates": 1591,
+  "replay_ok": 1591,
+  "official_verified": 1433,
+  "shortened": 1433,
+  "total_moves_removed": 1436851,
+  "old_length": {
+    "min": 8,
+    "median": 769,
+    "p90": 3549
+  },
+  "new_length": {
+    "min": 8,
+    "median": 196,
+    "p90": 1053
+  },
+  "graph": {
+    "trajectory_states": 2127024,
+    "unique_states": 614716,
+    "deduplication_ratio": 0.7109919037,
+    "original_edges": 2125433,
+    "tested_moves": 8606024,
+    "known_destinations": 1333290,
+    "reachable_states": 614716
+  },
+  "public_best": {
+    "status": "unavailable",
+    "reason": "No per-challenge leaderboard export was available in the supplied SAIR checkout"
+  }
+}

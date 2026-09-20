@@ -1,6 +1,6 @@
 # Q1 scored shortening
 
-Status: implementation slice complete; full scored benchmark pending the external scored-start manifest.
+Status: full 1,591-certificate induced-closure benchmark complete; public-best comparison remains pending an external leaderboard snapshot.
 
 ## Objective
 
@@ -45,8 +45,14 @@ incumbent after a bank hit.
 
 ## Real-data run
 
-The scored-start manifest must be supplied from the private SAIR checkout. The
-runner accepts the existing submission files and/or JSONL sweep outputs:
+The private SAIR checkout supplied the official scored-start manifest:
+
+```text
+/mnt/SharedDrive/ActiveProjects/Andrews-Curtis Conjecture Challenge/sair-acc/competition/tools/verifier/data/manifest.json
+```
+
+The complete accepted inventory required the three existing 500/500/356
+submission parts plus the 235-case S4.3 GSSUB tail file:
 
 ```bash
 cargo run --release -p ac-search --example q1_graph -- \
@@ -54,19 +60,43 @@ cargo run --release -p ac-search --example q1_graph -- \
   results/q1_scored_shortening \
   results/acc_submission_ac_part01_of_03.txt \
   results/acc_submission_ac_part02_of_03.txt \
-  results/acc_submission_ac_part03_of_03.txt
+  results/acc_submission_ac_part03_of_03.txt \
+  results/s4_3_gssubtail_new_vs_upload.txt
 ```
 
-The current workspace does not contain that scored-start manifest, and
-`SAIR_ACC_ROOT` is unset here. Therefore no 1,591-case graph-size, memory, or
-leaderboard-shortening claim is made yet. The official verifier remains an
-external gate and must be run before any generated candidate is treated as
-submission-ready.
+Measured graph run:
+
+| metric | value |
+| --- | ---: |
+| source certificates | 1,591 |
+| trajectory states before deduplication | 2,127,024 |
+| unique exact states | 614,716 |
+| deduplication ratio | 71.1% |
+| original primitive edges | 2,125,433 |
+| primitive moves tested in closure | 8,606,024 |
+| closure edges landing in known states | 1,333,290 |
+| reverse-reachable states | 614,716 |
+| roots shortened | 1,433 |
+| total moves removed | 1,436,851 |
+| old median / p90 | 769 / 3,549 |
+| new median / p90 | 196 / 1,053 |
+
+All 1,591 reconstructed candidates passed `ac-core` replay. The 1,433
+shortened candidates were split into verifier-safe batches of 500, 500, and
+433. The official SAIR verifier accepted all three batches: 1,433/1,433
+results passed with zero failures. These receipts and candidate files are
+under `results/q1_scored_shortening/`.
+
+This is an internal shortening result, not yet a leaderboard result. The
+supplied SAIR checkout exposes the official verifier and challenge manifest,
+but no current per-challenge public-best export. Therefore this report makes
+no claim that any P0 tie crossed the public frontier or that score increased.
 
 ## Next compute decision
 
-Run the global graph first and record state/edge scale. If induced closure
-shortens P0/P1 cases, add bounded radius-2 bridges and feed verified shorter
-trajectories back into the graph. If it produces no frontier movement, spend
-compute on exact bounded search for the P0/P1 list rather than broad GSSUB
-coverage.
+Next, obtain a timestamped public-best snapshot and join it to the machine-
+readable candidate inventory. Then rank P0/P1 cases and spend stronger compute
+only where a score change is possible: radius-2 bridges, quality GSSUB, beam
+shortening, and exact bounded search for short targets. The induced graph is
+already valuable as a shared suffix atlas; it should be retained and refreshed
+after every verified shortening batch.

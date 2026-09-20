@@ -1,0 +1,25 @@
+{
+  "closure": {
+    "elapsed": {
+      "nanos": 985449536,
+      "secs": 3
+    },
+    "known_destinations": 1333290,
+    "tested_moves": 8606024
+  },
+  "graph": {
+    "original_edges": 2125433,
+    "source_certificates": 1591,
+    "target_id": 0,
+    "trajectory_states": 2127024,
+    "unique_states": 614716
+  },
+  "paths": {
+    "elapsed": {
+      "nanos": 90862274,
+      "secs": 0
+    },
+    "reachable_states": 614716
+  },
+  "sources": 1591
+}
