@@ -143,8 +143,15 @@ fn main() -> Result<(), String> {
             "results/bfs_21_submission.txt",
             "results/s31_814_a.txt",
             "results/s31_814_b.txt",
+            "results/s4_3_gssub500_all39.txt",
+            "results/s4_3_gssubrest_recovered219.txt",
+            "results/s4_3_gssubrest_recert199.txt",
         ] {
-            for (id, cert) in load_submission(&repo.join(name))? {
+            let path = repo.join(name);
+            if !path.exists() {
+                continue;
+            }
+            for (id, cert) in load_submission(&path)? {
                 let start = starts
                     .get(&id)
                     .ok_or_else(|| format!("unknown challenge {id}"))?;
