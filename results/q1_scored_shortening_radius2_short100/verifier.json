@@ -1,0 +1,26 @@
+{
+  "accepted": true,
+  "results": [
+    {
+      "certificate_hash": "sha256:32c024614d1eef8067a100c369706566b09c8967c7537f59f78bed6a59e69953",
+      "challenge_id": "ac-00766",
+      "length": 67,
+      "ok": true,
+      "work": 893
+    },
+    {
+      "certificate_hash": "sha256:ef524a029a23e4cf874bae1a16f44acf64703e612949ee4302051d121b9c308e",
+      "challenge_id": "ac-04359",
+      "length": 20,
+      "ok": true,
+      "work": 195
+    },
+    {
+      "certificate_hash": "sha256:785644ff83fd1220885bc9708c1a811d6d18ad5ab8b612da6254fe26dfbaec52",
+      "challenge_id": "ac-09594",
+      "length": 18,
+      "ok": true,
+      "work": 176
+    }
+  ]
+}

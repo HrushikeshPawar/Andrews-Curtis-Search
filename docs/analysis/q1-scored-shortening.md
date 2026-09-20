@@ -122,3 +122,12 @@ The new verifier-clean candidates are `ac-04359` (21 to 20) and `ac-09594`
 (19 to 18). Both passed the official verifier and are saved under
 `results/q1_scored_shortening_radius2_short50/`. Public-best status is still
 unknown, so these are prepared improvements rather than claimed score gains.
+
+A follow-up through old length 100 scanned 298 reachable roots and tested
+58,408 two-move paths. It produced one additional improvement, `ac-00766`
+(69 to 67); together with the two short-case results, all three candidates
+passed the official verifier. The run is recorded in
+`results/q1_scored_shortening_radius2_short100/`. Because the yield is sparse
+and public-best lengths are still unavailable, the next compute spend should
+move to public-frontier acquisition and exact P0/P1 targeting rather than
+blindly widening radius-2.

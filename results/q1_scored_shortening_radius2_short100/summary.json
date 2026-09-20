@@ -1,0 +1,16 @@
+{
+  "method": "root-radius-2",
+  "max_old_length": 100,
+  "scanned_states": 298,
+  "tested_two_move_paths": 58408,
+  "known_destinations": 4810,
+  "internal_root_improvements": 3,
+  "official_verified_new_improvements": 3,
+  "improvements": [
+    {"challenge_id": "ac-00766", "baseline_length": 69, "new_length": 67, "moves_removed": 2},
+    {"challenge_id": "ac-04359", "baseline_length": 21, "new_length": 20, "moves_removed": 1},
+    {"challenge_id": "ac-09594", "baseline_length": 19, "new_length": 18, "moves_removed": 1}
+  ],
+  "official_verifier": {"accepted": true, "results": 3, "failed": 0},
+  "public_best": {"status": "unavailable"}
+}
