@@ -1,0 +1,35 @@
+{
+  "submissionIds": [
+    "1469",
+    "1470",
+    "1471"
+  ],
+  "summary": {
+    "submissions": {
+      "1469": {
+        "status": "complete",
+        "solutionCount": 500,
+        "ok": 500,
+        "fail": 0,
+        "errorMessage": null,
+        "fails": []
+      },
+      "1470": {
+        "status": "complete",
+        "solutionCount": 500,
+        "ok": 500,
+        "fail": 0,
+        "errorMessage": null,
+        "fails": []
+      },
+      "1471": {
+        "status": "complete",
+        "solutionCount": 356,
+        "ok": 356,
+        "fail": 0,
+        "errorMessage": null,
+        "fails": []
+      }
+    }
+  }
+}

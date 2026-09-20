@@ -1,0 +1,29 @@
+{
+  "problem": "ac",
+  "unique_ids": 1356,
+  "parts": [
+    "acc_submission_ac_part01_of_03.txt",
+    "acc_submission_ac_part02_of_03.txt",
+    "acc_submission_ac_part03_of_03.txt"
+  ],
+  "length_stats": {
+    "min": 8,
+    "median": 577,
+    "max": 4456
+  },
+  "sources_kept": {
+    "s31_814_a.txt": 500,
+    "s4_3_gssub500_all39.txt": 39,
+    "s4_3_gssubrest_recovered219.txt": 219,
+    "s4_3_gssubrest_recert199.txt": 199,
+    "s3_gssubtail_scored_gssub_medium_shard_5.certs.txt": 12,
+    "s3_gssubtail_scored_gssub_medium_shard_6.certs.txt": 13,
+    "s3_gssubtail_scored_gssub_medium_shard_3.certs.txt": 11,
+    "s3_gssubtail_scored_gssub_medium_shard_2.certs.txt": 11,
+    "s3_gssubtail_scored_gssub_medium_shard_0.certs.txt": 8,
+    "s3_gssubtail_scored_gssub_medium_shard_7.certs.txt": 12,
+    "s31_814_b.txt": 314,
+    "s3_gssubtail_scored_gssub_medium_shard_1.certs.txt": 5,
+    "s3_gssubtail_scored_gssub_medium_shard_4.certs.txt": 13
+  }
+}
